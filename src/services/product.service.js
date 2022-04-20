@@ -13,6 +13,8 @@ export async function getProductList() {
 // export async function getProduct(id = "1") {
 //   return (await httpClient.get("/" + id)).data;
 // }
+export async function getCategoryList() {
+  return (await httpClient.get("/category")).data;
 }
 
 // export async function addContact(contact = {}) {
