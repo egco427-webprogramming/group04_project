@@ -16,7 +16,7 @@ export async function getProduct(id = "1") {
 }
 
 export async function getCategoryList() {
-  return (await httpClient.get("/category")).data;
+  return (await httpClient.get("/categories")).data;
 }
 
 // export async function addContact(contact = {}) {
