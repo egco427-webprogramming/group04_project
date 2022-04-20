@@ -10,9 +10,11 @@ const httpClient = axios.create({
 export async function getProductList() {
   return (await httpClient.get("/", { params: { limit: 5 } })).data;
 }
-// export async function getProduct(id = "1") {
-//   return (await httpClient.get("/" + id)).data;
-// }
+
+export async function getProduct(id = "1") {
+  return (await httpClient.get("/" + id)).data;
+}
+
 export async function getCategoryList() {
   return (await httpClient.get("/category")).data;
 }
