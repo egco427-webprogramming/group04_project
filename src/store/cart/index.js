@@ -14,6 +14,12 @@ export default {
         return { ...product, amount };
       });
     },
+    totalPrice: (state, getters, rootState) => {
+      return getters.cart.reduce(
+        (total, product) => total + product.price * product.amount,
+        0
+      );
+    },
   },
   mutations: {
     ADD_PRODUCT({ cart }, { id, amount }) {
