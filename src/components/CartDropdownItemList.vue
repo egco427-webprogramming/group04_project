@@ -1,10 +1,26 @@
 <template>
   <!-- implement better dropdown via other css framework -->
-  <select name="cars" id="cars" class="dropdown">
+  <!-- <select name="cars" id="cars" class="dropdown">
     <option>title x amount</option>
     <option v-for="item in cart">{{item.title}} x {{item.amount}}</option>
     <div></div>
-  </select>
+  </select>-->
+  <!-- <div class="ui dropdown">
+    <div class="text">Cart</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item" v-for="item in cart">{{item.title}} x {{item.amount}}</div>
+    </div>
+  </div>-->
+  <sui-dropdown :text="totalPrice+' Cart'">
+    <sui-dropdown-menu>
+      <sui-dropdown-item
+        v-for="item in cart"
+        :text="item.title+' x '+item.amount"
+        :description="String(item.price*item.amount)"
+      />
+    </sui-dropdown-menu>
+  </sui-dropdown>
 </template>
 
 <script>
@@ -15,8 +31,8 @@ export default {
     const { getters } = useStore();
 
     const cart = computed(() => getters["cart/cart"]);
-
-    return { cart };
+    const totalPrice = computed(() => getters["cart/totalPrice"]);
+    return { cart, totalPrice };
   },
 };
 </script>
