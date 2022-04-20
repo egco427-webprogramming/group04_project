@@ -24,7 +24,7 @@ export default {
     const category = computed(() => route.query.category);
     // const products = computed(() => state.product.products);
     const products = computed(() =>
-      category
+      category.value
         ? state.product.products.filter(
             (product) => product.category === category.value
           )
