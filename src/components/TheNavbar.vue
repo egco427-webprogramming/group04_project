@@ -9,9 +9,6 @@ export default {
   props: {
     contents: Object,
   },
-  data() {
-    return {};
-  },
 };
 </script>
 

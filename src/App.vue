@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <TheNavbar :contents="contents" />
   <router-view />
 </template>
