@@ -7,13 +7,10 @@ export default {
   },
   getters: {
     cart: (state, getters, rootState) => {
-      console.log(state, state.cart);
-      console.log(rootState.product.products);
       return state.cart.map(({ id, amount }) => {
         const product = rootState.product.products.find(
           (product) => product.id === id
         );
-        console.log(product);
         return { ...product, amount };
       });
     },
