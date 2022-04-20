@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Main from "../views/Main.vue";
 import About from "../views/About.vue";
+import Product from "../views/Product.vue";
 
 // using web history
 const routerHistory = createWebHistory();
@@ -14,6 +15,7 @@ const routes = [
   { path: "/home", name: "Home", component: Home },
   { path: "/main", name: "Main", component: Main },
   { path: "/about", name: "About", component: About },
+  { path: "/product/:id", name: "Product", component: Product },
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
 
