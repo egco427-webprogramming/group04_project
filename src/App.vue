@@ -5,6 +5,7 @@
 
 <script>
 import TheNavbar from "./components/TheNavbar.vue";
+import { useStore } from "vuex";
 
 export default {
   name: "App",
@@ -19,6 +20,10 @@ export default {
   },
   components: {
     TheNavbar,
+  },
+  setup() {
+    const { dispatch } = useStore();
+    dispatch("product/setProducts");
   },
 };
 </script>
