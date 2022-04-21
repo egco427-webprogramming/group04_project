@@ -16,9 +16,8 @@ export default {
       contents: [
         { pathname: "home", path: "/" },
         { pathname: "main", path: "/main" },
-        { pathname: "about", path: "/about" },
-        { pathname: "signin", path: "/signin" }
-        { pathname: "user", path: "/user" },
+        { pathname: "signin", path: "/signin" },
+        { pathname: "user", path: "/user" }
       ],
     };
   },
