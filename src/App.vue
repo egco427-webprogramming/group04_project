@@ -14,7 +14,7 @@ export default {
       contents: [
         { pathname: "home", path: "/" },
         { pathname: "main", path: "/main" },
-        { pathname: "about", path: "/about" },
+        { pathname: "user", path: "/user" },
       ],
     };
   },
