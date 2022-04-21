@@ -1,5 +1,10 @@
 <template>
-  <ProductList />
+  <suspense>
+    <template #default>
+      <ProductList />
+    </template>
+    <template #fallback>waiting for skeleton loading</template>
+  </suspense>
 </template>
 
 <script>
