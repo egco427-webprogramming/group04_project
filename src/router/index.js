@@ -20,6 +20,7 @@ const routes = [
  /* used when need to login to access this path
   meta: { requiresAuth: true } */ 
   },
+  { path: "/user", name: "User", component: User },
   { path: "/product/:id", name: "Product", component: Product },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/:pathMatch(.*)*", redirect: "/" },
