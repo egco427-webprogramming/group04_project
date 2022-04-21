@@ -1,4 +1,4 @@
-import { getProduct } from "../../services/product.service";
+import { getCart } from "../../services/cart.service";
 
 export default {
   namespaced: true,
@@ -29,10 +29,28 @@ export default {
       }
       return cart.push({ id, amount });
     },
+    SET_CART({ cart }, userCart) {
+      userCart.forEach((product) => cart.push(product));
+    },
   },
   actions: {
     addProduct({ commit }, { id, amount }) {
       commit("ADD_PRODUCT", { id, amount });
+    },
+    async addCart({ commit }, id) {
+      let cart = [];
+      try {
+        cart = await getCart(id);
+      } catch (err) {
+        console.error(err);
+      }
+      commit(
+        "SET_CART",
+        cart.products.map(({ productId, quantity }) => ({
+          id: productId,
+          amount: quantity,
+        }))
+      );
     },
   },
 };
