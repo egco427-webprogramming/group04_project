@@ -31,7 +31,6 @@ export default {
 
     // data
     const MAIN_PATH = { name: "Main" };
-    console.log(categoryList);
     return { categoryList, MAIN_PATH };
   },
 };
