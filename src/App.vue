@@ -1,7 +1,6 @@
-<template> <button @click="logout" >Sign Out</button>
-  <TheNavbar :contents="contents" />
-   <router-view />
-   
+<template>
+  <TheNavbar :handleLogout="handleLogout" />
+  <router-view />
 </template>
 
 <script>
@@ -11,16 +10,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 export default {
   name: "App",
-  data() {
-    return {
-      contents: [
-        { pathname: "home", path: "/" },
-        { pathname: "main", path: "/main" },
-        { pathname: "signin", path: "/signin" },
-        { pathname: "user", path: "/user" }
-      ],
-    };
-  },
+
   components: {
     TheNavbar,
   },

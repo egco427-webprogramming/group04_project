@@ -1,7 +1,10 @@
 <template>
   <nav>
-    <router-link v-for="content in contents" :to="content.path">{{content.pathname}}</router-link>
     {{isLoggedIn}}
+    <router-link :to="{name:'Main'}">main</router-link>
+    <router-link :to="{name:'User'}" v-if="isLoggedIn">User</router-link>
+    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn">SignIn</router-link>
+    <a href="#" @click="handleLogout" v-if="isLoggedIn">SignOut</a>
     <router-link
       v-for="category in categoryList"
       :to="{...MAIN_PATH,query:{category:category}}"
@@ -17,10 +20,8 @@ import { computed } from "vue";
 import userStore from "../store/user";
 
 export default {
-  props: {
-    contents: Object,
-  },
   components: { CartDropdown },
+  props: { handleLogout: Function },
   computed: {
     isLoggedIn: () => userStore.state.isLoggedIn,
   },
