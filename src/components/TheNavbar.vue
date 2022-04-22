@@ -1,12 +1,45 @@
 <template>
-  <nav>
+  <!-- Draft Nav -->
+  <!-- <nav>
     <router-link v-for="content in contents" :to="content.path">{{content.pathname}}</router-link>
     <router-link
       v-for="category in categoryList"
       :to="{...MAIN_PATH,query:{category:category}}"
     >{{category}}</router-link>
     <CartDropdown />
-  </nav>
+  </nav> -->
+  <sui-menu inverted>
+    <router-link :to="{path:'/'}">
+      <sui-menu-item>
+        <img src="../assets/logo.png" alt="contact page" />
+      </sui-menu-item>
+    </router-link>
+    <router-link v-for="content in contents" :to="content.path">
+        <sui-menu-item >
+            {{content.pathname}}
+        </sui-menu-item>
+    </router-link>
+    <router-link
+      v-for="category in categoryList"
+      :to="{...MAIN_PATH,query:{category:category}}">
+        <sui-menu-item>{{category}}</sui-menu-item>
+    </router-link>
+    <sui-menu-menu position="right">
+      <sui-dropdown item text="Language">
+        <sui-dropdown-menu>
+          <sui-dropdown-item>English</sui-dropdown-item>
+          <sui-dropdown-item>Russian</sui-dropdown-item>
+          <sui-dropdown-item>Spanish</sui-dropdown-item>
+        </sui-dropdown-menu>
+      </sui-dropdown>
+      <router-link :to="{path:'/'}">
+        <sui-menu-item>
+          <sui-icon name="user" />
+        </sui-menu-item>
+      </router-link>
+    </sui-menu-menu>
+  </sui-menu>
+  
 </template>
 
 <script>
@@ -40,6 +73,9 @@ export default {
 nav {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  text-decoration: none;
+}
+.menu {
+  align-items: center;
 }
 </style>
