@@ -1,30 +1,20 @@
-<template> 
-  <!-- <button @click="logout" >Sign Out</button> -->
-  <TheNavbar :contents="contents" />
-   <router-view />
-   <TheFooter />
-   
+
+<template>
+  <TheNavbar :handleLogout="handleLogout" />
+  <router-view />
+  <TheFooter />
+
 </template>
 
 <script>
 import TheNavbar from "./components/TheNavbar.vue";
 import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
-import {getAuth,onAuthStateChanged, signOut} from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 export default {
   name: "App",
-  data() {
-    return {
-      contents: [
-        // { pathname: "home", path: "/" },
-        { pathname: "promotion", path: "/promotion" },
-        { pathname: "product", path: "/product" },
-        { pathname: "signin", path: "/signin" },
-        { pathname: "user", path: "/user" }
-      ],
-    };
-  },
+
   components: {
     TheNavbar,
     TheFooter
@@ -34,21 +24,20 @@ export default {
     dispatch("product/setProducts");
   },
   methods: {
-      logout() {
+    handleLogout() {
       //console.log(getAuth().currentUser) //return null if no user logged in
-      const currentUser = getAuth().currentUser
-      const auth = getAuth()
+      const currentUser = getAuth().currentUser;
+      const auth = getAuth();
       if (currentUser && auth) {
-      signOut(auth)
-        .then(() => {
-          this.$router.replace('/signin')
-        })
-        .catch((error) => {
-          alert(error.message)
-        })
+        signOut(auth)
+          .then(() => {
+            this.$router.replace("/signin");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       }
-      }
-    }
-      
+    },
+  },
 };
 </script>

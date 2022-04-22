@@ -6,11 +6,16 @@
         <img src="../assets/logo.png" alt="contact page" />
       </sui-menu-item>
     </router-link>
-    <router-link v-for="content in contents" :to="content.path">
-        <sui-menu-item >
-            {{content.pathname}}
-        </sui-menu-item>
-    </router-link>
+    <router-link :to="{name:'Main'}"><sui-menu-item >main
+        </sui-menu-item></router-link>
+        <router-link :to="{name:'Promotion'}"><sui-menu-item >promo
+        </sui-menu-item></router-link>
+    <router-link :to="{name:'User'}" v-if="isLoggedIn"><sui-menu-item >User
+        </sui-menu-item></router-link>
+    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn"><sui-menu-item >SignIn
+        </sui-menu-item></router-link>
+    <a href="#" @click="handleLogout" v-if="isLoggedIn"><sui-menu-item >SignOut
+        </sui-menu-item></a>
     <router-link
       v-for="category in categoryList"
       :to="{...MAIN_PATH,query:{category:category}}">
@@ -52,11 +57,14 @@
 import CartDropdown from "./CartDropdown.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
+import userStore from "../store/user";
+
 export default {
-  props: {
-    contents: Object,
-  },
   components: { CartDropdown },
+  props: { handleLogout: Function },
+  computed: {
+    isLoggedIn: () => userStore.state.isLoggedIn,
+  },
   // composition
   setup() {
     // desctructoring store
