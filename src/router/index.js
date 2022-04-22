@@ -20,8 +20,12 @@ const routes = [
   { path: "/", redirect: "/home" },
   { path: "/home", name: "Home", component: Home },
   { path: "/main", name: "Main", component: Main },
+  {
+    path: "/user",
+    name: "User",
+    component: User,
+    meta: { requiresAuth: true },
   },
-  { path: "/user", name: "User", component: User },
   { path: "/product/:id", name: "Product", component: Product },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/:pathMatch(.*)*", redirect: "/" },
