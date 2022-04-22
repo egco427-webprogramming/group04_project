@@ -17,6 +17,7 @@
 
 <script>
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+import userStore from "../store/user";
 export default {
     name: 'SignIn',
   data () {
