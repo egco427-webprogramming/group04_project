@@ -1,6 +1,6 @@
 <template>
     <footer id="contact" bg="black">
-        <br><br>
+        <br>
         <div class="container">               
             <!-- Contact -->
             <div class="col-12 text-center">
