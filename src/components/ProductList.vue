@@ -1,6 +1,7 @@
 <template>
-  <div>{{category}}</div>
-
+  <br>
+  <h2>{{category}}</h2>
+  <br>
   <div class="product-wrapper">
     <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product.id" />
   </div>
@@ -63,5 +64,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   /* grid-template-columns: repeat(4, 1fr); */
+  justify-content: center;
 }
 </style>
