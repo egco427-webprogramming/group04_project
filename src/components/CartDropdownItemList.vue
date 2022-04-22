@@ -17,7 +17,7 @@
       <sui-dropdown-item
         v-for="item in cart"
         :text="item.id+' '+item.title+' x '+item.amount"
-        :description="String(item.price*item.amount)"
+        :description=" '$' + String(item.price*item.amount)"
       />
     </sui-dropdown-menu>
   </sui-dropdown>
