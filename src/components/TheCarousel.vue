@@ -40,8 +40,14 @@
 </script>
 
 <style>
+
+.carousel {
+    height: 600px; 
+    position: fixed;
+}
 .carousel-item {
-    height: 600px;
+    height: 600px; 
+    position: fixed;
 }
 
 </style>
