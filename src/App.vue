@@ -29,7 +29,7 @@ export default {
     dispatch("product/setProducts");
   },
   methods: {
-      logout() {
+    handleLogout() {
       //console.log(getAuth().currentUser) //return null if no user logged in
       const currentUser = getAuth().currentUser;
       const auth = getAuth();
