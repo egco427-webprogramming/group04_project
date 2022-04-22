@@ -8,6 +8,7 @@ import Product from "../views/Product.vue";
 import SignIn from "../views/SignIn.vue";
 
 import { getAuth } from "firebase/auth";
+import userStore from "../store/user";
 // using web history
 const routerHistory = createWebHistory();
 
