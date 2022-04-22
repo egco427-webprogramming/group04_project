@@ -13,11 +13,16 @@
 import CartDropdown from "./CartDropdown.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
+import userStore from "../store/user";
+
 export default {
   props: {
     contents: Object,
   },
   components: { CartDropdown },
+  computed: {
+    isLoggedIn: () => userStore.state.isLoggedIn,
+  },
   // composition
   setup() {
     // desctructoring store
