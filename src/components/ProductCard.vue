@@ -47,7 +47,7 @@ a {
 }
 .card {
   width: 300px;
-  height: 450px;
+  height: 500px;
   cursor: pointer;
   margin-top: 0px;
   margin-left: 10px;
