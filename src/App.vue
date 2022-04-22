@@ -1,4 +1,5 @@
-<template> <button @click="logout" >Sign Out</button>
+<template> 
+  <!-- <button @click="logout" >Sign Out</button> -->
   <TheNavbar :contents="contents" />
    <router-view />
    
@@ -14,8 +15,9 @@ export default {
   data() {
     return {
       contents: [
-        { pathname: "home", path: "/" },
-        { pathname: "main", path: "/main" },
+        // { pathname: "home", path: "/" },
+        { pathname: "promotion", path: "/promotion" },
+        { pathname: "product", path: "/product" },
         { pathname: "signin", path: "/signin" },
         { pathname: "user", path: "/user" }
       ],
