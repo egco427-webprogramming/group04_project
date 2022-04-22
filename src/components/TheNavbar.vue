@@ -1,16 +1,56 @@
 <template>
-  <nav>
-    {{isLoggedIn}}
-    <router-link :to="{name:'Main'}">main</router-link>
-    <router-link :to="{name:'User'}" v-if="isLoggedIn">User</router-link>
-    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn">SignIn</router-link>
-    <a href="#" @click="handleLogout" v-if="isLoggedIn">SignOut</a>
+  <!-- Draft Nav -->
+  <sui-menu >
+    <router-link :to="{path:'/'}">
+      <sui-menu-item>
+        <img src="../assets/logo.png" alt="contact page" />
+      </sui-menu-item>
+    </router-link>
+    <router-link :to="{name:'Main'}"><sui-menu-item >main
+        </sui-menu-item></router-link>
+        <router-link :to="{name:'Promotion'}"><sui-menu-item >promo
+        </sui-menu-item></router-link>
+    <router-link :to="{name:'User'}" v-if="isLoggedIn"><sui-menu-item >User
+        </sui-menu-item></router-link>
+    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn"><sui-menu-item >SignIn
+        </sui-menu-item></router-link>
+    <a href="#" @click="handleLogout" v-if="isLoggedIn"><sui-menu-item >SignOut
+        </sui-menu-item></a>
     <router-link
       v-for="category in categoryList"
-      :to="{...MAIN_PATH,query:{category:category}}"
-    >{{category}}</router-link>
-    <CartDropdown />
-  </nav>
+      :to="{...MAIN_PATH,query:{category:category}}">
+        <sui-menu-item>{{category}}</sui-menu-item>
+    </router-link>
+    <sui-menu-menu position="right">
+      <!-- <sui-dropdown item text="Language">
+        <sui-dropdown-menu>
+          <sui-dropdown-item>English</sui-dropdown-item>
+          <sui-dropdown-item>Russian</sui-dropdown-item>
+          <sui-dropdown-item>Spanish</sui-dropdown-item>
+        </sui-dropdown-menu>
+      </sui-dropdown> -->
+      <sui-menu-item>
+        <div class="ui category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search product...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+      </sui-menu-item>
+      <sui-menu-item>
+        <sui-icon name="shopping cart" /> 
+        <CartDropdown />
+      </sui-menu-item>
+      <router-link :to="{path:'/user'}">
+        <sui-menu-item>
+          <sui-icon name="user" />
+        </sui-menu-item>
+      </router-link>
+    </sui-menu-menu>
+  </sui-menu>
+
+  
 </template>
 
 <script>
@@ -44,9 +84,21 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
 nav {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  text-decoration: none;
+}
+.menu {
+  align-items: center;
+  margin: 0px;
+  text-decoration: none;
+}
+.menu-item {
+  margin: 0px;
+  text-decoration: none;
 }
 </style>

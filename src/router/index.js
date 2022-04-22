@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Main from "../views/Main.vue";
 import User from "../views/User.vue";
+import Promotion from "../views/Promotion.vue";
 import Product from "../views/Product.vue";
 
 import SignIn from "../views/SignIn.vue";
@@ -26,6 +27,7 @@ const routes = [
     component: User,
     meta: { requiresAuth: true },
   },
+  { path: "/promotion", name: "Promotion", component: Promotion },
   { path: "/product/:id", name: "Product", component: Product },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/:pathMatch(.*)*", redirect: "/" },

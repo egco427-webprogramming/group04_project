@@ -1,7 +1,10 @@
 <template>
   <suspense>
     <template #default>
-      <ProductList />
+        <sui-segment id="product-segment">
+          <ProductList />
+          <br>
+        </sui-segment>
     </template>
     <template #fallback>waiting for skeleton loading</template>
   </suspense>
@@ -15,4 +18,9 @@ export default {
 </script>
 
 <style>
+.product-segment {
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
 </style>

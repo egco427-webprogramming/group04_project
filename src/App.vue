@@ -1,10 +1,14 @@
+
 <template>
   <TheNavbar :handleLogout="handleLogout" />
   <router-view />
+  <TheFooter />
+
 </template>
 
 <script>
 import TheNavbar from "./components/TheNavbar.vue";
+import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
@@ -13,6 +17,7 @@ export default {
 
   components: {
     TheNavbar,
+    TheFooter
   },
   setup() {
     const { dispatch } = useStore();
