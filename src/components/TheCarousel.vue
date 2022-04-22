@@ -1,23 +1,43 @@
 <template>
     <!-- Carousal -->
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            
             <ol class="carousel-indicators">
                 <li data-bs-target="#carouselId1" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#carouselId2" data-bs-slide-to="1"></li>
                 <li data-bs-target="#carouselId3" data-bs-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
+                <!-- Single item -->
                 <div class="carousel-item active">
-                    <img src="https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block"></div>
+                    <video class="img-fluid" autoplay loop muted>
+                        <source src="https://www.uniqlo.com/jp/ja/contents/collaboration/theory/22ss/common/imgs/home/hero-video-desktop.mp4" type="video/mp4" />
+                    </video>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Spring/Summer 2022 Collections</h2>
+                        <p>Bringing sophistication to every day.</p>
+                        <br>
+                    </div>
                 </div>
+                <!-- Second item -->
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" class="d-block w-100" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block"></div>
+                    <video class="img-fluid" autoplay loop muted>
+                        <source src="https://www.uniqlo.com/jp/ja/contents/collaboration/uniqlo-u/22ss/common/imgs/home/hero-video-desktop.mp4" type="video/mp4" />
+                    </video>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Spring/Summer 2022 Collections</h2>
+                        <h6>Available online and in selected stores.</h6>
+                        <br>
+                    </div>
                 </div>
+                <!-- Third item -->
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80" class="d-block w-100" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block"></div>
+                    <img src="https://www.uniqlo.com/jp/ja/contents/collaboration/jwanderson/22ss/common/imgs/home/hero-1-desktop.webp?1648189327077" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Spring/Summer 2022 Collections</h2>
+                        <h6>At home with the sea.</h6>
+                        <br>
+                    </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
@@ -28,8 +48,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
-        </div>
-
+    </div>
 </template>
 
 <script>
@@ -40,13 +59,10 @@
 </script>
 
 <style>
-
-.carousel {
-    height: 600px; 
-    position: fixed;
-}
 .carousel-item {
+    max-width: 100%;
     height: 600px; 
+    object-fit: cover;
     position: fixed;
 }
 
