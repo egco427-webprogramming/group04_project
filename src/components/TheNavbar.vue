@@ -24,23 +24,19 @@
           <sui-dropdown-item>Spanish</sui-dropdown-item>
         </sui-dropdown-menu>
       </sui-dropdown> -->
-      <router-link :to="{path:'/'}">
-        <sui-menu-item>
-          <div class="ui category search">
-            <div class="ui icon input">
-              <input class="prompt" type="text" placeholder="Search animals...">
-              <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
+      <sui-menu-item>
+        <div class="ui category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search product...">
+            <i class="search icon"></i>
           </div>
-        </sui-menu-item>
-      </router-link>
-      <router-link :to="{path:'/'}">
-        <sui-menu-item>
-          <sui-icon name="shopping cart" /> 
-          <CartDropdown />
-        </sui-menu-item>
-      </router-link>
+          <div class="results"></div>
+        </div>
+      </sui-menu-item>
+      <sui-menu-item>
+        <sui-icon name="shopping cart" /> 
+        <CartDropdown />
+      </sui-menu-item>
       <router-link :to="{path:'/user'}">
         <sui-menu-item>
           <sui-icon name="user" />
