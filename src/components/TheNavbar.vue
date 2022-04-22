@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link v-for="content in contents" :to="content.path">{{content.pathname}}</router-link>
+    {{isLoggedIn}}
     <router-link
       v-for="category in categoryList"
       :to="{...MAIN_PATH,query:{category:category}}"
