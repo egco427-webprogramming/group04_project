@@ -10,6 +10,8 @@ import SignIn from "../views/SignIn.vue";
 
 import { getAuth } from "firebase/auth";
 import userStore from "../store/user";
+import store from "../store";
+
 // using web history
 const routerHistory = createWebHistory();
 
@@ -40,11 +42,12 @@ const router = createRouter({
 });
 
 //check auth for path
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const currentUser = getAuth().currentUser;
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (currentUser) {
     userStore.login();
+    await store.dispatch("cart/addCart", currentUser.uid);
   } else {
     userStore.logout();
   }
