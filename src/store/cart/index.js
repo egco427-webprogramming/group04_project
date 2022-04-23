@@ -47,7 +47,7 @@ export default {
       }
       commit(
         "SET_CART",
-        cart.products.map(({ productId, quantity }) => ({
+        cart.items.map(({ productId, quantity }) => ({
           id: productId,
           amount: quantity,
         }))
