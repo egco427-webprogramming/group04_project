@@ -1,7 +1,6 @@
 <template>
   <suspense>
     <template #default>
-      <UserIndex id="1" />
     </template>
 
     <template #fallback>waiting for setting skeleton loading</template>

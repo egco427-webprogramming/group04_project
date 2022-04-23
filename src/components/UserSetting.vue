@@ -6,10 +6,10 @@
       <label>Name</label>
       <div class="two fields">
         <div class="field">
-          <input type="text" v-model="user.name.firstname" placeholder="First Name" />
+          <input type="text" v-model="user.firstname" placeholder="First Name" />
         </div>
         <div class="field">
-          <input type="text" v-model="user.name.lastname" placeholder="Last Name" />
+          <input type="text" v-model="user.lastname" placeholder="Last Name" />
         </div>
       </div>
     </div>
@@ -17,10 +17,7 @@
       <label>Name</label>
       <div class="two fields">
         <div class="field">
-          <input type="text" placeholder="Email" v-model="user.email" />
-        </div>
-        <div class="field">
-          <input type="text" placeholder="Tel" v-model="user.phone" />
+          <input type="text" placeholder="Tel" v-model="user.tel" />
         </div>
       </div>
     </div>
@@ -28,18 +25,7 @@
       <label>Shipping Address</label>
       <div class="fields">
         <div class="field">
-          <input type="text" placeholder="number" v-model="user.address.number" />
-        </div>
-        <div class="field">
-          <input type="text" placeholder="city" v-model="user.address.city" />
-        </div>
-      </div>
-      <div class="fields">
-        <div class="field">
-          <input type="text" placeholder="Street" v-model="user.address.street" />
-        </div>
-        <div class="field">
-          <input type="text" placeholder="Zipcode" v-model="user.address.zipcode" />
+          <input type="text" placeholder="address" v-model="user.adr" />
         </div>
       </div>
     </div>
@@ -47,6 +33,9 @@
 </template>
 
 <script>
+/**
+ * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
+ */
 export default {
   props: {
     user: Object,
