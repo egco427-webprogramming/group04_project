@@ -1,4 +1,4 @@
-import { getCart } from "../../services/cart.service";
+import { getCart, updateCart } from "../../services/cart.service";
 
 export default {
   namespaced: true,
@@ -34,9 +34,14 @@ export default {
     },
   },
   actions: {
-    addProduct({ commit }, { id, amount }) {
+    async addProduct({ state, commit }, { id, amount }) {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
+      try {
+        await updateCart(id, state.cart);
+      } catch (err) {
+        console.error(err);
+      }
     },
     async addCart({ commit }, id) {
       let cart = [];
