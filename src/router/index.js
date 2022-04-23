@@ -10,6 +10,8 @@ import SignIn from "../views/SignIn.vue";
 
 import { getAuth } from "firebase/auth";
 import userStore from "../store/user";
+import store from "../store";
+
 // using web history
 const routerHistory = createWebHistory();
 
@@ -40,16 +42,16 @@ const router = createRouter({
 });
 
 //check auth for path
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const currentUser = getAuth().currentUser;
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (currentUser) {
     userStore.login();
-    console.log(userStore.state.isLoggedIn);
+    await store.dispatch("cart/addCart", currentUser.uid);
   } else {
     userStore.logout();
-    console.log(userStore.state.isLoggedIn);
   }
+  console.log("is logged in", userStore.state.isLoggedIn);
   if (requiresAuth && !currentUser) {
     // console.log("You are not authorized to access this area.");
     next("signin");

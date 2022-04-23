@@ -1,15 +1,15 @@
-import { getCart } from "../../services/cart.service";
+import { getCart, updateCart } from "../../services/cart.service";
 
 export default {
   namespaced: true,
   state: {
-    cart: [{ id: 1, amount: 1 }],
+    cart: [{ id: "6262ddd37fb62705ecb84720", amount: 1 }],
   },
   getters: {
     cart: (state, getters, rootState) => {
       return state.cart.map(({ id, amount }) => {
         const product = rootState.product.products.find(
-          (product) => product.id === id
+          (product) => product._id === id
         );
         return { ...product, amount };
       });
@@ -34,8 +34,14 @@ export default {
     },
   },
   actions: {
-    addProduct({ commit }, { id, amount }) {
+    async addProduct({ state, commit }, { id, amount }) {
+      console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
+      try {
+        await updateCart(id, state.cart);
+      } catch (err) {
+        console.error(err);
+      }
     },
     async addCart({ commit }, id) {
       let cart = [];
@@ -46,7 +52,7 @@ export default {
       }
       commit(
         "SET_CART",
-        cart.products.map(({ productId, quantity }) => ({
+        cart.items.map(({ productId, quantity }) => ({
           id: productId,
           amount: quantity,
         }))

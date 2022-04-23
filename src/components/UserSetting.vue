@@ -10,22 +10,24 @@
     <div class="two fields">
       <div class="field">
         <label>First name</label>
-        <input type="text" v-model="user.name.firstname" placeholder="First Name" />
+        <input type="text" v-model="user.firstname" placeholder="First Name" />
       </div>
       <div class="field">
         <label>Last name</label>
-        <input type="text" v-model="user.name.lastname" placeholder="Last Name" />
+        <input type="text" v-model="user.lastname" placeholder="Last Name" />
+
       </div>
     </div>
 
     <div class="field">
       <div class="field">
-        <label>Email</label>
+        <label>we need not to change email</label>
         <input type="text" placeholder="Email" v-model="user.email" />
       </div>
       <div class="field">
         <label>Mobile Number</label>
         <input type="text" placeholder="Tel" v-model="user.tel" />
+
       </div>
     </div>
 <br>
@@ -34,6 +36,7 @@
         <div class="field">
           <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
         </div>
+
     </div>
       <button class="ui button blue" type="submit">Update User</button>
 
@@ -43,12 +46,15 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      user: Object,
-    },
-  };
-  
+
+/**
+ * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
+ */
+export default {
+  props: {
+    user: Object,
+  },
+};
 </script>
 
 <style>

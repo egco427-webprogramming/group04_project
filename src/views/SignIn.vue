@@ -23,6 +23,7 @@
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import userStore from "../store/user";
+import { login } from "../services/user.service";
 
 export default {
   name: "SignIn",
@@ -43,6 +44,7 @@ export default {
         this.formData.password
       )
         .then((user) => {
+          login(user.user);
           this.$router.replace("/");
         })
         .catch((e) => {
