@@ -25,13 +25,6 @@
       <sui-menu-item>{{category}}</sui-menu-item>
     </router-link>
     <sui-menu-menu position="right">
-      <!-- <sui-dropdown item text="Language">
-        <sui-dropdown-menu>
-          <sui-dropdown-item>English</sui-dropdown-item>
-          <sui-dropdown-item>Russian</sui-dropdown-item>
-          <sui-dropdown-item>Spanish</sui-dropdown-item>
-        </sui-dropdown-menu>
-      </sui-dropdown>-->
       <sui-menu-item>
         <div class="ui category search">
           <div class="ui icon input">
@@ -41,10 +34,9 @@
           <div class="results"></div>
         </div>
       </sui-menu-item>
-      <sui-menu-item>
-        <sui-icon name="shopping cart" />
+      <div>
         <CartDropdown />
-      </sui-menu-item>
+      </div>
       <router-link :to="{path:'/user'}">
         <sui-menu-item>
           <sui-icon name="user" />
