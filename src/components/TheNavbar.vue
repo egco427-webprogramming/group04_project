@@ -1,6 +1,6 @@
 <template>
   <!-- Draft Nav -->
-  <sui-menu>
+  <sui-menu class="sticky-top">
     <router-link :to="{path:'/'}">
       <sui-menu-item>
         <img src="../assets/logo.png" alt="contact page" />
