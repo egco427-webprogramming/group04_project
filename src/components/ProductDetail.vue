@@ -29,7 +29,6 @@ export default {
 
     // console.log(product.value);
     return { product, addToCart };
-
   },
 };
 </script>

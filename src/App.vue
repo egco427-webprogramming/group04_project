@@ -3,7 +3,6 @@
   <TheNavbar :handleLogout="handleLogout" />
   <router-view />
   <TheFooter />
-
 </template>
 
 <script>
@@ -17,7 +16,7 @@ export default {
 
   components: {
     TheNavbar,
-    TheFooter
+    TheFooter,
   },
   setup() {
     const { dispatch } = useStore();
@@ -26,6 +25,7 @@ export default {
   methods: {
     handleLogout() {
       //console.log(getAuth().currentUser) //return null if no user logged in
+
       const currentUser = getAuth().currentUser;
       const auth = getAuth();
       if (currentUser && auth) {
