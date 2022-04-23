@@ -3,7 +3,8 @@ import { getCart, updateCart } from "../../services/cart.service";
 export default {
   namespaced: true,
   state: {
-    cart: [{ id: "6262ddd37fb62705ecb84720", amount: 1 }],
+    // cart: [{ id: "6262ddd37fb62705ecb84720", amount: 1 }],
+    cart: [],
   },
   getters: {
     cart: (state, getters, rootState) => {
