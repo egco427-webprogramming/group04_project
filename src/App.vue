@@ -3,7 +3,6 @@
   <TheNavbar :handleLogout="handleLogout" />
   <router-view />
   <TheFooter />
-
 </template>
 
 <script>
@@ -11,13 +10,14 @@ import TheNavbar from "./components/TheNavbar.vue";
 import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import store from "./store";
 
 export default {
   name: "App",
 
   components: {
     TheNavbar,
-    TheFooter
+    TheFooter,
   },
   setup() {
     const { dispatch } = useStore();
@@ -26,6 +26,7 @@ export default {
   methods: {
     handleLogout() {
       //console.log(getAuth().currentUser) //return null if no user logged in
+
       const currentUser = getAuth().currentUser;
       const auth = getAuth();
       if (currentUser && auth) {
@@ -37,6 +38,8 @@ export default {
             alert(error.message);
           });
       }
+      store.dispatch("cart/clearCart");
+      this.$router.push("/");
     },
   },
 };
