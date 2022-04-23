@@ -16,7 +16,16 @@
     </sui-button>
   </sui-card>
 </template>
-
+/*
+  category ,
+  des,
+  img_url,
+  name,
+  price,
+  promotion["0-100"],
+  sold,
+  _id
+ */
 <script>
 import { useStore } from "vuex";
 export default {
