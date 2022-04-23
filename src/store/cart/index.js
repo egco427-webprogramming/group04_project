@@ -1,4 +1,5 @@
 import { getCart, updateCart } from "../../services/cart.service";
+import { getAuth } from "firebase/auth";
 
 export default {
   namespaced: true,
@@ -55,7 +56,10 @@ export default {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
       try {
-        await updateCart(id, state.cart);
+        const currentUser = getAuth().currentUser;
+        if (!!currentUser) {
+          await updateCart(currentUser.uid, state.cart);
+        }
       } catch (err) {
         console.error(err);
       }
