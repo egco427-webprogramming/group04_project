@@ -2,11 +2,10 @@
   <form class="ui form">
     <p>{{user}}</p>
     <h4 class="ui dividing header">Edit Profile</h4>
-      <div class="field">
-        <label>Username</label>
-        <input type="text" placeholder="Username" />
-      </div>
-<br>
+    <div class="field">
+      <label>uid</label>
+      <input disabled type="text" v-model="user.uid" placeholder="uid" />
+    </div>
     <div class="two fields">
       <div class="field">
         <label>First name</label>
@@ -22,7 +21,7 @@
     <div class="field">
       <div class="field">
         <label>we need not to change email</label>
-        <input type="text" placeholder="Email" v-model="user.email" />
+        <input disabled type="text" placeholder="Email" v-model="user.email" />
       </div>
       <div class="field">
         <label>Mobile Number</label>
