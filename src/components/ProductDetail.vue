@@ -22,6 +22,7 @@ export default {
     const product = ref(await getProduct(props.id));
     console.log(product.value);
     return { product };
+    // console.log(product.value);
   },
 };
 </script>

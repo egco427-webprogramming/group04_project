@@ -1,4 +1,5 @@
 <template>
+  <!-- {{auth.currentUser}} -->
   <suspense>
     <template #default>
     </template>
