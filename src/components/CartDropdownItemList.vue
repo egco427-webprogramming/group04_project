@@ -29,7 +29,7 @@
         <template v-else>
             <p class="empty-bag-icon"><br><sui-icon name="shopping cart" /></p>
             <br>
-            <p class="empty-bag-text">YOUR CART IS EMPTY</p>
+            <p class="empty-bag-text">Your shopping bag is empty.</p>
         </template>
       </div>
     </div>
