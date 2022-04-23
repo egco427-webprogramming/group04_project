@@ -1,4 +1,5 @@
 <template>
+  id:{{id}}
   <UserSetting :user="user" />
   <UserHistory :history="[{id:'a1',total:'100',date:'1/2/2020'}]" />
 </template>
