@@ -49,6 +49,10 @@ export default {
     },
     SET_CART({ cart }, userCart) {
       userCart.forEach((product) => cart.push(product));
+    CLEAR_CART(state) {
+      state.cart = [];
+
+      console.log("clearing finish");
     },
   },
   actions: {
@@ -78,6 +82,10 @@ export default {
           amount: Number(unit),
         }))
       );
+    },
+    clearCart({ commit }) {
+      console.log("clearing");
+      commit("CLEAR_CART");
     },
   },
 };
