@@ -1,7 +1,7 @@
 <template>
   id:{{id}}
   <UserSetting :user="user" />
-  <UserHistory :history="[{id:'a1',total:'100',date:'1/2/2020'}]" />
+  <UserHistory :history="history" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import UserSetting from "./UserSetting.vue";
 import UserHistory from "./UserHistory.vue";
 
 import { getUser } from "../services/user.service";
+import { getHistory } from "../services/history.service";
 import { ref } from "vue";
 
 export default {
@@ -21,7 +22,8 @@ export default {
   },
   async setup(props) {
     const user = ref(await getUser(props.id));
-    return { user };
+    const history = ref(await getHistory(props.id));
+    return { user, history };
   },
   methods: {
     async getUser(id) {
@@ -32,6 +34,15 @@ export default {
         console.log(err);
       }
       return user;
+    },
+    async getHistory(id) {
+      let history;
+      try {
+        history = await getHistory(id);
+      } catch (err) {
+        console.log(err);
+      }
+      return history;
     },
   },
 };
