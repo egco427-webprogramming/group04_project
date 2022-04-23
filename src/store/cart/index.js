@@ -42,7 +42,7 @@ export default {
     ADD_PRODUCT({ cart }, { id, amount }) {
       const productInCart = cart.find((item) => item.id == id);
       if (!!productInCart) {
-        return (productInCart["amount"] += amount);
+        return (productInCart["amount"] += Number(amount));
       }
       return cart.push({ id, amount });
     },
@@ -69,9 +69,9 @@ export default {
       }
       commit(
         "SET_CART",
-        cart.items.map(({ productId, quantity }) => ({
-          id: productId,
-          amount: quantity,
+        cart.items.map(({ item, unit }) => ({
+          id: item,
+          amount: Number(unit),
         }))
       );
     },
