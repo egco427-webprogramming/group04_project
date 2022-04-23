@@ -32,7 +32,12 @@
                 </div>
                 <!-- Third item -->
                 <div class="carousel-item">
-                    <img src="https://www.uniqlo.com/jp/ja/contents/collaboration/jwanderson/22ss/common/imgs/home/hero-1-desktop.webp?1648189327077" class="d-block w-100">
+                    <div class="video-container"> 
+                        <video class="img-fluid" autoplay loop muted>
+                            <source src="https://www.uniqlo.com/jp/ja/contents/collaboration/jwanderson/22ss/common/imgs/home/hero-video-desktop.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <!-- <img src="https://www.uniqlo.com/jp/ja/contents/collaboration/jwanderson/22ss/common/imgs/home/hero-1-desktop.webp?1648189327077" class="d-block w-100"> -->
                     <div class="carousel-caption d-none d-md-block">
                         <h2>Spring/Summer 2022 Collections</h2>
                         <h6>At home with the sea.</h6>
@@ -60,10 +65,13 @@
 
 <style>
 .carousel-item {
-    max-width: 100%;
-    height: 600px; 
-    object-fit: cover;
-    position: fixed;
+    width: 100%;
+    height: 600px;    
 }
+.img-fluid {
+    top: 0;
+    left: 0;
+    width: 100%;
 
+}
 </style>
