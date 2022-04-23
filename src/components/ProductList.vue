@@ -1,7 +1,7 @@
 <template>
-  <br />
+  <br>
   <h1>{{category}}</h1>
-  <br />
+  <br>
   <div class="product-wrapper">
     <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product._id" />
   </div>
