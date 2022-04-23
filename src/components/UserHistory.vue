@@ -1,6 +1,6 @@
 <template>
   <div>
-    History
+    <h4 class="ui dividing header">Purchase History</h4>History
     <ul>
       <li v-for="transaction in history">{{transaction||"Transaction"}}</li>
     </ul>

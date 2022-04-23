@@ -27,7 +27,6 @@
         <input type="text" placeholder="Tel" v-model="user.tel" />
       </div>
     </div>
-<br>
 
     <div class="field">
       <label>Shipping Address</label>
@@ -35,9 +34,7 @@
         <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
       </div>
     </div>
-      <h4 class="ui dividing header">Purchase History</h4>
     <button class="ui button blue" type="submit">Update User</button>
-
   </form>
 </template>
 
