@@ -7,7 +7,8 @@
       <sui-card-header>{{product.name}}</sui-card-header>
       <!-- product price -->
       <sui-card-meta>
-        <span class="price">${{product.price}}</span>
+        <br>
+        <span class="price">THB {{product.price}}</span>
       </sui-card-meta>
     </sui-card-content>
     <!-- add button -->
@@ -50,9 +51,14 @@ export default {
 a {
   text-decoration: none;
 }
+br {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-top: 6px; /* change this to whatever height */
+}
 .card {
   width: 300px;
-  height: 500px;
+  height: 450px;
   cursor: pointer;
   margin-top: 0px;
   margin-left: 10px;

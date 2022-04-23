@@ -12,12 +12,12 @@
       <div class="item" v-for="item in cart">{{item.name}} x {{item.amount}}</div>
     </div>
   </div>-->
-  <sui-dropdown :text="totalPrice+' Cart'">
+  <sui-dropdown :text="'THB '+totalPrice">
     <sui-dropdown-menu>
       <sui-dropdown-item
         v-for="item in cart"
         :text="item.name+' x '+item.amount"
-        :description=" '$' + String(Math.round(item.price*item.amount))"
+        :description=" 'THB ' + String(Math.round(item.price*item.amount))"
       />
     </sui-dropdown-menu>
   </sui-dropdown>
