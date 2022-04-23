@@ -15,7 +15,7 @@ export default {
   setup() {
     const { dispatch } = useStore();
 
-    dispatch("cart/addCart", 1);
+    // dispatch("cart/addCart", 1);
   },
 };
 </script>
