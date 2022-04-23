@@ -1,9 +1,26 @@
 <template>
-<h1>Promotion</h1>
+  <suspense>
+    <template #default>
+        <sui-segment id="product-segment">
+          <ProductList />
+          <br>
+        </sui-segment>
+    </template>
+    <template #fallback>waiting for skeleton loading</template>
+  </suspense>
 </template>
+
 <script>
-export default {};
+import ProductList from "../components/PromotionList.vue";
+export default {
+  components: { ProductList },
+};
 </script>
 
 <style>
+.product-segment {
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
 </style>
