@@ -1,24 +1,20 @@
 <template>
-    <sui-card>
-      <!-- product image -->
-      <sui-image :src="product.image" :alt="product.title" class="card-image"/>
-      <sui-card-content  class="card-content" align="left">
-        <!-- produvt title -->
-        <sui-card-header>
-            {{product.title}}
-        </sui-card-header>
-        <!-- product price -->
-        <sui-card-meta>
-          <span class="price">${{product.price}}</span>
-        </sui-card-meta>
-      </sui-card-content>
-      <!-- add button -->
-      <sui-button @click.prevent="addToCart" attached="bottom" >
-        <sui-icon name="cart plus" />
-        Add to cart
-      </sui-button>
-    </sui-card>
-
+  <sui-card>
+    <!-- product image -->
+    <sui-image :src="product.img_url" :alt="product.name" class="card-image" />
+    <sui-card-content class="card-content" align="left">
+      <!-- produvt name -->
+      <sui-card-header>{{product.name}}</sui-card-header>
+      <!-- product price -->
+      <sui-card-meta>
+        <span class="price">${{product.price}}</span>
+      </sui-card-meta>
+    </sui-card-content>
+    <!-- add button -->
+    <sui-button @click.prevent="addToCart" attached="bottom">
+      <sui-icon name="cart plus" />Add to cart
+    </sui-button>
+  </sui-card>
 </template>
 
 <script>
@@ -31,10 +27,10 @@ export default {
     const { dispatch } = useStore();
 
     const {
-      product: { id },
+      product: { _id },
     } = props;
     const amount = 1;
-    const addToCart = () => dispatch("cart/addProduct", { id, amount });
+    const addToCart = () => dispatch("cart/addProduct", { id: _id, amount });
 
     return { addToCart };
   },
