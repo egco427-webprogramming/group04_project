@@ -10,6 +10,7 @@ import TheNavbar from "./components/TheNavbar.vue";
 import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import store from "./store";
 
 export default {
   name: "App",
@@ -37,6 +38,8 @@ export default {
             alert(error.message);
           });
       }
+      store.dispatch("cart/clearCart");
+      this.$router.push("/");
     },
   },
 };
