@@ -47,8 +47,14 @@ export default {
       }
       return cart.push({ id, amount });
     },
-    SET_CART({ cart }, userCart) {
-      userCart.forEach((product) => cart.push(product));
+    SET_CART(state, userCart) {
+      // userCart.forEach((product) => {
+
+      //   cart.push(product);
+      // });
+      state.cart = userCart;
+      console.log(state.cart, userCart);
+    },
     CLEAR_CART(state) {
       state.cart = [];
 
