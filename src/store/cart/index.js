@@ -20,6 +20,22 @@ export default {
         0
       );
     },
+    totalDiscount: (state, getters, rootState) => {
+      return getters.cart.reduce((total, product) => {
+        const ret =
+          total + ((product.price * product.promotion) / 100) * product.amount;
+        console.log(ret);
+        return ret;
+      }, 0);
+    },
+    totalResult: (state, getters, rootState) => {
+      return getters.cart.reduce(
+        (total, product) =>
+          total +
+          ((product.price * (100 - product.promotion)) / 100) * product.amount,
+        0
+      );
+    },
   },
   mutations: {
     ADD_PRODUCT({ cart }, { id, amount }) {

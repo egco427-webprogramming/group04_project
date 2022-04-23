@@ -5,6 +5,7 @@ import Main from "../views/Main.vue";
 import User from "../views/User.vue";
 import Promotion from "../views/Promotion.vue";
 import Product from "../views/Product.vue";
+import Cart from "../views/Cart.vue";
 
 import SignIn from "../views/SignIn.vue";
 
@@ -30,6 +31,7 @@ const routes = [
     meta: { requiresAuth: true },
   },
   { path: "/promotion", name: "Promotion", component: Promotion },
+  { path: "/cart", name: "Cart", component: Cart },
   { path: "/product/:id", name: "Product", component: Product },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/:pathMatch(.*)*", redirect: "/" },
