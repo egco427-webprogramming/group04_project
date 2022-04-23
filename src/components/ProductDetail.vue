@@ -13,16 +13,23 @@
 
 <script>
 import { ref } from "vue";
+import { useStore } from "vuex";
 import { getProduct } from "../services/product.service";
 export default {
   props: {
     id: String | Number,
   },
   async setup(props) {
+    const { dispatch } = useStore();
     const product = ref(await getProduct(props.id));
-    console.log(product.value);
-    return { product };
+
+    const amount = 1;
+    const addToCart = () =>
+      dispatch("cart/addProduct", { id: props.id, amount });
+
     // console.log(product.value);
+    return { product, addToCart };
+
   },
 };
 </script>
