@@ -18,16 +18,9 @@
 </template>
 
 <script>
-  import {
-    getAuth,
-    signInWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup
-  } from "firebase/auth";
+  import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
   import userStore from "../store/user";
-  import {
-    login
-  } from "../services/user.service";
+  import { login } from "../services/user.service";
 
   export default {
     name: "SignIn",
@@ -60,8 +53,6 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
           .then((result) => {
-            // The signed-in user info.
-            console.log(result.user)
             const user = result.user;
             login(user.user);
             this.$router.replace("/");
