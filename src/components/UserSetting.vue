@@ -47,6 +47,9 @@
 </template>
 
 <script>
+/**
+ * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
+ */
 export default {
   props: {
     user: Object,
