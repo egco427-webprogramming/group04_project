@@ -1,15 +1,14 @@
 <template>
-  <br>
-  <h1>{{category}}</h1>
-  <br>
-  <div class="product-wrapper">
-    <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product._id" />
-  </div>
-  <br />
+    <br>
+    <h1>Promotion</h1>
+
+    <div class="product-wrapper">
+    <PromotionCard v-for="product in products" :product="product" :key="'product-card-'+product._id" />
+    </div>
 </template>
 
 <script>
-import ProductCard from "./ProductCard.vue";
+import PromotionCard from "./PromotionCard.vue";
 import { useRoute } from "vue-router";
 import { computed, onMounted, ref, watchEffect, watch } from "vue";
 import {
@@ -22,7 +21,7 @@ import {
 // const { mapState, mapActions } = createNamespacedHelpers("product");
 
 export default {
-  components: { ProductCard },
+  components: { PromotionCard },
   async setup() {
     const route = useRoute();
 
