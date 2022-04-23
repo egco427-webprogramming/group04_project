@@ -3,7 +3,7 @@
   <h2>{{category}}</h2>
   <br>
   <div class="product-wrapper">
-    <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product.id" />
+    <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product._id" />
   </div>
   <br>
 </template>
