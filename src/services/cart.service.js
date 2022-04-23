@@ -15,6 +15,10 @@ export async function getCart(id) {
   return (await httpClient.get("/" + id)).data;
 }
 
-export async function updateCart(id) {
-  return (await httpClient.post("/" + id)).data;
+export async function updateCart(id, items) {
+  return (
+    await httpClient.post("/" + id, {
+      items: items.map(({ id, amount }) => ({ item: id, unit: amount })),
+    })
+  ).data;
 }

@@ -19,6 +19,10 @@
         :text="item.name+' x '+item.amount"
         :description=" 'THB ' + String(Math.round(item.price*item.amount))"
       />
+
+      <div class="item">
+        <router-link :to="{name:'Cart'}">buy</router-link>
+      </div>
     </sui-dropdown-menu>
   </sui-dropdown>
 </template>
