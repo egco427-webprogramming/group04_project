@@ -45,11 +45,10 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (currentUser) {
     userStore.login();
-    console.log(userStore.state.isLoggedIn);
   } else {
     userStore.logout();
-    console.log(userStore.state.isLoggedIn);
   }
+  console.log("is logged in", userStore.state.isLoggedIn);
   if (requiresAuth && !currentUser) {
     // console.log("You are not authorized to access this area.");
     next("signin");

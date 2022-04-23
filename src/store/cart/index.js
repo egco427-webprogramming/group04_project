@@ -3,13 +3,13 @@ import { getCart } from "../../services/cart.service";
 export default {
   namespaced: true,
   state: {
-    cart: [{ id: 1, amount: 1 }],
+    cart: [{ id: "6262ddd37fb62705ecb84720", amount: 1 }],
   },
   getters: {
     cart: (state, getters, rootState) => {
       return state.cart.map(({ id, amount }) => {
         const product = rootState.product.products.find(
-          (product) => product.id === id
+          (product) => product._id === id
         );
         return { ...product, amount };
       });
@@ -35,6 +35,7 @@ export default {
   },
   actions: {
     addProduct({ commit }, { id, amount }) {
+      console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
     },
     async addCart({ commit }, id) {

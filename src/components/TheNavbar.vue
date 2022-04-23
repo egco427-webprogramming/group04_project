@@ -1,25 +1,28 @@
 <template>
   <!-- Draft Nav -->
-  <sui-menu >
+  <sui-menu class="sticky-top">
     <router-link :to="{path:'/'}">
       <sui-menu-item>
         <img src="../assets/logo.png" alt="contact page" />
       </sui-menu-item>
     </router-link>
-    <router-link :to="{name:'Main'}"><sui-menu-item >main
-        </sui-menu-item></router-link>
-        <router-link :to="{name:'Promotion'}"><sui-menu-item >promo
-        </sui-menu-item></router-link>
-    <router-link :to="{name:'User'}" v-if="isLoggedIn"><sui-menu-item >User
-        </sui-menu-item></router-link>
-    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn"><sui-menu-item >SignIn
-        </sui-menu-item></router-link>
-    <a href="#" @click="handleLogout" v-if="isLoggedIn"><sui-menu-item >SignOut
-        </sui-menu-item></a>
-    <router-link
-      v-for="category in categoryList"
-      :to="{...MAIN_PATH,query:{category:category}}">
-        <sui-menu-item>{{category}}</sui-menu-item>
+    <router-link :to="{name:'Main'}">
+      <sui-menu-item>main</sui-menu-item>
+    </router-link>
+    <router-link :to="{name:'Promotion'}">
+      <sui-menu-item>promo</sui-menu-item>
+    </router-link>
+    <router-link :to="{name:'User'}" v-if="isLoggedIn">
+      <sui-menu-item>User</sui-menu-item>
+    </router-link>
+    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn">
+      <sui-menu-item>SignIn</sui-menu-item>
+    </router-link>
+    <a href="#" @click="handleLogout" v-if="isLoggedIn">
+      <sui-menu-item>SignOut</sui-menu-item>
+    </a>
+    <router-link v-for="category in categoryList" :to="{...MAIN_PATH,query:{category:category}}">
+      <sui-menu-item>{{category}}</sui-menu-item>
     </router-link>
     <sui-menu-menu position="right">
       <!-- <sui-dropdown item text="Language">
@@ -28,18 +31,18 @@
           <sui-dropdown-item>Russian</sui-dropdown-item>
           <sui-dropdown-item>Spanish</sui-dropdown-item>
         </sui-dropdown-menu>
-      </sui-dropdown> -->
+      </sui-dropdown>-->
       <sui-menu-item>
         <div class="ui category search">
           <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Search product...">
+            <input class="prompt" type="text" placeholder="Search product..." />
             <i class="search icon"></i>
           </div>
           <div class="results"></div>
         </div>
       </sui-menu-item>
       <sui-menu-item>
-        <sui-icon name="shopping cart" /> 
+        <sui-icon name="shopping cart" />
         <CartDropdown />
       </sui-menu-item>
       <router-link :to="{path:'/user'}">
@@ -49,8 +52,6 @@
       </router-link>
     </sui-menu-menu>
   </sui-menu>
-
-  
 </template>
 
 <script>
