@@ -4,7 +4,7 @@
     <h4 class="ui dividing header">Edit Profile</h4>
       <div class="field">
         <label>Username</label>
-        <input type="text" v-model="user.username" placeholder="First Name" />
+        <input type="text" placeholder="Username" />
       </div>
 <br>
     <div class="two fields">
@@ -25,14 +25,14 @@
       </div>
       <div class="field">
         <label>Mobile Number</label>
-        <input type="text" placeholder="Tel" v-model="user.phone" />
+        <input type="text" placeholder="Tel" v-model="user.tel" />
       </div>
     </div>
 <br>
     <div class="field">
       <label>Shipping Address</label>
         <div class="field">
-          <textarea rows="2" type="text" placeholder="Address" v-model="user.address.city" />
+          <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
         </div>
     </div>
       <button class="ui button blue" type="submit">Update User</button>
