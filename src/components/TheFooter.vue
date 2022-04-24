@@ -8,11 +8,12 @@
                         <h3>Products</h3>
                         <ul>
                             <li><router-link :to="{name:'Main'}">All Products</router-link></li>
-                            <li><router-link :to="{name:'Promotion'}">Promotions</router-link></li>
-                            <li><a href="#">Electronics</a></li>
-                            <li><a href="#">Jewelery</a></li>
-                            <li><a href="#">Men's Clothing</a></li>
-                            <li><a href="#">Women's Clothing</a></li>
+                            <li><router-link :to="{name:'Promotion'}">Sales</router-link></li>
+                            <li><a href="#">JEANS</a></li>
+                            <li><a href="#">T-shirts</a></li>
+                            <li><a href="#">Jacket</a></li>
+                            <li><a href="#">Coat</a></li>
+                            <li><a href="#">Sunglasses</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item" align="left">
@@ -24,7 +25,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6 item text">
-                        <h3>Company Name</h3>
+                        <h3>LUCIEN</h3>
                         <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                     <a href="#"><sui-icon name="instagram" /></a>
                     <a href="#"><sui-icon name="envelope outline" /></a>
                 </div>
-                <p class="copyright">Company Name © 2018</p>
+                <h6 class="copyright">LUCIEN © 2022</h6>
             </div>
         </footer>
     </div>
@@ -53,7 +54,7 @@ export default {
 .footer-dark {
   padding:50px 0;
   color:#f0f9ff;
-  background-color:#282d32;
+  background-color:rgb(0, 0, 0);
 }
 
 .footer-dark h3 {
