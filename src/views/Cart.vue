@@ -2,7 +2,7 @@
   <!-- {{auth.currentUser}} -->
   <suspense>
     <template #default>
-      <CartIndex />
+      <CartIndex :id="auth.currentUser.uid" />
     </template>
 
     <template #fallback>waiting for setting skeleton loading</template>
