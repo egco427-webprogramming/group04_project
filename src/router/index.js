@@ -6,6 +6,7 @@ import User from "../views/User.vue";
 import Promotion from "../views/Promotion.vue";
 import Product from "../views/Product.vue";
 import Cart from "../views/Cart.vue";
+import Purchased from "../views/Purchased.vue";
 
 import SignIn from "../views/SignIn.vue";
 
@@ -35,6 +36,12 @@ const routes = [
     path: "/cart",
     name: "Cart",
     component: Cart,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/purchased",
+    name: "Purchased",
+    component: Purchased,
     meta: { requiresAuth: true },
   },
   { path: "/product/:id", name: "Product", component: Product },
