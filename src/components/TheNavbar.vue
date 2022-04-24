@@ -98,4 +98,8 @@ nav {
 .brand-name {
   font-weight: bold;
 }
+@font-face { 
+  font-family: Font Name;
+  src: url('https://fonts.google.com/specimen/Playfair+Display+SC') 
+}
 </style>
