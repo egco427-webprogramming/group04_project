@@ -1,6 +1,6 @@
 <template>
   <form class="ui form">
-    <p>{{user}}</p>
+    <!-- <p>{{user}}</p> -->
     <h4 class="ui dividing header">Edit Profile</h4>
     <div class="field">
       <label>uid</label>

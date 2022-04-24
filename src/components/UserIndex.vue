@@ -1,5 +1,6 @@
 <template>
-  id:{{id}}
+  <br>
+  <!-- id:{{id}} -->
   <UserSetting :user="user" />
   <UserHistory :history="history" />
 </template>
