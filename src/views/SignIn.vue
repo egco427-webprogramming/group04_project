@@ -19,11 +19,11 @@
               class="facebook f icon"></i></span>Sign in with Facebook </button>
         <br />
         <br />
-        <button class="btn ui white button " @click="signInWithMicrosoft"><i class="microsoft icon"></i>Sign in with
+        <button class="btn ui button " @click="signInWithMicrosoft"><i class="microsoft icon"></i>Sign in with
           Microsoft </button>
         <br />
         <br />
-        <button class="btn disabled ui twitter button " @click="signInWithTwitter">Sign in with Twitter</button>
+        <button class="btn ui twitter button " @click="signInWithTwitter">Sign in with Twitter</button>
       </div>
     </div>
     <br />
@@ -36,6 +36,7 @@
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     FacebookAuthProvider,
+    TwitterAuthProvider,
     OAuthProvider,
     signInWithPopup,
   } from "firebase/auth";
@@ -114,7 +115,21 @@
             alert(err.message);
           });
       },
-    },
+      signInWithTwitter() {
+        const auth = getAuth();
+        const provider = new TwitterAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            login(user);
+            this.$router.replace("/");
+          })
+          .catch((err) => {
+            alert(err.message);
+          });
+      }
+    }
   };
 </script>
 
