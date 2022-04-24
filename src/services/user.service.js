@@ -17,7 +17,11 @@ export async function updateUser(id, user) {
 }
 
 // waiting for my local api
-export async function login({ uid, email }) {
-  console.log(uid, email);
-  return (await httpClient.post("/login", { uid, email })).data;
+export async function login({ uid, email, displayName = "" }) {
+  // console.log(uid, email);
+  const name = displayName.split(" ");
+  const firstname = name.at(0);
+  const lastname = name.at(-1);
+  return (await httpClient.post("/login", { uid, email, firstname, lastname }))
+    .data;
 }
