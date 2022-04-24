@@ -47,6 +47,15 @@ export default {
       }
       return cart.push({ id, amount });
     },
+    REMOVE_PRODUCT(state, { id }) {
+      const productInCart = state.cart.find((item) => item.id == id);
+      if (!!productInCart) {
+        productInCart["amount"] -= 1;
+        if (productInCart["amount"] <= 0) {
+          state.cart = state.cart.filter((item) => item.id != productInCart.id);
+        }
+      }
+    },
     SET_CART(state, userCart) {
       // userCart.forEach((product) => {
 
@@ -65,6 +74,18 @@ export default {
     async addProduct({ state, commit }, { id, amount }) {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
+      try {
+        const currentUser = getAuth().currentUser;
+        if (!!currentUser) {
+          await updateCart(currentUser.uid, state.cart);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    async removeProduct({ state, commit }, { id }) {
+      console.log(id, -1);
+      commit("REMOVE_PRODUCT", { id });
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
