@@ -6,21 +6,19 @@
         <img src="../assets/logo.png" alt="contact page" />
       </sui-menu-item>
     </router-link>
-    <router-link :to="{name:'Main'}">
+    <!-- <router-link :to="{name:'Main'}">
       <sui-menu-item>main</sui-menu-item>
-    </router-link>
+    </router-link>-->
     <router-link :to="{name:'Promotion'}">
-      <sui-menu-item>promo</sui-menu-item>
+      <sui-menu-item>Sales</sui-menu-item>
     </router-link>
-    <router-link :to="{name:'User'}" v-if="isLoggedIn">
+    <!-- <router-link :to="{name:'User'}" v-if="isLoggedIn">
       <sui-menu-item>User</sui-menu-item>
-    </router-link>
-    <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn">
+    </router-link>-->
+    <!-- <router-link :to="{name:'SignIn'}" v-if="!isLoggedIn">
       <sui-menu-item>SignIn</sui-menu-item>
-    </router-link>
-    <a href="#" @click="handleLogout" v-if="isLoggedIn">
-      <sui-menu-item>SignOut</sui-menu-item>
-    </a>
+    </router-link>-->
+
     <router-link v-for="category in categoryList" :to="{...MAIN_PATH,query:{category:category}}">
       <sui-menu-item>{{category}}</sui-menu-item>
     </router-link>
@@ -42,6 +40,9 @@
           <sui-icon name="user" />
         </sui-menu-item>
       </router-link>
+      <a href="#" @click="handleLogout" v-if="isLoggedIn">
+        <sui-menu-item>SignOut</sui-menu-item>
+      </a>
     </sui-menu-menu>
   </sui-menu>
 </template>

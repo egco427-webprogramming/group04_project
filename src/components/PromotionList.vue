@@ -34,3 +34,9 @@ export default {
   justify-content: center;
 }
 </style>
+<style >
+.card-image:hover {
+  opacity: 0.9;
+  transition: all 0.4s ease-in-out;
+}
+</style>
