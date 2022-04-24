@@ -29,5 +29,5 @@ export async function getProduct(id = "6262ddd37fb62705ecb84720") {
 
 export async function getCategoryList() {
   // return (await httpClient.get("/categories")).data;
-  return ["JEANS", "T-Shirts"];
+  return ["JEANS", "T-Shirts","Jacket","Coat","Sunglasses"];
 }
