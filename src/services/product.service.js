@@ -21,7 +21,7 @@ export async function getProductListWithQuery(category = "") {
 }
 
 export async function getProduct(id = "6262ddd37fb62705ecb84720") {
-  return (await httpClient.get("/" + id)).data;
+  return (await httpClient.get("/id/" + id)).data;
 }
 
 export async function getCategoryList() {
