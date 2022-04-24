@@ -19,6 +19,9 @@ export async function getProductListWithQuery(category = "") {
   // ).data;
   return (await httpClient.get(`/search/${category}`)).data;
 }
+export async function getProductListWithPromotion() {
+  return (await httpClient.get(`/promotion`)).data;
+}
 
 export async function getProduct(id = "6262ddd37fb62705ecb84720") {
   return (await httpClient.get("/id/" + id)).data;
