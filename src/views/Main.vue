@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .product-segment {
   width: 100%;
   align-items: center;
