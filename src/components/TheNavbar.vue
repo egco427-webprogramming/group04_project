@@ -3,8 +3,8 @@
   <sui-menu class="sticky-top">
     <router-link :to="{path:'/'}">
       <sui-menu-item>
-        <img src="../assets/logo.png" alt="contact page" />
-      </sui-menu-item>
+        <h1 class="brand-name">LUCIEN</h1>      
+        </sui-menu-item>
     </router-link>
     <!-- <router-link :to="{name:'Main'}">
       <sui-menu-item>main</sui-menu-item>
@@ -94,5 +94,8 @@ nav {
 .menu-item {
   margin: 0px;
   text-decoration: none;
+}
+.brand-name {
+  font-weight: bold;
 }
 </style>

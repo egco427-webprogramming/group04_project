@@ -1,7 +1,7 @@
 <template>
-  <br />
+  <br>
   <h1>{{category}}</h1>
-  <br />
+
   <div class="product-wrapper">
     <template v-for="product in products">
       <PromotionCard

@@ -38,7 +38,7 @@
             <sui-icon name="shopping cart" />
           </p>
           <br />
-          <p class="empty-bag-text">Your shopping bag is empty.</p>
+          <p class="empty-bag-text">Your cart is empty.</p>
         </template>
       </div>
     </div>
