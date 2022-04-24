@@ -1,44 +1,86 @@
 <template>
-  <div class="ui stackable grid">
-    <div class="twelve wide column">12
-      <h4>Your cart</h4>
-      <p>Product lsit</p>
-      <br>
+  <div class="ui stackable grid centered">
+
+    <div class="nine wide column">
+      <h4 class="mt-3 ui dividing header large">Your cart</h4>
+      <div class="ui celled grid">
+        <div class="row center aligned">
+          <div class="three wide column">
+            <p>Item</p>
+          </div>
+          <div class="ten wide column  detail">
+            <p>Detail</p>
+          </div>
+          <div class="three wide column">
+            <p>Price</p>
+          </div>
+        </div>
+      </div>
 
       <div class="item" v-for="item in cart">
-        <div class="ui internally celled grid ">
+        <div class="ui celled grid shadow">
           <div class="row">
             <div class="three wide column">
               <img class="ui small image" :src="item.img_url" :alt="item.name">
             </div>
-            <div class="ten wide column detail">
+            <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
               <br>
               <span class="product-type">Type:{{item.category}}</span>
               <br>
               <span class="product-amount">Amount:{{item.amount}}</span>
             </div>
-            <div class="three wide column">
+            <div class="three wide center aligned column">
               <span>THB {{String(Math.round(item.price*item.amount))}}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="two wide column">2
-      <h4>Summary</h4>
-      <div>Subtotal:{{totalPrice}}</div>
-      <div>Discount:{{totalDiscount}}</div>
-      <div>Total:{{totalResult}}</div>
-    </div>
+
+    <div class="three wide column ">
+      <h5 class="mt-3 ui dividing header large">Summary</h5>
+      <br>
+      <div class="ui vertically divided grid">
+        <div class="two column row">
+          <div class="column ">
+            <div>Subtotal:</div>
+            <div>Discount:</div>
+            <div>Total:</div>
+          </div>
+          <div class="column right aligned">
+            <div>{{totalPrice}}</div>
+            <div>{{totalDiscount}}</div>
+            <div>{{totalResult}}</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="ui form">
+        <div class="field">
+          <div class="field">
+            <label>First name</label>
+            <input type="text" v-model="user.firstname" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>Last name</label>
+            <input type="text" v-model="user.lastname" placeholder="Last Name" />
+          </div>
+          <div class="field">
+            <label>Mobile Number</label>
+            <input type="text" placeholder="Tel" v-model="user.tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Shipping Address</label>
+          <div class="field">
+            <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
+          </div>
+        </div>
+        <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button>
+      </form>
+    </div> 
   </div>
-
-  <h1>use this to make form</h1>
-  <div>id:{{id}}</div>
-  <div>user:{{user}}</div>
-
-  <button @click.prevent="buyHandle">Checkout</button>
 </template>
 
 <script>
@@ -106,10 +148,5 @@
 </script>
 
 <style>
-  .image {
-    margin: auto;
-  }
-  .detail{
-  text-align: left;
-  }
+
 </style>
