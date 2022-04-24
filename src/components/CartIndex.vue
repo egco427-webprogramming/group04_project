@@ -9,7 +9,10 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 export default {
-  setup() {
+  props: {
+    id: String,
+  },
+  async setup(props) {
     const { getters } = useStore();
 
     const cart = computed(() => getters["cart/cart"]);
