@@ -5,7 +5,7 @@
     <button class="ui red button" id="button-sale">-{{product.promotion}}%</button>
     
     <sui-card-content class="card-content" align="left">
-      <!-- produvt name -->
+      <!-- product name -->
       <sui-card-header>{{product.name}}</sui-card-header>
       <!-- product price -->
       <sui-card-meta>
