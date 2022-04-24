@@ -14,9 +14,11 @@
             
             <div class="col" align="right">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button class="ui button"><sui-icon name="trash alternate"/>delete</button>
-            </div>
-          </div> 
+            <button class="ui button" @click.prevent="()=>removeProduct(item)">
+              <sui-icon name="trash alternate" />delete
+            </button>
+          </div>
+        </div>
       </div>
       <div class="item" >
         <div v-if="cart.length !== 0">
