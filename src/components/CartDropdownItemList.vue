@@ -4,15 +4,15 @@
     THB {{totalPrice}}
     <i class="dropdown icon"></i>
     <div class="menu">
-      <div class="item" v-for="item in cart"> 
-            <div class="col">
-              <span class="product-name">{{item.name}} x {{item.amount}}</span>
-              <br>
-              <span>THB {{String(Math.round(item.price*item.amount))}}</span>
-            </div>
-            
-            <div class="col" align="right">
+      <div class="item" v-for="item in cart">
         <div class="d-flex flex-row justify-content-between my-flex-container" id="cart-item">
+          <div class="col">
+            <span class="product-name">{{item.name}} x {{item.amount}}</span>
+            <br />
+            <span>THB {{String(Math.round(item.price*item.amount))}}</span>
+          </div>
+
+          <div class="col" align="right">
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
             <button class="ui button" @click.prevent="()=>removeProduct(item)">
               <sui-icon name="trash alternate" />delete
@@ -20,18 +20,21 @@
           </div>
         </div>
       </div>
-      <div class="item" >
+      <div class="item">
         <div v-if="cart.length !== 0">
           <router-link :to="{name:'Cart'}">
-              <div class="d-grid gap-2 col-6 mx-auto" align="center" >
-                  <button class="large ui secondary button">Buy</button>
-              </div>   
+            <div class="d-grid gap-2 col-6 mx-auto" align="center">
+              <button class="large ui secondary button">Buy</button>
+            </div>
           </router-link>
         </div>
         <template v-else>
-            <p class="empty-bag-icon"><br><sui-icon name="shopping cart" /></p>
-            <br>
-            <p class="empty-bag-text">Your shopping bag is empty.</p>
+          <p class="empty-bag-icon">
+            <br />
+            <sui-icon name="shopping cart" />
+          </p>
+          <br />
+          <p class="empty-bag-text">Your shopping bag is empty.</p>
         </template>
       </div>
     </div>
@@ -52,11 +55,10 @@ export default {
     };
     return { cart, totalPrice, removeProduct };
   },
-  
 };
 </script>
 
-<style>
+<style >
 a {
   text-decoration: none;
 }
@@ -65,23 +67,23 @@ br {
   content: ""; /* clears default height */
   margin-top: 10px; /* change this to whatever height */
 }
-.product-name{
+.product-name {
   font-weight: bold;
 }
-.empty-bag-icon{
-  font-size:35px;
-  line-height:0px;
-  margin:0 8px;
-  color:rgb(186, 183, 183);
-  opacity:0.75;
-  text-align:center;
+.empty-bag-icon {
+  font-size: 35px;
+  line-height: 0px;
+  margin: 0 8px;
+  color: rgb(186, 183, 183);
+  opacity: 0.75;
+  text-align: center;
 }
-.empty-bag-text{
-  font-size:15px;
+.empty-bag-text {
+  font-size: 15px;
   font-weight: bold;
   margin: auto;
-  color:rgb(162, 160, 160);
-  opacity:0.75;
+  color: rgb(162, 160, 160);
+  opacity: 0.75;
 }
 #cart-item {
   gap: 32px;
