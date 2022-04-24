@@ -1,32 +1,29 @@
 <template>
   <div class="container">
-    <div class="row">
-      <h2>Sign in</h2>
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-md-offset-3" />
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-md-offset-3">
-        <input type="email" v-model="formData.email" class="form-control" placeholder="email" />
-        <br />
-        <input type="password" v-model="formData.password" class="form-control" placeholder="password" />
-        <br />
-        <button class="btn btn-success btn-block full-width" @click="signIn">Sign in</button>
-        <br />
-        <br />
-        <button class="btn ui blue button" @click="signInWithGoogle"><span><i class="google icon"></i></span>Sign in
-          with Google</button>
-        <br />
-        <br />
-        <button class="btn ui facebook button " @click="signInWithFacebook"><span><i
-              class="facebook f icon"></i></span>Sign in with Facebook </button>
-        <br />
-        <br />
-        <button class="btn ui button " @click="signInWithMicrosoft"><i class="microsoft icon"></i>Sign in with
-          Microsoft </button>
-        <br />
-        <br />
-        <button class="btn ui twitter button " @click="signInWithTwitter">Sign in with Twitter</button>
+    <div  class="signin">
+      <h1 class="text-signin" >Welcom to LUCIEN</h1>
+      <div align="center">
+        <input type="email" v-model="formData.email" class="form-control" placeholder="email" id="email-button" />
+        <input type="password" v-model="formData.password" class="form-control" placeholder="password" id="password-button"/>
+        <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>
+        <p class="or">OR</p> 
+        <button class="ui basic button" @click="signInWithGoogle" id="google-button">
+          <span><i class="google icon"></i></span>Sign in with Google
+        </button>
+        <br>
+        <button class="ui basic  button " @click="signInWithMicrosoft" id="microsoft-button">
+          <i class="microsoft icon"></i>Sign in with Microsoft 
+        </button>
+        <br>
+        <button class="btn ui facebook button " @click="signInWithFacebook" id="facebook-button">
+          <span><i class="facebook f icon"></i></span>Continue with Facebook 
+        </button>
+        <br>
+        <button class="ui twitter button " @click="signInWithTwitter" id="twitter-button">
+          <span><i class="twitter icon"></i></span> Continue with Twitter
+          </button>
       </div>
     </div>
-    <br />
   </div>
 </template>
 
@@ -134,5 +131,53 @@
 </script>
 
 <style>
+.signin {
+  margin-top: 100px;
+}
+.text-signin {
+   font-weight: 550;
+   font-size: 40px;
+}
+#email-button {
+    border-radius: 12px;
+    height: 50px;
+    width: 350px;
+    margin-top:30px;
+}
+#password-button {
+    border-radius: 12px;
+    height: 50px;
+    width: 350px;
+    margin-top:15px;
+}
 
+#signin-button {
+    height: 43px;
+    width: 350px;
+    border-radius: 30px;
+    margin-top: 35px;
+}
+.or {
+  font-weight: 900;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+#google-button, #microsoft-button, #facebook-button {
+    height: 43px;
+    width: 350px;
+    border-radius: 30px;
+    margin-top: 13px;
+    font-weight: 700;
+    font-size: 16px;
+}
+#twitter-button {
+    height: 43px;
+    width: 350px;
+    border-radius: 30px;
+    margin-top: 13px;
+    margin-bottom: 150px;
+    font-weight: 700;
+    font-size: 16px;
+}
 </style>
