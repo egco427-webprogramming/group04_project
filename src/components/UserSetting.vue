@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form {
   margin-left: 20%;
   margin-right: 20%;
