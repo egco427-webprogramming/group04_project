@@ -1,7 +1,7 @@
 <template>
   <div class="ui simple dropdown item">
     <sui-icon name="shopping cart" />
-    THB {{totalPrice}}
+    THB {{totalResult}}
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item" v-for="item in cart">
@@ -49,11 +49,11 @@ export default {
     const { getters, dispatch } = useStore();
 
     const cart = computed(() => getters["cart/cart"]);
-    const totalPrice = computed(() => getters["cart/totalPrice"]);
+    const totalResult = computed(() => getters["cart/totalResult"]);
     const removeProduct = ({ _id }) => {
       dispatch("cart/removeProduct", { id: _id });
     };
-    return { cart, totalPrice, removeProduct };
+    return { cart, totalResult, removeProduct };
   },
 };
 </script>
