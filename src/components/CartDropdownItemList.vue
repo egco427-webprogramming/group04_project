@@ -5,21 +5,25 @@
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item" v-for="item in cart">
-        <div class="d-flex flex-row justify-content-between my-flex-container" id="cart-item">
-          <div class="col">
-            <span class="product-name">{{item.name}} x {{item.amount}}</span>
-            <br />
-            <span>THB {{String(Math.round(item.price*item.amount))}}</span>
-          </div>
-
-          <div class="col" align="right">
-            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-            <button class="ui button" @click.prevent="()=>removeProduct(item)">
-              <sui-icon name="trash alternate" />delete
-            </button>
+          <div class="d-flex flex-row justify-content-between my-flex-container" id="cart-item">
+              <div class="col">
+                <span class="product-name">{{item.name}} x {{item.amount}}</span>
+                <br />
+                <div v-if="item.promotion > 0">
+                  <span>THB {{String(Math.round(item.price*item.amount))}}</span>
+                </div>
+                <div v-else>
+                  <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span><span class="total-sale-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                </div>
+              </div>
+            <div class="col" align="right">
+              <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+              <button class="ui button" @click.prevent="()=>removeProduct(item)">
+                <sui-icon name="trash alternate" />delete
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       <div class="item">
         <div v-if="cart.length !== 0">
           <router-link :to="{name:'Cart'}">
@@ -68,6 +72,13 @@ br {
   margin-top: 10px; /* change this to whatever height */
 }
 .product-name {
+  font-weight: bold;
+}
+.total-price {
+  text-decoration: line-through;
+}
+.total-sale-price {
+  color: #cb0000;
   font-weight: bold;
 }
 .empty-bag-icon {

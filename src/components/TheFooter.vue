@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .footer-dark {
   padding:50px 0;
   color:#f0f9ff;

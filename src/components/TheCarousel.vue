@@ -66,7 +66,7 @@
 <style>
 .carousel-item {
     width: 100%;
-    height: 100%;
+    height: 95vh;
     /* object-fit: cover;     */
 }
 .img-fluid {
