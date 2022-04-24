@@ -63,16 +63,17 @@
     }
 </script>
 
-<style>
+<style scoped>
+
 .carousel-item {
     width: 100%;
-    height: 95vh;
-    /* object-fit: cover;     */
+    height: 100%;
+    /* object-fit: cover;    */
+    background-color:rgb(0, 0, 0);
 }
 .img-fluid {
     top: 0;
     left: 0;
     width: 100%;
-
 }
 </style>
