@@ -53,13 +53,14 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
           .then((result) => {
-            const user = result.user;
-            login(user.user);
             this.$router.replace("/");
           }).catch((err) => {
             alert(err.message);
           });
       }
+          const user = result.user;
+          console.log(user);
+          login(user);
     },
   };
 </script>
