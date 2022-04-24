@@ -41,11 +41,14 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 export default {
   setup() {
-    const { getters } = useStore();
+    const { getters, dispatch } = useStore();
 
     const cart = computed(() => getters["cart/cart"]);
     const totalPrice = computed(() => getters["cart/totalPrice"]);
-    return { cart, totalPrice };
+    const removeProduct = ({ _id }) => {
+      dispatch("cart/removeProduct", { id: _id });
+    };
+    return { cart, totalPrice, removeProduct };
   },
   
 };
