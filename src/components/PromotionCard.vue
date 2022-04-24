@@ -2,7 +2,7 @@
   <sui-card>
     <!-- product image -->
     <sui-image :src="product.img_url" :alt="product.name" class="card-image" />
-    <button class="ui red button" id="button-sale">{{product.promotion}}%</button>
+    <button class="ui red button" id="button-sale">-{{product.promotion}}%</button>
     
     <sui-card-content class="card-content" align="left">
       <!-- produvt name -->
@@ -91,7 +91,7 @@ padding: 5px;
 background-color: #cb0000;
 bottom: 35%;
 right: 3%;
-width: 60px;
+width: 70px;
 }
 
 </style> 
