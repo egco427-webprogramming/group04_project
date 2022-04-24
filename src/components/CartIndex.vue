@@ -1,8 +1,10 @@
 <template>
+  <h1>use this to make detail section</h1>
   <div>cart:{{cart}}</div>
   <div>total:{{totalPrice}}</div>
   <div>discount:{{totalDiscount}}</div>
   <div>Result:{{totalResult}}</div>
+  <h1>use this to make form</h1>
   <div>id:{{id}}</div>
 
   <div>user:{{user}}</div>
