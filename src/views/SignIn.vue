@@ -10,13 +10,18 @@
         <br />
         <button class="btn btn-success btn-block full-width" @click="signIn">Sign in</button>
         <br />
+        <br />
         <button class="btn ui blue button" @click="signInWithGoogle"><span><i class="google icon"></i></span>Sign in
           with Google</button>
-          <br />
+        <br />
+        <br />
         <button class="btn ui facebook button " @click="signInWithFacebook"><span><i
               class="facebook f icon"></i></span>Sign in with Facebook </button>
         <br />
-                       <button class="btn ui white button " @click="signInWithMicrosoft"><i class="microsoft icon"></i>Sign in with Microsoft </button>
+        <br />
+        <button class="btn ui white button " @click="signInWithMicrosoft"><i class="microsoft icon"></i>Sign in with
+          Microsoft </button>
+        <br />
         <br />
         <button class="btn disabled ui twitter button " @click="signInWithTwitter">Sign in with Twitter</button>
       </div>
@@ -30,7 +35,8 @@
     getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
-    FacebookAuthProvider,OAuthProvider,
+    FacebookAuthProvider,
+    OAuthProvider,
     signInWithPopup,
   } from "firebase/auth";
   import userStore from "../store/user";
@@ -94,7 +100,7 @@
             alert(err.message);
           });
       },
-        signInWithMicrosoft() {
+      signInWithMicrosoft() {
         const auth = getAuth();
         const provider = new OAuthProvider("microsoft.com");;
         signInWithPopup(auth, provider)
