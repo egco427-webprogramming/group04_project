@@ -93,7 +93,7 @@ export default {
     id: String,
   },
   async setup(props) {
-    const { getters } = useStore();
+    const { getters, dispatch } = useStore();
     const router = useRouter();
 
     const cart = computed(() => getters["cart/cart"]);
@@ -114,6 +114,7 @@ export default {
           uid: props.id,
           price: totalResult.value,
         });
+        await dispatch("cart/clearCartAfterPurchase");
         router.push("/purchased");
       } catch (err) {
         console.error(err);
