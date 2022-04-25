@@ -167,7 +167,7 @@
     height: 43px;
     width: 350px;
     border-radius: 30px;
-    margin-top: 13px;
+    margin-top: 10px;
     font-weight: 700;
     font-size: 16px;
 }
@@ -175,7 +175,7 @@
     height: 43px;
     width: 350px;
     border-radius: 30px;
-    margin-top: 13px;
+    margin-top: 10px;
     margin-bottom: 150px;
     font-weight: 700;
     font-size: 16px;
