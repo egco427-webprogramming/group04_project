@@ -32,6 +32,7 @@ export default {
   flex-wrap: wrap;
   /* grid-template-columns: repeat(4, 1fr); */
   justify-content: center;
+  margin-top: 40px;
 }
 </style>
 <style >
