@@ -1,7 +1,8 @@
 <template>
-  <br />
-  <h1>Promotion</h1>
-
+  <br>
+  <div>
+    <h1 class="text-promotion">Promotion</h1>
+  </div>
   <div class="product-wrapper">
     <PromotionCard
       v-for="product in products"
@@ -39,5 +40,10 @@ export default {
 .card-image:hover {
   opacity: 0.9;
   transition: all 0.4s ease-in-out;
+}
+.text-promotion {
+  font-weight: 700;
+  font-size: 50px;
+  /* color: rgb(160, 8, 138); */
 }
 </style>

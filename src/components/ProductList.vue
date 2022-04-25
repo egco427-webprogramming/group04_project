@@ -1,7 +1,7 @@
 <template>
   <br>
   <div>
-    <h1>{{category}}</h1>
+    <h1 class="text-category">{{category}}</h1>
   </div>
   <div class="product-wrapper">
     <template v-for="product in products">
@@ -76,5 +76,10 @@ export default {
   /* grid-template-columns: repeat(4, 1fr); */
   justify-content: center;
   margin-top: 40px;
+}
+.text-category {
+  font-weight: 700;
+  font-size: 50px;
+  /* color: rgb(160, 8, 138); */
 }
 </style>
