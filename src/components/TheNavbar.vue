@@ -10,7 +10,7 @@
       <sui-menu-item>main</sui-menu-item>
     </router-link>-->
     <router-link :to="{name:'Promotion'}">
-      <sui-menu-item>Sales</sui-menu-item>
+      <sui-menu-item>Promotion</sui-menu-item>
     </router-link>
     <!-- <router-link :to="{name:'User'}" v-if="isLoggedIn">
       <sui-menu-item>User</sui-menu-item>
