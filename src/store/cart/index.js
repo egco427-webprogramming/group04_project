@@ -114,5 +114,18 @@ export default {
       console.log("clearing");
       commit("CLEAR_CART");
     },
+
+    async clearCartAfterPurchase({ state,commit }) {
+      console.log("clearing");
+      commit("CLEAR_CART");
+      try {
+        const currentUser = getAuth().currentUser;
+        if (!!currentUser) {
+          await updateCart(currentUser.uid, state.cart);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
   },
 };
