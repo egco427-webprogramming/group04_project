@@ -98,3 +98,4 @@ nav {
 .brand-name {
   font-weight: bold;
 }
+</style>
