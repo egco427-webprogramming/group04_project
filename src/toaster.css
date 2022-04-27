@@ -1,0 +1,9 @@
+.my-danger {
+  /* background-color: red !important; */
+  background-color: white;
+
+}
+
+.my-danger>.mosha__toast__progress {
+  background-color: red;
+}
