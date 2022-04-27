@@ -1,6 +1,5 @@
 import { getCart, updateCart } from "../../services/cart.service";
 import { getAuth } from "firebase/auth";
-
 export default {
   namespaced: true,
   state: {
@@ -60,7 +59,7 @@ export default {
       //   cart.push(product);
       // });
       state.cart = userCart;
-      console.log(state.cart, userCart);
+      // console.log(state.cart, userCart);
     },
     CLEAR_CART(state) {
       state.cart = [];
@@ -113,7 +112,7 @@ export default {
       commit("CLEAR_CART");
     },
 
-    async clearCartAfterPurchase({ state,commit }) {
+    async clearCartAfterPurchase({ state, commit }) {
       console.log("clearing");
       commit("CLEAR_CART");
       try {
