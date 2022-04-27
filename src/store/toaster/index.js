@@ -11,7 +11,9 @@ const successToast = () =>
     swipeClose: true,
     position: "bottom-left",
     type: "my-danger",
+    timeout: "1000000",
   });
+// set time out for debugging
 const errorToast = () =>
   createToast("", {
     title: "some thing went wrong",
