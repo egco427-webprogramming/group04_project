@@ -10,6 +10,7 @@
     "bootstrap": "^5.1.3",
     "firebase": "^9.6.11",
     "fomantic-ui-css": "^2.8.8",
+    "mosha-vue-toastify": "^1.0.23",
     "vue": "^3.0.4",
     "vue-fomantic-ui": "^0.12.0",
     "vue-router": "^4.0.14",

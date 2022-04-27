@@ -1,5 +1,6 @@
 import { getCart, updateCart } from "../../services/cart.service";
 import { getAuth } from "firebase/auth";
+import toast from "../toaster";
 export default {
   namespaced: true,
   state: {
@@ -71,6 +72,11 @@ export default {
     async addProduct({ state, commit }, { id, amount }) {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
+      toast.successToast();
+      toast.errorToast();
+      toast.loginToast();
+      toast.logoutToast();
+      toast.checkoutToast();
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
