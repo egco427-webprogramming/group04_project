@@ -8,6 +8,7 @@ import "fomantic-ui-css/semantic.min.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import "./toaster.css";
 
 import moshaToast from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
