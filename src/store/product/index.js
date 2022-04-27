@@ -7,6 +7,8 @@ export default {
   namespaced: true,
   state: {
     products: [],
+    // using dynamic programming for better runtime
+    mappedProducts: [],
     categories: [],
     // product: {},
   },
@@ -14,6 +16,9 @@ export default {
   mutations: {
     SET_PRODUCTS(state, products) {
       state.products = products;
+      state.products.forEach((product) => {
+        state.mappedProducts[product._id] = product;
+      });
     },
     SET_CATEGORIES(state, categories) {
       state.categories = categories;
