@@ -62,7 +62,7 @@ export default {
       //   cart.push(product);
       // });
       state.cart = userCart;
-      console.log(state.cart, userCart);
+      // console.log(state.cart, userCart);
     },
     CLEAR_CART(state) {
       state.cart = [];
