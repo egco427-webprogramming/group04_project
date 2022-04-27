@@ -10,9 +10,7 @@ export default {
   getters: {
     cart: (state, getters, rootState) => {
       return state.cart.map(({ id, amount }) => {
-        const product = rootState.product.products.find(
-          (product) => product._id === id
-        );
+        const product = rootState.product.mappedProducts[id];
         return { ...product, amount };
       });
     },
