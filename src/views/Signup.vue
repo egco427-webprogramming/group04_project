@@ -13,7 +13,6 @@
                     <span class="signup">Sign in</span>
                 </router-link>
             </p>
-            <button @click="toast">Toast it!</button>
         </div>
     </div>
 </template>
