@@ -6,7 +6,11 @@
         <input type="email" v-model="formData.email" class="form-control" placeholder="email" id="email-button" />
         <input type="password" v-model="formData.password" class="form-control" placeholder="password"
           id="password-button" />
-        <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>
+        <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>        
+        <p>Not a member?
+        <router-link :to="{path:'/signup'}">
+          <span class="signup">Signup</span>
+        </router-link></p>
         <p class="or">OR</p>
         <button class="ui basic button" @click="signInWithGoogle" id="google-button">
           <span><i class="google icon"></i></span>Sign in with Google
@@ -22,12 +26,9 @@
         <br>
         <button class="ui twitter button " @click="signInWithTwitter" id="twitter-button">
           <span><i class="twitter icon"></i></span> Continue with Twitter
-        </button>
+        </button>       
+
         <br>
-        <p>Not a member?
-        <router-link :to="{path:'/signup'}">
-          <span class="signup">Signup</span>
-        </router-link></p>
       </div>
     </div>
   </div>
