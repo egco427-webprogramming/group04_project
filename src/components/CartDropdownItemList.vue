@@ -5,7 +5,6 @@
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item" v-for="item in cart">
-        <div class="d-flex flex-row justify-content-between my-flex-container" id="cart-item">
           <div class="col">
             <span class="product-name">{{item.name}} x {{item.amount}}</span>
             <br />
@@ -25,7 +24,6 @@
               <sui-icon name="trash alternate" />delete
             </button>
           </div>
-        </div>
       </div>
       <div class="item">
         <div v-if="cart.length !== 0">
