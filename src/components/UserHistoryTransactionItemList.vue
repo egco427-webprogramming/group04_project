@@ -7,8 +7,8 @@
       <div class="item">
         <span class="product-name">{{item?.name}}</span>
       </div>
-      <br />
       <span class="product-type">Category:{{item?.category}}</span>
+      <br />
       <span class="product-Amount">Amount:{{item?.amount}}</span>
       <br />
     </div>
