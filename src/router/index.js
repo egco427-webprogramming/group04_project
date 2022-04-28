@@ -9,6 +9,7 @@ import Cart from "../views/Cart.vue";
 import Purchased from "../views/Purchased.vue";
 
 import SignIn from "../views/SignIn.vue";
+import Signup from "../views/Signup.vue";
 
 import { getAuth } from "firebase/auth";
 import userStore from "../store/user";
@@ -46,6 +47,7 @@ const routes = [
   },
   { path: "/product/:id", name: "Product", component: Product },
   { path: "/signin", name: "SignIn", component: SignIn },
+  { path: "/signup", name: "Signup", component: Signup },
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
 
@@ -71,9 +73,11 @@ router.beforeEach(async (to, from, next) => {
     next("signin");
   } else if (to.name == "SignIn" && currentUser) {
     // console.log("You are authorized to access this area.");
-
     next("/");
-  } else {
+  } else if (to.name == "Signup" && currentUser) {
+    next("/");
+  }
+  else {
     next();
   }
 });
