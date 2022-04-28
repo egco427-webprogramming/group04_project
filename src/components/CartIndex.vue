@@ -57,6 +57,7 @@
 
       <form class="ui form">
         <div class="field">
+
           <div class="field">
             <label>First name</label>
             <input type="text" v-model="user.firstname" placeholder="First Name" />
@@ -69,15 +70,54 @@
             <label>Mobile Number</label>
             <input type="text" placeholder="Tel" v-model="user.tel" />
           </div>
+          <div class="field">
+            <label>Card number</label>
+            <input type="text" placeholder="**** **** **** ****" :maxlength="16" />
+          </div>
+
+          <div class="fields">
+            <div class=" field">
+              <label>CVC</label>
+              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+            </div>
+            <div class=" field">
+              <label>Expiration</label>
+              <div class="two fields">
+                <div class="field">
+                  <select class="ui fluid search dropdown" name="card[expire-month]">
+                    <option value="">Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="field">
           <label>Shipping Address</label>
           <div class="field">
             <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
-          </div>
+            </div>
         </div>
         <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button>
       </form>
+
+
     </div>
   </main>
 </template>
