@@ -115,6 +115,9 @@ br {
 /* media query */
 
 @media only screen and (max-width: 640px) {
+  #cart-dropdown {
+    display: none;
+  }
   #cart-button {
     display: block !important;
   }
