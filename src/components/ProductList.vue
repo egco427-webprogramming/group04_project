@@ -8,7 +8,7 @@
       <ProductCard :product="product" :key="'product-card-'+product._id" />
     </template>
   </div>
-  <br />
+  <br>
 </template>
 
 <script>
