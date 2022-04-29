@@ -55,36 +55,36 @@
         </div>
       </div>
 
-      <form class="ui form">
+      <form action="" class="ui form">
         <div class="field">
 
           <div class="field">
             <label>First name</label>
-            <input type="text" v-model="user.firstname" placeholder="First Name" />
+            <input type="text" v-model="user.firstname" placeholder="First Name" required />
           </div>
           <div class="field">
             <label>Last name</label>
-            <input type="text" v-model="user.lastname" placeholder="Last Name" />
+            <input type="text" v-model="user.lastname" placeholder="Last Name" required />
           </div>
           <div class="field">
             <label>Mobile Number</label>
-            <input type="text" placeholder="Tel" v-model="user.tel" />
+            <input type="text" placeholder="Tel" v-model="user.tel" required />
           </div>
           <div class="field">
             <label>Card number</label>
-            <input type="text" placeholder="**** **** **** ****" :maxlength="16" />
+            <input type="text" placeholder="**** **** **** ****" :maxlength="16" required />
           </div>
 
           <div class="fields">
             <div class=" field">
               <label>CVC</label>
-              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required>
             </div>
             <div class=" field">
               <label>Expiration</label>
               <div class="two fields">
                 <div class="field">
-                  <select class="ui fluid search dropdown" name="card[expire-month]">
+                  <select class="ui fluid search dropdown" name="card[expire-month]" required>
                     <option value="">Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -101,7 +101,7 @@
                   </select>
                 </div>
                 <div class="field">
-                  <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+                  <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" required>
                 </div>
               </div>
             </div>
@@ -111,12 +111,11 @@
         <div class="field">
           <label>Shipping Address</label>
           <div class="field">
-            <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
+            <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" required />
             </div>
         </div>
         <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button>
       </form>
-
 
     </div>
   </main>
