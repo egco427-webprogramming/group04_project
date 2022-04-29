@@ -131,6 +131,9 @@ p {
     grid-template-columns: 1fr 1fr;
     /* justify-content: center; */
   }
+  #main-nav > * {
+    margin: auto;
+  }
   #main-nav > .item::before {
     display: none;
   }
