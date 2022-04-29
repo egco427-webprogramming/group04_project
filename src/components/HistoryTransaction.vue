@@ -1,8 +1,7 @@
 <template>
   <div class="ui celled grid shadow">
     <div class="row">
-      <!-- <UserHistoryTransactionItemList :items="transaction?.items" /> -->
-      <UserHistoryTransactionItemList :items="itemsWithDetail" />
+      <HistoryTransactionItemList :items="itemsWithDetail" />
       <hr />
 
       <div>
@@ -14,14 +13,14 @@
 </template>
 
 <script>
-import UserHistoryTransactionItemList from "./UserHistoryTransactionItemList.vue";
+import HistoryTransactionItemList from "./HistoryTransactionItemList.vue";
 import { createNamespacedHelpers } from "vuex";
 const { mapState } = createNamespacedHelpers("product");
 export default {
   props: {
     transaction: Object,
   },
-  components: { UserHistoryTransactionItemList },
+  components: { HistoryTransactionItemList },
   computed: {
     ...mapState({
       mappedProducts: (state) => state.mappedProducts,
