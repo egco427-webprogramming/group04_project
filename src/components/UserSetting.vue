@@ -35,7 +35,12 @@
       </div>
     </div>
     <div align="center">
-      <button class="ui black button " type="submit" id="update-button">Update User</button>
+      <button
+        class="ui black button"
+        :class="isLoading&&'loading'"
+        type="submit"
+        id="update-button"
+      >Update User</button>
     </div>
   </form>
 </template>
@@ -46,17 +51,22 @@
  */
 import { updateUser } from "../services/user.service";
 export default {
+  data() {
+    return { isLoading: false };
+  },
   props: {
     user: Object,
   },
   methods: {
     async updateUser() {
+      this.isLoading = true;
       let updatedUser;
       try {
         updatedUser = await updateUser(this.user.uid, this.user);
       } catch (err) {
         console.log(err);
       }
+      this.isLoading = false;
       return updatedUser;
     },
   },
