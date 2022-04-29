@@ -9,11 +9,11 @@
     <div class="two fields">
       <div class="field">
         <label id="firstname-text">First name</label>
-        <input type="text" v-model="user.firstname" placeholder="First Name" id="firstname-input"/>
+        <input type="text" v-model="user.firstname" placeholder="First Name" id="firstname-input" />
       </div>
       <div class="field">
         <label id="lastname-text">Last name</label>
-        <input type="text" v-model="user.lastname" placeholder="Last Name" id="lastname-input"/>
+        <input type="text" v-model="user.lastname" placeholder="Last Name" id="lastname-input" />
       </div>
     </div>
 
