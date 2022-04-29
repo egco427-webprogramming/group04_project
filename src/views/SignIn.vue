@@ -7,10 +7,6 @@
         <input type="password" v-model="formData.password" class="form-control" placeholder="password"
           id="password-button" />
         <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>        
-        <p id="signup-text">Not a member?
-        <router-link :to="{path:'/signup'}">
-          <span class="signup">Sign up</span>
-        </router-link></p>
         <p class="or">OR</p>
         <button class="ui basic button" @click="signInWithGoogle" id="google-button">
           <span><i class="fab fa-google fa-1x"></i></span>&nbsp Sign in with Google
@@ -27,7 +23,11 @@
         <br>
         <button class="ui twitter button " @click="signInWithTwitter" id="twitter-button">
           <span><i class="twitter icon"></i></span> Continue with Twitter
-        </button>       
+        </button>     
+        <p id="signup-text">Not a member?
+        <router-link :to="{path:'/signup'}">
+          <span class="signup">Sign up</span>
+        </router-link></p>  
 
         <br>
       </div>
@@ -171,18 +171,12 @@
     margin-top: 35px;
   }
 
-  #signup-text {
-    margin-top: 10px;
-  }
-
   .or {
     font-weight: 900;
     font-size: 15px;
     margin-top: 15px;
     margin-bottom: 5px;
   }
-
- 
 
   #google-button,
   #microsoft-button,
@@ -200,9 +194,13 @@
     width: 350px;
     border-radius: 30px;
     margin-top: 10px;
-    margin-bottom: 150px;
     font-weight: 700;
     font-size: 16px;
+  }
+
+  #signup-text {
+    margin-top: 15px;
+    margin-bottom: 150px;
   }
 
   .fa-google {
