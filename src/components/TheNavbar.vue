@@ -29,13 +29,7 @@
 
     <sui-menu-menu position="right" class="nav-right">
       <!-- Search -->
-      <div class="ui category search">
-        <div class="ui icon input">
-          <input class="prompt" type="text" placeholder="Search product..." />
-          <i class="search icon"></i>
-        </div>
-        <div class="results"></div>
-      </div>
+      <SearchBar />
       <!-- Cart Dropdown -->
       <div class="cart-item">
         <CartDropdown />
@@ -65,12 +59,13 @@
 
 <script>
 import CartDropdown from "./CartDropdown.vue";
+import SearchBar from "./SearchBar.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import userStore from "../store/user";
 
 export default {
-  components: { CartDropdown },
+  components: { CartDropdown, SearchBar },
   props: { handleLogout: Function },
   computed: {
     isLoggedIn: () => userStore.state.isLoggedIn,
@@ -127,7 +122,7 @@ p {
   margin: auto;
 } */
 </style>
-<style scoped>
+<style >
 /* responsive nav for mobile */
 @media only screen and (max-width: 720px) {
   #main-nav {

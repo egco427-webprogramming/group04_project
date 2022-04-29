@@ -1,7 +1,7 @@
 <template>
-  <br>
+  <br />
   <div>
-    <h1 class="text-category">{{category}}</h1>
+    <h1 class="text-query">search result of {{query}}</h1>
   </div>
   <div class="product-wrapper">
     <template v-for="product in products">
@@ -21,30 +21,24 @@ import ProductCard from "./ProductCard.vue";
 import PromotionCard from "./PromotionCard.vue";
 import { useRoute } from "vue-router";
 import { computed, onMounted, ref, watchEffect, watch } from "vue";
-import {
-  getProductList,
-  getProductListWithCategory,
-} from "../services/product.service";
+import { getProductListWithKeyword } from "../services/product.service";
+
 export default {
   components: { ProductCard, PromotionCard },
   async setup() {
     const route = useRoute();
 
-    const fetchData = async (category) =>
-      await (category
-        ? getProductListWithCategory(category)
-        : getProductList());
+    const fetchData = async (query) => await getProductListWithKeyword(query);
 
-    const products = ref(await fetchData(route.query.category));
+    const products = ref(await fetchData(route.query.q));
 
     watch(
-      () => route.query.category,
-      async (category, _) => {
-        products.value = await fetchData(category);
+      () => route.query.q,
+      async (query, _) => {
+        products.value = await fetchData(query);
       }
     );
-
-    return { products, category: computed(() => route.query.category) };
+    return { products, query: computed(() => route.query.q) };
   },
 };
 </script>
@@ -56,7 +50,7 @@ export default {
   justify-content: center;
   margin-top: 40px;
 }
-.text-category {
+.text-query {
   font-weight: 700;
   font-size: 50px;
 }
