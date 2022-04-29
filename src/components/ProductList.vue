@@ -25,11 +25,6 @@ import {
   getProductList,
   getProductListWithQuery,
 } from "../services/product.service";
-// import { useStore } from "vuex";
-
-// import { createNamespacedHelpers } from "vuex";
-// const { mapState, mapActions } = createNamespacedHelpers("product");
-
 export default {
   components: { ProductCard, PromotionCard },
   async setup() {
@@ -46,26 +41,9 @@ export default {
         products.value = await fetchData(category);
       }
     );
+
     return { products, category: computed(() => route.query.category) };
   },
-  // for vuex
-  // setup() {
-  //   const { state, dispatch } = useStore();
-  //   const route = useRoute();
-
-  //   const category = computed(() => route.query.category);
-  //   // const products = computed(() => state.product.products);
-  //   const products = computed(() =>
-  //     category.value
-  //       ? state.product.products.filter(
-  //           (product) => product.category === category.value
-  //         )
-  //       : state.product.products
-  //   );
-  //   dispatch("product/setProducts");
-
-  //   return { category, products };
-  // },
 };
 </script>
 
@@ -73,13 +51,11 @@ export default {
 .product-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* grid-template-columns: repeat(4, 1fr); */
   justify-content: center;
   margin-top: 40px;
 }
 .text-category {
   font-weight: 700;
   font-size: 50px;
-  /* color: rgb(160, 8, 138); */
 }
 </style>
