@@ -134,6 +134,10 @@ p {
   #main-nav > .item::before {
     display: none;
   }
+  #main-nav > #logo {
+    grid-column: span 2;
+  }
+
   #main-nav > .right {
     grid-column: span 2;
     width: 100%;
