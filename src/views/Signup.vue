@@ -34,6 +34,7 @@
 
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { login } from "../services/user.service";
 
 export default {
   name: "SignUp",
@@ -55,6 +56,7 @@ export default {
       )
         .then((user) => {
           //alert("Sign up success! redirect to Home page")
+          login(user.user);
           this.$router.replace("/");
         })
         .catch((e) => {
