@@ -43,6 +43,11 @@
               <p>Profile</p>
             </router-link>
           </div>
+          <div class="item">
+            <router-link :to="{name:'History'}">
+              <p>History</p>
+            </router-link>
+          </div>
           <a href="#" @click="handleLogout" v-if="isLoggedIn">
             <div class="item">
               <p>Sign Out</p>
