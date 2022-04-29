@@ -3,8 +3,9 @@
     <!-- Logo -->
     <router-link to="/" id="logo">
       <sui-image
-          src="https://docs.google.com/uc?id=1X1DtrmN5swQP_S8dsf2Zeh_TrMSi4joc"
-          size="small" />
+        src="https://docs.google.com/uc?id=1X1DtrmN5swQP_S8dsf2Zeh_TrMSi4joc"
+        size="small"
+      />
     </router-link>
     <!-- Promotion -->
     <sui-menu-item>
@@ -20,7 +21,7 @@
       <div class="menu">
         <div class="item" v-for="category in categoryList">
           <router-link :to="{...MAIN_PATH,query:{category:category}}">
-              <p>{{category}}</p>
+            <p>{{category}}</p>
           </router-link>
         </div>
       </div>
@@ -40,7 +41,7 @@
         <CartDropdown />
       </div>
       <!-- User -->
-      <div class="ui simple dropdown item" id="user-item" >
+      <div class="ui simple dropdown item" id="user-item">
         <i class="user icon" id="user-icon-item"></i>
         <div class="menu" id="dropdown-menu-user">
           <div class="item">
@@ -55,9 +56,9 @@
           </a>
         </div>
       </div>
-    <!-- <a href="#" @click="handleLogout" v-if="isLoggedIn">
+      <!-- <a href="#" @click="handleLogout" v-if="isLoggedIn">
       <sui-menu-item>SignOut</sui-menu-item>
-    </a> -->
+      </a>-->
     </sui-menu-menu>
   </sui-menu>
 </template>
@@ -97,30 +98,34 @@ a {
   text-decoration: none;
 }
 p {
-  color: #000
+  color: #000;
 }
 .menu {
   align-items: center;
   margin: 0px;
   text-decoration: none;
+  /* flex-wrap: wrap; */
 }
+/* .menu > * {
+  width: 1fr;
+  width: auto;
+} */
 /* .menu-item {
   margin: 0px;
   text-decoration: none;
 } */
 .category-item {
-  margin: auto
+  margin: auto;
 }
 .cart-item {
   margin: auto;
 }
 #user-icon-item {
-  margin: auto
+  margin: auto;
 }
 /* #nav-right {
   margin: auto;
 } */
-
 </style>
 <style scoped>
 /* responsive nav for mobile */
