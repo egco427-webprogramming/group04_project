@@ -122,3 +122,6 @@ p {
 } */
 
 </style>
+<style scoped>
+/* responsive nav for mobile */
+</style>
