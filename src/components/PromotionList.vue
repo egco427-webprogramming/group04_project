@@ -4,21 +4,17 @@
     <h1 class="text-promotion">Promotion</h1>
   </div>
   <div class="product-wrapper">
-    <PromotionCard
-      v-for="product in products"
-      :product="product"
-      :key="'product-card-'+product._id"
-    />
+    <ProductCard v-for="product in products" :product="product" :key="'product-card-'+product._id" />
   </div>
 </template>
 
 <script>
-import PromotionCard from "./PromotionCard.vue";
+import ProductCard from "./ProductCard.vue";
 import { ref } from "vue";
 import { getProductListWithPromotion } from "../services/product.service";
 
 export default {
-  components: { PromotionCard },
+  components: { ProductCard },
   async setup() {
     const products = ref(await getProductListWithPromotion());
 

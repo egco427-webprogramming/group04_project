@@ -4,13 +4,8 @@
     <h1 class="text-query">search result of {{query}}</h1>
   </div>
   <div class="product-wrapper">
-    <template v-for="product in products">
-      <PromotionCard
-        v-if="product.promotion > 0"
-        :product="product"
-        :key="'product-card-'+product._id"
-      />
-      <ProductCard v-else :product="product" :key="'product-card-'+product._id" />
+    <template v-for="product in products" :key="'product-card-'+product._id">
+      <ProductCard :product="product" />
     </template>
   </div>
   <br />
@@ -18,13 +13,12 @@
 
 <script>
 import ProductCard from "./ProductCard.vue";
-import PromotionCard from "./PromotionCard.vue";
 import { useRoute } from "vue-router";
 import { computed, onMounted, ref, watchEffect, watch } from "vue";
 import { getProductListWithKeyword } from "../services/product.service";
 
 export default {
-  components: { ProductCard, PromotionCard },
+  components: { ProductCard },
   async setup() {
     const route = useRoute();
 
