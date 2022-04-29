@@ -1,10 +1,11 @@
 <template>
   <suspense>
     <template #default>
-        <sui-segment id="product-segment">
-          <ProductList />
-          <br>
-        </sui-segment>
+      <sui-segment id="product-segment">
+        <ProductList v-if="!q" />
+        <ProductSearchResult v-if="!!q" />
+        <br />
+      </sui-segment>
     </template>
     <template #fallback>waiting for skeleton loading</template>
   </suspense>
@@ -12,8 +13,12 @@
 
 <script>
 import ProductList from "../components/ProductList.vue";
+import ProductSearchResult from "../components/ProductSearchResult.vue";
 export default {
-  components: { ProductList },
+  components: { ProductList, ProductSearchResult },
+  data() {
+    return { q: this.$route.query?.q };
+  },
 };
 </script>
 
