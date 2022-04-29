@@ -1,24 +1,25 @@
 <template>
   <div class="container">
     <div class="signin">
-      <h1 class="text-signin">Welcom to LUCIEN</h1>
+      <h1 class="text-signin">Welcom back !</h1>
       <div align="center">
         <input type="email" v-model="formData.email" class="form-control" placeholder="email" id="email-button" />
         <input type="password" v-model="formData.password" class="form-control" placeholder="password"
           id="password-button" />
         <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>        
-        <p>Not a member?
+        <p id="signup-text">Not a member?
         <router-link :to="{path:'/signup'}">
-          <span class="signup">Signup</span>
+          <span class="signup">Sign up</span>
         </router-link></p>
         <p class="or">OR</p>
         <button class="ui basic button" @click="signInWithGoogle" id="google-button">
-          <span><i class="google icon"></i></span>Sign in with Google
+          <span><i class="fab fa-google fa-1x"></i></span>&nbsp Sign in with Google
         </button>
         <br>
         <button class="ui basic  button " @click="signInWithMicrosoft" id="microsoft-button">
-          <i class="microsoft icon"></i>Sign in with Microsoft
+          <span><i class="fab fa-windows fa-1x"></i></span>&nbsp Sign in with Microsoft
         </button>
+        
         <br>
         <button class="btn ui facebook button " @click="signInWithFacebook" id="facebook-button">
           <span><i class="facebook f icon"></i></span>Continue with Facebook
@@ -32,9 +33,11 @@
       </div>
     </div>
   </div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
 </template>
 
 <script>
+
   import {
     getAuth,
     signInWithEmailAndPassword,
@@ -137,7 +140,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .signin {
     margin-top: 100px;
   }
@@ -151,7 +154,7 @@
     border-radius: 12px;
     height: 50px;
     width: 350px;
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
   #password-button {
@@ -168,12 +171,18 @@
     margin-top: 35px;
   }
 
+  #signup-text {
+    margin-top: 10px;
+  }
+
   .or {
     font-weight: 900;
     font-size: 15px;
     margin-top: 15px;
     margin-bottom: 5px;
   }
+
+ 
 
   #google-button,
   #microsoft-button,
@@ -194,5 +203,17 @@
     margin-bottom: 150px;
     font-weight: 700;
     font-size: 16px;
+  }
+
+  .fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .fa-windows {
+    color: 	#00A4EF;
   }
 </style>

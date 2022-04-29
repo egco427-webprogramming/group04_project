@@ -1,32 +1,29 @@
 <template>
-  <div class="row signup">
-    <h2 class="text-signup">SignUp</h2>
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-md-offset-3" />
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-md-offset-3">
-      <div align="center">
-        <input
-          type="email"
-          v-model="formData.email"
-          class="form-control"
-          placeholder="email"
-          id="email-button"
-        />
-        <br />
-        <input
-          type="password"
-          v-model="formData.password"
-          class="form-control"
-          placeholder="password"
-          id="password-button"
-        />
-        <br />
-        <button class="btn btn-success" @click="signUp" id="signin-button">SignUp</button>
-        <p>
-          Already a member?
-          <router-link :to="{path:'/signin'}">
-            <span class="signup">Sign in</span>
-          </router-link>
-        </p>
+  <div class="container">
+    <div class="signup">
+    <h1 class="text-signup">Welcom to LUCIEN</h1>
+    <div align="center">
+      <input
+        type="email"
+        v-model="formData.email"
+        class="form-control"
+        placeholder="email"
+        id="email-button"
+      />
+      <input
+        type="password"
+        v-model="formData.password"
+        class="form-control"
+        placeholder="password"
+        id="password-button"
+      />
+      <button class="btn btn-success" @click="signUp" id="signup-button">Sign up</button>
+      <p id="signin-text">
+        Already a member?
+        <router-link :to="{path:'/signin'}">
+          <span class="signup">Sign in</span>
+        </router-link>
+      </p>
       </div>
     </div>
   </div>
@@ -67,10 +64,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .signup {
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 404px;
 }
 
 .text-signup {
@@ -82,7 +79,7 @@ export default {
   border-radius: 12px;
   height: 50px;
   width: 350px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 #password-button {
@@ -90,6 +87,10 @@ export default {
   height: 50px;
   width: 350px;
   margin-top: 15px;
+}
+
+#signin-text {
+  margin-top: 10px;
 }
 
 #signup-button {
