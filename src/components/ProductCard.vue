@@ -1,37 +1,37 @@
 <template>
   <sui-card>
     <!-- product image -->
-    <sui-image :src="product.img_url" :alt="product.name" class="card-image" />
+    <router-link :to="{name:'Product',params:{id:product._id}}">
+      <sui-image :src="product.img_url" :alt="product.name" class="card-image" />
+    </router-link>
+    <button v-if="isOnPromotion()" class="ui red button" id="button-sale">-{{product.promotion}}%</button>
     <sui-card-content class="card-content" align="left">
-      <!-- produvt name -->
-      <sui-card-header>{{product.name}}</sui-card-header>
+      <!-- product name -->
+      <sui-card-header>
+        <router-link :to="{name:'Product',params:{id:product._id}}">{{product.name}}</router-link>
+      </sui-card-header>
       <!-- product price -->
       <sui-card-meta>
-        <br>
-        <span class="price">THB {{product.price}}</span>
+        <br />
+        <span class="price" :class="isOnPromotion()&&'discount'">THB {{product.price}}</span>
+        <span
+          v-if="isOnPromotion()"
+          class="sale-price"
+        >THB {{((product.price)*(100-product.promotion))/100}}</span>
       </sui-card-meta>
     </sui-card-content>
+
     <!-- add button -->
     <!-- Gray Button -->
     <!-- <sui-button @click.prevent="addToCart" attached="bottom">
       <sui-icon name="cart plus" />Add to cart
-    </sui-button> -->
+    </sui-button>-->
     <!-- Black Button -->
     <button class="ui black button" @click.prevent="addToCart" attached="bottom">
       <sui-icon name="cart plus" />Add to cart
     </button>
   </sui-card>
 </template>
-/*
-  category ,
-  des,
-  img_url,
-  name,
-  price,
-  promotion["0-100"],
-  sold,
-  _id
- */
 <script>
 import { useStore } from "vuex";
 export default {
@@ -46,15 +46,17 @@ export default {
     } = props;
     const amount = 1;
     const addToCart = () => dispatch("cart/addProduct", { id: _id, amount });
-
-    return { addToCart };
+    const isOnPromotion = () => props.product.promotion > 0;
+    return { addToCart, isOnPromotion };
   },
 };
 </script>
 
 <style scoped>
 a {
-  text-decoration: none;
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+  font-size: inherit;
 }
 br {
   display: block; /* makes it have a width */
@@ -79,5 +81,21 @@ br {
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
+}
+.discount {
+  text-decoration: line-through;
+}
+.sale-price {
+  color: #cb0000;
+  font-weight: bold;
+}
+
+#button-sale {
+  position: absolute;
+  padding: 5px;
+  background-color: #cb0000;
+  bottom: 35%;
+  right: 3%;
+  width: 70px;
 }
 </style> 
