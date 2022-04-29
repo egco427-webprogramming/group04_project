@@ -111,6 +111,12 @@ br {
 #cart-button {
   display: none;
 }
+#cart-dropdown > .menu {
+  max-height: 80vh;
+  min-width: 350px;
+  overflow: auto;
+}
+</style>
 <style >
 /* media query */
 
