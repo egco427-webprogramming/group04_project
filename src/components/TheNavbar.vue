@@ -1,7 +1,7 @@
 <template>
-  <sui-menu size="big" class="sticky-top" >
+  <sui-menu size="big" class="sticky-top" id="main-nav">
     <!-- Logo -->
-    <router-link to="/">
+    <router-link to="/" id="logo">
       <sui-image
           src="https://docs.google.com/uc?id=1X1DtrmN5swQP_S8dsf2Zeh_TrMSi4joc"
           size="small" />
