@@ -153,6 +153,9 @@ p {
     grid-column: span 2;
     grid-row-start: 2;
   }
+  #main-nav > .right > .search > .input {
+    width: 80%;
+  }
   #main-nav > .right > #user-item {
     grid-row-start: 1;
   }
