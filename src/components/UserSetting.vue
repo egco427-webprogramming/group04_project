@@ -1,5 +1,5 @@
 <template>
-  <form class="ui form">
+  <form class="ui form" @submit.prevent="updateUser">
     <!-- <p>{{user}}</p> -->
     <h1 class="ui header" align="center" id="profile-text">Edit Profile</h1>
     <div class="field">
@@ -9,11 +9,11 @@
     <div class="two fields">
       <div class="field">
         <label id="firstname-text">First name</label>
-        <input type="text" v-model="user.firstname" placeholder="First Name" id="firstname-input"/>
+        <input type="text" v-model="user.firstname" placeholder="First Name" id="firstname-input" />
       </div>
       <div class="field">
         <label id="lastname-text">Last name</label>
-        <input type="text" v-model="user.lastname" placeholder="Last Name" id="lastname-input"/>
+        <input type="text" v-model="user.lastname" placeholder="Last Name" id="lastname-input" />
       </div>
     </div>
 
@@ -35,7 +35,12 @@
       </div>
     </div>
     <div align="center">
-      <button class="ui black button " type="submit" id="update-button">Update User</button>
+      <button
+        class="ui black button"
+        :class="isLoading&&'loading'"
+        type="submit"
+        id="update-button"
+      >Update User</button>
     </div>
   </form>
 </template>
@@ -44,16 +49,35 @@
 /**
  * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
  */
+import { updateUser } from "../services/user.service";
 export default {
+  data() {
+    return { isLoading: false };
+  },
   props: {
     user: Object,
+  },
+  methods: {
+    async updateUser() {
+      this.isLoading = true;
+      let updatedUser;
+      try {
+        updatedUser = await updateUser(this.user.uid, this.user);
+      } catch (err) {
+        console.log(err);
+      }
+      this.isLoading = false;
+      return updatedUser;
+    },
   },
 };
 </script>
 
 <style scoped>
 .form {
-  margin: 3% 30% 10% 30%;
+  margin: 3% auto 10%;
+  max-width: 640px;
+  width: 80%;
   text-align: left;
 }
 
@@ -61,7 +85,7 @@ export default {
   margin-top: 25px;
   font-weight: 700;
   font-size: 50px;
-  color: rgb(54, 54, 55)
+  color: rgb(54, 54, 55);
 }
 
 #uid-text {
@@ -69,14 +93,19 @@ export default {
   font-size: 16px;
 }
 
-#firstname-text, #lastname-text, #email-text, #mobile-text, #address-text {
+#firstname-text,
+#lastname-text,
+#email-text,
+#mobile-text,
+#address-text {
   margin-top: 20px;
   font-size: 16px;
 }
 
 #update-button {
   height: 43px;
-  width: 350px;
+  max-width: 350px;
+  width: 90%;
   border-radius: 30px;
   margin: 35px auto auto auto;
 }
