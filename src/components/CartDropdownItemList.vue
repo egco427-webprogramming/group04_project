@@ -108,4 +108,15 @@ br {
 #cart-item {
   gap: 32px;
 }
+#cart-button {
+  display: none;
+}
+<style >
+/* media query */
+
+@media only screen and (max-width: 640px) {
+  #cart-button {
+    display: block !important;
+  }
+}
 </style>
