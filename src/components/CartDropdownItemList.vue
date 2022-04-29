@@ -1,4 +1,9 @@
 <template>
+  <div id="cart-button">
+    <router-link :to="{name:'Cart'}">
+      <sui-icon name="shopping cart" />
+    </router-link>
+  </div>
   <div class="ui simple dropdown item" id="cart-dropdown">
     <sui-icon name="shopping cart" />
     THB {{totalResult}}
