@@ -1,14 +1,14 @@
 <template>
-  <br>
+  <br />
   <div>
     <h1 class="text-category">{{category}}</h1>
   </div>
   <div class="product-wrapper">
-    <template v-for="product in products">
-      <ProductCard :product="product" :key="'product-card-'+product._id" />
+    <template v-for="product in products" :key="'product-card-'+product._id">
+      <ProductCard :product="product" />
     </template>
   </div>
-  <br>
+  <br />
 </template>
 
 <script>
@@ -53,6 +53,6 @@ export default {
 .text-category {
   font-weight: 700;
   font-size: 50px;
-  color: rgb(54, 54, 55)
+  color: rgb(54, 54, 55);
 }
 </style>
