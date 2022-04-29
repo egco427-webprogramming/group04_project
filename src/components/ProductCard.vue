@@ -46,8 +46,8 @@ export default {
     } = props;
     const amount = 1;
     const addToCart = () => dispatch("cart/addProduct", { id: _id, amount });
-
-    return { addToCart };
+    const isOnPromotion = () => props.product.promotion > 0;
+    return { addToCart, isOnPromotion };
   },
 };
 </script>
