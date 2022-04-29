@@ -124,4 +124,15 @@ p {
 </style>
 <style scoped>
 /* responsive nav for mobile */
+@media only screen and (max-width: 720px) {
+  #main-nav {
+    /* display: grid; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: center; */
+  }
+  #main-nav > .right {
+    grid-column: span 2;
+    width: 100%;
+  }
 </style>
