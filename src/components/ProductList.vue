@@ -53,5 +53,6 @@ export default {
 .text-category {
   font-weight: 700;
   font-size: 50px;
+  color: rgb(54, 54, 55)
 }
 </style>

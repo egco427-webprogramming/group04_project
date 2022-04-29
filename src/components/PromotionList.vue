@@ -40,6 +40,6 @@ export default {
 .text-promotion {
   font-weight: 700;
   font-size: 50px;
-  /* color: rgb(160, 8, 138); */
+  color: rgb(54, 54, 55)
 }
 </style>
