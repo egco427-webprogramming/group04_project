@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Main from "../views/Main.vue";
 import User from "../views/User.vue";
+import History from "../views/History.vue";
 import Promotion from "../views/Promotion.vue";
 import Product from "../views/Product.vue";
 import Cart from "../views/Cart.vue";
@@ -31,6 +32,12 @@ const routes = [
     path: "/user",
     name: "User",
     component: User,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/history",
+    name: "History",
+    component: History,
     meta: { requiresAuth: true },
   },
   {
@@ -76,8 +83,7 @@ router.beforeEach(async (to, from, next) => {
     next("/");
   } else if (to.name == "Signup" && currentUser) {
     next("/");
-  }
-  else {
+  } else {
     next();
   }
 });
