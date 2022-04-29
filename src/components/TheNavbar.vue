@@ -134,5 +134,8 @@ p {
   #main-nav > .right {
     grid-column: span 2;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+
 </style>
