@@ -8,8 +8,20 @@
       <div class="col" id="product-detail">
         <div align="left" > 
             <h2 id="product-name">{{product.name}}</h2>
-            <h5 id="product-category">{{product.category}}</h5>
-            <h4 id="product-price">THB {{product.price}}</h4>
+            <h5 id="product-category" style="font-size:16px">{{product.category}}</h5>
+            <div v-if="product.promotion > 0">
+              <span id="product-line-price">THB {{product.price}}</span>
+              <span id="product-sale-price">  THB {{((product.price)*(100-product.promotion))/100}}</span>
+            </div>
+            <div v-else>
+              <h4 id="product-price">THB {{product.price}}</h4>
+            </div>
+            <div v-if="product.sold > 1">
+              <p class="product-sold" style="font-size:16px">sold : {{product.sold}} pieces</p>
+            </div>
+            <div v-else>
+              <p  class="product-sold" style="font-size:16px">THB {{product.price}} piece</p>
+            </div>
             <hr id="hr-line">
             <h4 id="description-text">Description</h4>
             <h5 id="product-des">{{product.des}}</h5>
@@ -47,23 +59,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #row {
   margin: 70px 0px 70px 0px;
 }
 #col-img {
   margin: auto 50px auto 50px;
   display: block;
-  /* margin-top: auto;
-  margin-bottom: auto; */
   object-fit: cover;
 }
 img {
-  width: 100%;
+  width: 80%;
+  height: 80%;
+  min-width: 500px;
 }
 
 #product-detail {
-  margin: 0px 40px 0px 40px;
+  margin: 0px 120px 0px 40px;
 }
 #product-name {
   margin-top: 100px;
@@ -74,6 +86,21 @@ img {
 }
 #product-price {
   margin-top: 15px;
+  font-size: 20px;
+}
+#product-line-price {
+  margin-top: 15px;
+  font-size: 20px;
+  text-decoration: line-through;
+}
+#product-sale-price {
+  color: #cb0000;
+  font-weight: bold;
+  font-size: 20px;
+}
+.product-sold {
+  margin-top: 10px;
+  color: #6b6161;
 }
 #hr-line {
   margin-top: 60px;
@@ -90,5 +117,20 @@ img {
   border-radius: 30px;
   margin-top: 75px;
   
+}
+/* responsive nav for Labtop */
+@media only screen and (max-width: 1650px) {
+  #col-img {
+    margin: auto auto auto auto;
+    display: block;
+    object-fit: cover;
+  }
+  img {
+    width: 500px;
+    height: auto;
+  }
+  #product-detail {
+    margin: 0px 60px 0px 60px;
+  }
 }
 </style>
