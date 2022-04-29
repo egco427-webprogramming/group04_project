@@ -54,7 +54,9 @@ export default {
 
 <style scoped>
 a {
-  text-decoration: none;
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+  font-size: inherit;
 }
 br {
   display: block; /* makes it have a width */
