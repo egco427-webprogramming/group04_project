@@ -12,9 +12,14 @@
       </sui-card-meta>
     </sui-card-content>
     <!-- add button -->
-    <sui-button @click.prevent="addToCart" attached="bottom">
+    <!-- Gray Button -->
+    <!-- <sui-button @click.prevent="addToCart" attached="bottom">
       <sui-icon name="cart plus" />Add to cart
-    </sui-button>
+    </sui-button> -->
+    <!-- Black Button -->
+    <button class="ui black button" @click.prevent="addToCart" attached="bottom">
+      <sui-icon name="cart plus" />Add to cart
+    </button>
   </sui-card>
 </template>
 /*
