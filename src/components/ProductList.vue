@@ -23,7 +23,7 @@ import { useRoute } from "vue-router";
 import { computed, onMounted, ref, watchEffect, watch } from "vue";
 import {
   getProductList,
-  getProductListWithQuery,
+  getProductListWithCategory,
 } from "../services/product.service";
 // import { useStore } from "vuex";
 
@@ -36,7 +36,9 @@ export default {
     const route = useRoute();
 
     const fetchData = async (category) =>
-      await (category ? getProductListWithQuery(category) : getProductList());
+      await (category
+        ? getProductListWithCategory(category)
+        : getProductList());
 
     const products = ref(await fetchData(route.query.category));
 
