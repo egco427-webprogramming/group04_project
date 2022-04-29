@@ -1,10 +1,8 @@
 <template>
+  <br />
   <div>
-    <h4 class="ui dividing header">Purchase History</h4>
-    <br>
-    <!-- <ul>
-      <li v-for="transaction in history">{{transaction||"Transaction"}}</li>
-    </ul>-->
+    <h1 class="ui dividing header">Purchase History</h1>
+    <br />
   </div>
 
   <main class="ui stackable grid centered">
@@ -24,19 +22,40 @@
         </div>
       </div>
       <div v-for="transaction in history">
-        <UserHistoryTransaction :transaction="transaction" :key="transaction._id" />
+        <HistoryTransaction :transaction="transaction" :key="transaction._id" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import UserHistoryTransaction from "./UserHistoryTransaction.vue";
+import HistoryTransaction from "./HistoryTransaction.vue";
+
+import { getHistory } from "../services/history.service";
+import { ref } from "vue";
+
 export default {
-  props: {
-    history: Array,
+  components: {
+    HistoryTransaction,
   },
-  components: { UserHistoryTransaction },
+  props: {
+    id: String,
+  },
+  async setup(props) {
+    const history = ref(await getHistory(props.id));
+    return { history };
+  },
+  methods: {
+    async getHistory(id) {
+      let history;
+      try {
+        history = await getHistory(id);
+      } catch (err) {
+        console.log(err);
+      }
+      return history;
+    },
+  },
 };
 </script>
 
