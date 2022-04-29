@@ -1,8 +1,8 @@
 <template>
-  <main class="ui stackable grid centered">
+  <main class="ui stackable grid centered" id="header-form">
     <div class="eight wide column">
-      <h4 class="mt-3 ui dividing header large">Your cart</h4>
-      <div class="ui celled grid">
+      <h1 class="mt-3 ui dividing header large" id="header-cart">Your cart</h1>
+      <div class="ui celled grid" id="header-item">
         <div class="row center aligned">
           <div class="three wide column">
             <p>Item</p>
@@ -25,9 +25,9 @@
             <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
               <br />
-              <span class="product-type">Type:{{item.category}}</span>
+              <span class="product-type">Type : {{item.category}}</span>
               <br />
-              <span class="product-amount">Amount:{{item.amount}}</span>
+              <span class="product-amount">Amount : {{item.amount}}</span>
             </div>
             <div class="three wide center aligned column">
               <span>THB {{String(Math.round(item.price*item.amount))}}</span>
@@ -36,9 +36,10 @@
         </div>
       </div>
     </div>
-
-    <div class="five wide column">
-      <h5 class="m-4 ui dividing header large">Summary</h5>
+    <div class="one wide column">
+    </div>
+    <div class="five wide column" id="detail-form">
+      <h4 class="mt-3 ui dividing header large" id="header-summary">Summary</h4>
       <!-- <br /> -->
       <div class="ui vertically divided grid m-4">
         <div class="two column row">
@@ -58,20 +59,20 @@
       <form action="" class="ui form">
         <div class="field">
 
-          <div class="field">
-            <label>First name</label>
+          <div class="field" id="firstname-field">
+            <label>First Name</label>
             <input type="text" v-model="user.firstname" placeholder="First Name" required />
           </div>
-          <div class="field">
-            <label>Last name</label>
+          <div class="field" id="lastname-field">
+            <label>Last Name</label>
             <input type="text" v-model="user.lastname" placeholder="Last Name" required />
           </div>
-          <div class="field">
+          <div class="field" id="mobile-field">
             <label>Mobile Number</label>
             <input type="text" placeholder="Tel" v-model="user.tel" required />
           </div>
-          <div class="field">
-            <label>Card number</label>
+          <div class="field" id="card-field">
+            <label>Card Number</label>
             <input type="text" placeholder="**** **** **** ****" :maxlength="16" required />
           </div>
 
@@ -85,7 +86,7 @@
               <div class="two fields">
                 <div class="field">
                   <select class="ui fluid search dropdown" name="card[expire-month]" required>
-                    <option value="">Month</option>
+                    <option value="" >Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
@@ -114,7 +115,10 @@
             <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" required />
             </div>
         </div>
-        <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button>
+        <!-- <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button> -->
+        <div align="center">
+          <button class="ui black button "  @click.prevent="buyHandle" type="submit" id="checkout-button">Chaeck out</button>
+        </div>
       </form>
 
     </div>
@@ -175,5 +179,29 @@ export default {
 <style scoped>
 .form {
   margin: 5%;
+}
+#header-form {
+  margin-top: 20px;
+  margin-bottom: 1%
+}
+#header-cart, #header-summary {
+  font-size: 45px;
+  color: rgb(54, 54, 55)
+}
+#checkout-button {
+  height: 43px;
+  width: 350px;
+  border-radius: 30px;
+  margin: 35px auto auto auto;
+}
+#header-item {
+  margin-top: 35px;
+}
+/* .product-name {
+  font-weight: 200000;
+} */
+
+#detail-form {
+  min-width: max-content;
 }
 </style>
