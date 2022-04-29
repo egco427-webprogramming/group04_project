@@ -1,40 +1,42 @@
 <template>
   <form class="ui form">
     <!-- <p>{{user}}</p> -->
-    <h4 class="ui dividing header">Edit Profile</h4>
+    <h1 class="ui header" align="center" id="profile-text">Edit Profile</h1>
     <div class="field">
-      <label>uid</label>
-      <input disabled type="text" v-model="user.uid" placeholder="uid" />
+      <label id="uid-text">uid</label>
+      <input disabled type="text" v-model="user.uid" placeholder="uid" id="uid-input" />
     </div>
     <div class="two fields">
       <div class="field">
-        <label>First name</label>
-        <input type="text" v-model="user.firstname" placeholder="First Name" />
+        <label id="firstname-text">First name</label>
+        <input type="text" v-model="user.firstname" placeholder="First Name" id="firstname-input"/>
       </div>
       <div class="field">
-        <label>Last name</label>
-        <input type="text" v-model="user.lastname" placeholder="Last Name" />
+        <label id="lastname-text">Last name</label>
+        <input type="text" v-model="user.lastname" placeholder="Last Name" id="lastname-input"/>
       </div>
     </div>
 
     <div class="field">
       <div class="field">
-        <label>we need not to change email</label>
+        <label id="email-text">we need not to change email</label>
         <input disabled type="text" placeholder="Email" v-model="user.email" />
       </div>
       <div class="field">
-        <label>Mobile Number</label>
+        <label id="mobile-text">Mobile Number</label>
         <input type="text" placeholder="Tel" v-model="user.tel" />
       </div>
     </div>
 
     <div class="field">
-      <label>Shipping Address</label>
+      <label id="address-text">Shipping Address</label>
       <div class="field">
         <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" />
       </div>
     </div>
-    <button class="ui button blue" type="submit">Update User</button>
+    <div align="center">
+      <button class="ui black button " type="submit" id="update-button">Update User</button>
+    </div>
   </form>
 </template>
 
@@ -51,8 +53,31 @@ export default {
 
 <style scoped>
 .form {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 3% 30% 10% 30%;
   text-align: left;
+}
+
+#profile-text {
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 50px;
+  color: rgb(54, 54, 55)
+}
+
+#uid-text {
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+#firstname-text, #lastname-text, #email-text, #mobile-text, #address-text {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+#update-button {
+  height: 43px;
+  width: 350px;
+  border-radius: 30px;
+  margin: 35px auto auto auto;
 }
 </style>
