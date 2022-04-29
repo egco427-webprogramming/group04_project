@@ -7,21 +7,20 @@
                     <div class="col-sm-6 col-md-3 item"  align="left">
                         <h3>Products</h3>
                         <ul>
-                            <li><router-link :to="{name:'Main'}">All Products</router-link></li>
-                            <li><router-link :to="{name:'Promotion'}">Sales</router-link></li>
-                            <li><a href="#">JEANS</a></li>
-                            <li><a href="#">T-shirts</a></li>
-                            <li><a href="#">Jacket</a></li>
-                            <li><a href="#">Coat</a></li>
-                            <li><a href="#">Sunglasses</a></li>
+                            <li><router-link :to="{name:'Promotion'}">Promotion</router-link></li>
+                            <li><a href="/main?category=JEANS">JEANS</a></li>
+                            <li><a href="/main?category=T-Shirts">T-shirts</a></li>
+                            <li><a href="/main?category=Jacket">Jacket</a></li>
+                            <li><a href="/main?category=Coat">Coat</a></li>
+                            <li><a href="/main?category=Sunglasses">Sunglasses</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item" align="left">
                         <h3>About</h3>
                         <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="/">Company</a></li>
+                            <li><a href="/">Team</a></li>
+                            <li><a href="/">Careers</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 item text">
