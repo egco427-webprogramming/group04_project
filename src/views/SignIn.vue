@@ -148,6 +148,7 @@
   .text-signin {
     font-weight: 550;
     font-size: 40px;
+    color: rgb(54, 54, 55)
   }
 
   #email-button {
