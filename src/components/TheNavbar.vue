@@ -131,6 +131,9 @@ p {
     grid-template-columns: 1fr 1fr;
     /* justify-content: center; */
   }
+  #main-nav > .item::before {
+    display: none;
+  }
   #main-nav > .right {
     grid-column: span 2;
     width: 100%;
