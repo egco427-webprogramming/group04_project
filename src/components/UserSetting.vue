@@ -1,5 +1,5 @@
 <template>
-  <form class="ui form">
+  <form class="ui form" @submit.prevent="updateUser">
     <!-- <p>{{user}}</p> -->
     <h1 class="ui header" align="center" id="profile-text">Edit Profile</h1>
     <div class="field">
@@ -44,9 +44,21 @@
 /**
  * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
  */
+import { updateUser } from "../services/user.service";
 export default {
   props: {
     user: Object,
+  },
+  methods: {
+    async updateUser() {
+      let updatedUser;
+      try {
+        updatedUser = await updateUser(this.user.uid, this.user);
+      } catch (err) {
+        console.log(err);
+      }
+      return updatedUser;
+    },
   },
 };
 </script>
@@ -61,7 +73,7 @@ export default {
   margin-top: 25px;
   font-weight: 700;
   font-size: 50px;
-  color: rgb(54, 54, 55)
+  color: rgb(54, 54, 55);
 }
 
 #uid-text {
@@ -69,14 +81,19 @@ export default {
   font-size: 16px;
 }
 
-#firstname-text, #lastname-text, #email-text, #mobile-text, #address-text {
+#firstname-text,
+#lastname-text,
+#email-text,
+#mobile-text,
+#address-text {
   margin-top: 20px;
   font-size: 16px;
 }
 
 #update-button {
   height: 43px;
-  width: 350px;
+  max-width: 350px;
+  width: 90%;
   border-radius: 30px;
   margin: 35px auto auto auto;
 }
