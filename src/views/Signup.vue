@@ -17,7 +17,7 @@
         placeholder="password"
         id="password-button"
       />
-      <button class="btn btn-success" @click="signUp" id="signup-button">Sign up</button>
+      <button class="ui red button" @click="signUp" id="signup-button">Sign up</button>
       <p id="signin-text">
         Already a member?
         <router-link :to="{path:'/signin'}">
@@ -67,7 +67,7 @@ export default {
 <style scoped>
 .signup {
   margin-top: 100px;
-  margin-bottom: 404px;
+  margin-bottom: 425px;
 }
 
 .text-signup {
@@ -90,7 +90,7 @@ export default {
 }
 
 #signin-text {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #signup-button {
