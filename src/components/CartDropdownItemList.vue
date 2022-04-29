@@ -1,29 +1,27 @@
 <template>
-  <div class="ui simple dropdown item">
+  <div class="ui simple dropdown item" id="cart-dropdown">
     <sui-icon name="shopping cart" />
     THB {{totalResult}}
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item" v-for="item in cart">
-          <div class="col">
-            <span class="product-name">{{item.name}} x {{item.amount}}</span>
-            <br />
-            <div v-if="item.promotion > 0">
-              <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
-              <span
-                class="total-sale-price"
-              >  THB {{totalPrice(item.price*item.amount,item.promotion)}}</span>
-            </div>
-            <div v-else>
-              <span>  THB {{String(Math.round(item.price*item.amount))}}</span>
-            </div>
+        <div class="col">
+          <span class="product-name">{{item.name}} x {{item.amount}}</span>
+          <br />
+          <div v-if="item.promotion > 0">
+            <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+            <span class="total-sale-price">THB {{totalPrice(item.price*item.amount,item.promotion)}}</span>
           </div>
-          <div class="col" align="right">
-            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-            <button class="ui button" @click.prevent="()=>removeProduct(item)">
-              <sui-icon name="trash alternate" />delete
-            </button>
+          <div v-else>
+            <span>THB {{String(Math.round(item.price*item.amount))}}</span>
           </div>
+        </div>
+        <div class="col" align="right">
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+          <button class="ui button" @click.prevent="()=>removeProduct(item)">
+            <sui-icon name="trash alternate" />delete
+          </button>
+        </div>
       </div>
       <div class="item">
         <div v-if="cart.length !== 0">
