@@ -3,7 +3,7 @@
     <template #default>
       <sui-segment id="product-segment">
         <ProductList v-if="!q" />
-        <ProductSearchResult v-if="!!q" />
+        <ProductSearchResult v-else />
         <br />
       </sui-segment>
     </template>
@@ -16,8 +16,13 @@ import ProductList from "../components/ProductList.vue";
 import ProductSearchResult from "../components/ProductSearchResult.vue";
 export default {
   components: { ProductList, ProductSearchResult },
-  data() {
-    return { q: this.$route.query?.q };
+  computed: {
+    q() {
+      return this.$route.query?.q;
+    },
+    category() {
+      return this.$route.query?.category;
+    },
   },
 };
 </script>

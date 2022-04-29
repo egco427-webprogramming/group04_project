@@ -35,7 +35,7 @@ export default {
     watch(
       () => route.query.q,
       async (query, _) => {
-        products.value = await fetchData(query);
+        if (!!query && query != "") products.value = await fetchData(query);
       }
     );
     return { products, query: computed(() => route.query.q) };
