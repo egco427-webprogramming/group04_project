@@ -6,7 +6,7 @@
         <input type="email" v-model="formData.email" class="form-control" placeholder="email" id="email-button" />
         <input type="password" v-model="formData.password" class="form-control" placeholder="password"
           id="password-button" />
-        <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>        
+        <button class="ui red button" @click="signIn" id="signin-button">Sign in</button>
         <p class="or">OR</p>
         <button class="ui basic button" @click="signInWithGoogle" id="google-button">
           <span><i class="fab fa-google fa-1x"></i></span>&nbsp Sign in with Google
@@ -15,7 +15,7 @@
         <button class="ui basic  button " @click="signInWithMicrosoft" id="microsoft-button">
           <span><i class="fab fa-windows fa-1x"></i></span>&nbsp Sign in with Microsoft
         </button>
-        
+
         <br>
         <button class="btn ui facebook button " @click="signInWithFacebook" id="facebook-button">
           <span><i class="facebook f icon"></i></span>Continue with Facebook
@@ -23,11 +23,12 @@
         <br>
         <button class="ui twitter button " @click="signInWithTwitter" id="twitter-button">
           <span><i class="twitter icon"></i></span> Continue with Twitter
-        </button>     
+        </button>
         <p id="signup-text">Not a member?
-        <router-link :to="{path:'/signup'}">
-          <span class="signup">Sign up</span>
-        </router-link></p>  
+          <router-link :to="{path:'/signup'}">
+            <span class="signup">Sign up</span>
+          </router-link>
+        </p>
 
         <br>
       </div>
@@ -37,7 +38,6 @@
 </template>
 
 <script>
-
   import {
     getAuth,
     signInWithEmailAndPassword,
@@ -51,7 +51,7 @@
   import {
     login
   } from "../services/user.service";
-
+  import toast from "../store/toaster/index.js";
 
 
   export default {
@@ -66,6 +66,9 @@
     },
     methods: {
       signIn() {
+        
+        toast.loginToast();
+
         const auth = getAuth();
         signInWithEmailAndPassword(
             auth,
@@ -213,6 +216,6 @@
   }
 
   .fa-windows {
-    color: 	#00A4EF;
+    color: #00A4EF;
   }
 </style>

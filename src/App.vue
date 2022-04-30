@@ -11,6 +11,7 @@ import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import store from "./store";
+import toast from "./store/toaster/index.js";
 
 export default {
   name: "App",
@@ -26,6 +27,7 @@ export default {
   methods: {
     handleLogout() {
       //console.log(getAuth().currentUser) //return null if no user logged in
+     
 
       const currentUser = getAuth().currentUser;
       const auth = getAuth();
@@ -38,7 +40,7 @@ export default {
             alert(error.message);
           });
       }
-      store.dispatch("cart/clearCart");
+      store.dispatch("cart/clearCart"); toast.logoutToast();
       this.$router.push("/");
     },
   },
