@@ -23,8 +23,18 @@
         </div>
         <div class="col" align="right">
           <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-          <button class="ui button" @click.prevent="()=>removeProduct(item)">
+          <!-- <button class="ui button" @click.prevent="()=>removeProduct(item)">
             <sui-icon name="trash alternate" />delete
+          </button> -->
+          <button class="ui small icon button" id="minus-icon" align="center">
+            <i class="minus icon"></i>
+          </button>
+          <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
+          <button class="ui small icon button" id="plus-icon" align="center">
+            <i class="plus icon"></i>
+          </button>
+          <button class="ui small icon button" id="trash-icon" align="center">
+            <i class="trash icon"></i>
           </button>
         </div>
       </div>

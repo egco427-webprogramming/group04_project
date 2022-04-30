@@ -22,23 +22,15 @@
             <div class="three wide column cart-detail">
               <img class="ui small image" :src="item.img_url" :alt="item.name" />
             </div>
-            <!-- <div class="ten wide column left aligned detail">
-              <span class="product-name">{{item.name}}</span>
-              <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
-                <i class="plus icon"></i>
-              </button>
-              <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
-              <button class="ui secondary tertiary compact icon button" id="minus-icon" align="center">
-                <i class="minus icon"></i>
-              </button>
-              <p class="product-type" >Categoty : {{item.category}}</p>
-            </div>-->
             <div class="ten wide column left aligned detail">
               <div class="row">
                 <div class="column" id="name-column">
                   <span class="product-name">{{item.name}}</span>
                 </div>
                 <div class="column" id="amount-column">
+                  <button class="ui small icon button" id="trash-icon" align="center">
+                    <i class="trash icon"></i>
+                  </button>
                   <button class="ui small icon button" id="plus-icon" align="center">
                     <i class="plus icon"></i>
                   </button>
@@ -50,17 +42,17 @@
               </div>
               <p class="product-type">Categoty : {{item.category}}</p>
             </div>
-            <div class="three wide center aligned column">
+            <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
                   <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
                   <span
                     class="total-sale-price"
-                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
-                <span>THB {{String(Math.round(item.price*item.amount))}}</span>
+                <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
               </div>
             </div>
           </div>
@@ -248,12 +240,10 @@ export default {
   font-size: 16px;
   font-weight: bold;
 }
-/* .product-type {
-  margin-top: 0px;
-} */
 #minus-icon,
 .product-amount,
-#plus-icon {
+#plus-icon,
+#trash-icon {
   float: right;
 }
 .product-amount {
@@ -274,12 +264,15 @@ export default {
   color: #cb0000;
   font-weight: bold;
 }
+#price-text {
+  margin-top: 7px;
+}
 #name-column {
-  width: 70%;
+  width: 60%;
   margin-top: 7px;
 }
 #amount-column {
-  width: 30%;
+  width:40%;
   min-width: max-content;
 }
 </style>
