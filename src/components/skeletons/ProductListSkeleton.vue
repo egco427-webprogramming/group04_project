@@ -1,6 +1,6 @@
 <template>
   <br>
-  <h1 class="placeholder-glow">
+  <h1 class="placeholder-glow" id="header-text">
     <span class="placeholder" style="width: 15%;"></span>
   </h1>
   <div class="product-wrapper">
@@ -44,14 +44,17 @@
 </template>
 
 <script>
-import ProductCardSkeleton from "./ProductCardSkeleton.vue";
+// import ProductCardSkeleton from "./ProductCardSkeleton.vue";
 
 export default {
-  components: { ProductCardSkeleton },
+  // components: { ProductCardSkeleton },
 };
 </script>
 
 <style scoped>
+#header-text {
+  margin-top: 48px;
+}
 .product-wrapper {
   display: flex;
   flex-wrap: wrap;
