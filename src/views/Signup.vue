@@ -54,6 +54,7 @@ export default {
       )
         .then((user) => {
           //alert("Sign up success! redirect to Home page")
+          toast.clear()
           toast.signupToast();
           login(user.user);
           this.$router.replace("/");

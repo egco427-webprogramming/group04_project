@@ -7,7 +7,7 @@ import {
 
 const successToast = () =>
   createToast({
-    title: "Add item to cart",
+    title: "Add Product to cart",
     description: "some good description"
   }, {
     transition: "slide",
@@ -26,7 +26,7 @@ const errorToast = (err) =>
     swipeClose: true,
     position: "bottom-left",
     type: "warning",
-    class:"my-danger",
+    class: "my-danger",
     toastBackgroundColor: "red",
   });
 
@@ -75,19 +75,34 @@ const signupToast = () =>
 
 const checkoutToast = () =>
   createToast({
-    title: "your product is on the way to you",
-    description: "some good description"
+    title: "Thank you!",
+    description: "your product is on the way to you"
   }, {
     transition: "slide",
     showIcon: true,
+    hideProgressBar: true,
     swipeClose: true,
+    showCloseButton: false,
     position: "bottom-left",
     type: "default",
   });
 
+const updateToast = () =>
+  createToast(
+    "Profile updated successfully", {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      type: "default",
+      timeout: 2000,
+    });
+
 const clear = () => {
   clearToasts() // clears all the toasts
-} 
+}
 
 export default {
   successToast,
@@ -96,5 +111,6 @@ export default {
   loginToast,
   signupToast,
   checkoutToast,
+  updateToast,
   clear,
 };
