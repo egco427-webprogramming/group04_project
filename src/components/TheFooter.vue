@@ -26,7 +26,10 @@
                     <div class="col-md-6 item text">
                         <h2>LUCIEN</h2>
                         <br>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        <p>This website is a part of EGCO 437 Web Programming Course at Mahidol University. 
+                        The purpose of this website is to provide people to shop with a good experience. 
+                        Thank you, Uniqlo for the video, image, and detail of the product on our website
+                        </p>
                     </div>
                 </div>
                 <br>
