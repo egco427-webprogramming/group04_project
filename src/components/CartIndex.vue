@@ -55,7 +55,7 @@
                   <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
                   <span
                     class="total-sale-price"
-                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
