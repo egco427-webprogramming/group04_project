@@ -27,7 +27,17 @@
               <br />
               <span class="product-type">Type : {{item.category}}</span>
               <br />
-              <span class="product-amount">Amount : {{item.amount}}</span>
+
+              <button class="ui secondary  tertiary compact icon button">
+                <i class="minus icon"></i>
+              </button>
+              <span class="product-amount">Amount : {{item.amount}}
+                </span> 
+                
+              <button class="ui secondary  tertiary compact icon button" >
+                <i class="plus icon"></i>
+              </button>
+             
             </div>
             <div class="three wide center aligned column">
               <span>THB {{String(Math.round(item.price*item.amount))}}</span>
@@ -56,37 +66,37 @@
         </div>
       </div>
 
-      <form action="" class="ui form">
+      <form action="" class="ui form" @submit.prevent="buyHandle">
         <div class="field">
 
-          <div class="field" id="firstname-field">
+          <div class="required field" id="firstname-field">
             <label>First Name</label>
             <input type="text" v-model="user.firstname" placeholder="First Name" required />
           </div>
-          <div class="field" id="lastname-field">
+          <div class="required field" id="lastname-field">
             <label>Last Name</label>
             <input type="text" v-model="user.lastname" placeholder="Last Name" required />
           </div>
-          <div class="field" id="mobile-field">
+          <div class="required field" id="mobile-field">
             <label>Mobile Number</label>
             <input type="text" placeholder="Tel" v-model="user.tel" required />
           </div>
-          <div class="field" id="card-field">
+          <div class="required field" id="card-field">
             <label>Card Number</label>
             <input type="text" placeholder="**** **** **** ****" :maxlength="16" required />
           </div>
 
           <div class="fields">
-            <div class=" field">
+            <div class="required field">
               <label>CVC</label>
               <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required>
             </div>
-            <div class=" field">
+            <div class="required field">
               <label>Expiration</label>
               <div class="two fields">
                 <div class="field">
                   <select class="ui fluid search dropdown" name="card[expire-month]" required>
-                    <option value="" >Month</option>
+                    <option value="">Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
@@ -101,7 +111,7 @@
                     <option value="12">December</option>
                   </select>
                 </div>
-                <div class="field">
+                <div class="required field">
                   <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" required>
                 </div>
               </div>
@@ -109,15 +119,14 @@
           </div>
         </div>
 
-        <div class="field">
+        <div class="required field">
           <label>Shipping Address</label>
           <div class="field">
             <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" required />
             </div>
         </div>
-        <!-- <button class="mb-5 ui secondary button" @click.prevent="buyHandle">Checkout</button> -->
         <div align="center">
-          <button class="ui black button "  @click.prevent="buyHandle" type="submit" id="checkout-button">Chaeck out</button>
+          <button class="ui black button " type="submit" id="checkout-button">Check out</button>
         </div>
       </form>
 
