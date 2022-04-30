@@ -19,7 +19,7 @@
 
     <div class="field">
       <div class="field">
-        <label id="email-text">we need not to change email</label>
+        <label id="email-text">Email</label>
         <input disabled type="text" placeholder="Email" v-model="user.email" />
       </div>
       <div class="field">

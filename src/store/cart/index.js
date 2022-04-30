@@ -72,11 +72,11 @@ export default {
     async addProduct({ state, commit }, { id, amount }) {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
+
+      toast.errorToast("test");  
+
+      toast.clear()    
       toast.successToast();
-      toast.errorToast();
-      toast.loginToast();
-      toast.logoutToast();
-      toast.checkoutToast();
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {

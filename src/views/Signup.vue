@@ -32,6 +32,7 @@
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { login } from "../services/user.service";
+import toast from "../store/toaster/index.js";
 
 export default {
   name: "SignUp",
@@ -53,11 +54,13 @@ export default {
       )
         .then((user) => {
           //alert("Sign up success! redirect to Home page")
+          toast.signupToast();
           login(user.user);
           this.$router.replace("/");
         })
-        .catch((e) => {
-          alert(e.message);
+        .catch((err) => {
+          toast.clear();
+          toast.errorToast(err.message);
         });
     },
   },

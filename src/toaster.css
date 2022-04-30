@@ -1,24 +1,13 @@
-.my-login {
-background-color: white ;
-}
-
-.my-login>.mosha__toast__progress {
-background-color: green ;
-}
-
 .my-danger {
 /* background-color: red !important; */
 background-color: white;
 }
 
 .my-danger>.mosha__toast__progress {
-background-color: red ;
+background-color: pink ; //idk which colour or just disable it
 }
 
-.mosha__toast__content__text{
-color: black ;
-font-size: 20px;
-}
-.mosha__toast__content__description{
-color: black ;
-}
+/*.my-danger .mosha__toast__content__text{
+color: white ;
+}*/
+
