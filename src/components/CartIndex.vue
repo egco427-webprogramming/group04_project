@@ -162,6 +162,7 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { getUser, updateUser } from "../services/user.service";
 import { addHistory } from "../services/history.service";
+import toast from "../store/toaster/index.js";
 export default {
   props: {
     id: String,
@@ -196,6 +197,7 @@ export default {
           price: totalResult.value,
         });
         await dispatch("cart/clearCartAfterPurchase");
+        toast.checkoutToast()
         router.push("/purchased");
       } catch (err) {
         console.error(err);
