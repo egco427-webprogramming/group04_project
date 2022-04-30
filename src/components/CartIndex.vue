@@ -28,14 +28,14 @@
                   <span class="product-name">{{item.name}}</span>
                 </div>
                 <div class="column" id="amount-column">
-                  <button class="ui small icon button" id="trash-icon" align="center">
+                  <button class="ui small icon button" @click.prevent="()=>removeProduct(item)" id="trash-icon" align="center">
                     <i class="trash icon"></i>
                   </button>
-                  <button class="ui small icon button" id="plus-icon" align="center">
+                  <button class="ui small icon button" @click.prevent="()=>addProduct(item)"  id="plus-icon" align="center">
                     <i class="plus icon"></i>
                   </button>
                   <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
-                  <button class="ui small icon button" id="minus-icon" align="center">
+                  <button class="ui small icon button" @click.prevent="()=>removeProduct(item)" id="minus-icon" align="center">
                     <i class="minus icon"></i>
                   </button>
                 </div>
@@ -174,7 +174,7 @@ export default {
       dispatch("cart/removeProduct", { id: _id });
     };
     const addProduct = ({ _id }) => {
-      dispatch("cart/removeProduct", { id: _id, amount: 1 });
+      dispatch("cart/addProduct", { id: _id, amount: 1 });
     };
 
     const buyHandle = async () => {
