@@ -103,7 +103,7 @@ export default {
 }
 
 #update-button {
-  height: 43px;
+  height: 50px;
   max-width: 350px;
   width: 90%;
   border-radius: 30px;
