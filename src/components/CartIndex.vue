@@ -22,20 +22,29 @@
             <div class="three wide column">
               <img class="ui small image" :src="item.img_url" :alt="item.name" />
             </div>
-            <div class="ten wide column left aligned detail">
+            <!-- <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
-               <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
+              <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
                 <i class="plus icon"></i>
               </button>
               <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
               <button class="ui secondary tertiary compact icon button" id="minus-icon" align="center">
                 <i class="minus icon"></i>
               </button>
-              <br>
-              <span class="product-type">Categoty : {{item.category}}</span>
+              <p class="product-type" >Categoty : {{item.category}}</p>
+            </div> -->
+            <div class="ten wide column left aligned detail">
+              <span class="product-name">{{item.name}}</span>
+              <button class="ui small icon button" id="plus-icon" align="center">
+                <i class="plus icon" ></i>
+              </button>
+              <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
+              <button class="ui small icon button" id="minus-icon" align="center">
+                <i class="minus icon"></i>
+              </button>
+              <p class="product-type" >Categoty : {{item.category}}</p>
             </div>
             <div class="three wide center aligned column">
-              <!-- <span>THB {{String(Math.round(item.price*item.amount))}}</span> -->
               <div v-if="item.promotion > 0">
                 <div>
                 <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
@@ -219,6 +228,9 @@ export default {
   font-size: 16px;
   font-weight: bold;
 }
+.product-type {
+  margin-top: 8px;
+}
 #minus-icon, .product-amount, #plus-icon {
   float: right;
 }
@@ -230,7 +242,7 @@ export default {
   min-width: max-content;
 }
 #summary-detail {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .total-price {
