@@ -1,6 +1,6 @@
 <template>
   <main class="ui stackable grid centered" id="header-form">
-    <div class="eight wide column">
+    <div class="nine wide column" id="cart-form">
       <h1 class="mt-3 ui dividing header large" id="header-cart">Your cart</h1>
       <div class="ui celled grid" id="header-item">
         <div class="row center aligned">
@@ -21,7 +21,7 @@
           <div class="row">
             <div class="three wide column">
               <img class="ui small image" :src="item.img_url" :alt="item.name" />
-            </div>
+            </div class="cart-detail">
             <!-- <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
               <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
@@ -34,14 +34,20 @@
               <p class="product-type" >Categoty : {{item.category}}</p>
             </div> -->
             <div class="ten wide column left aligned detail">
-              <span class="product-name">{{item.name}}</span>
-              <button class="ui small icon button" id="plus-icon" align="center">
-                <i class="plus icon" ></i>
-              </button>
-              <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
-              <button class="ui small icon button" id="minus-icon" align="center">
-                <i class="minus icon"></i>
-              </button>
+              <div class="row">
+                <div class="column" id="name-column">
+                  <span class="product-name">{{item.name}}</span>
+                </div>
+                  <div class="column" id="amount-column">
+                  <button class="ui small icon button" id="plus-icon" align="center">
+                    <i class="plus icon" ></i>
+                  </button>
+                  <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
+                  <button class="ui small icon button" id="minus-icon" align="center">
+                    <i class="minus icon"></i>
+                  </button>
+                </div>
+              </div>
               <p class="product-type" >Categoty : {{item.category}}</p>
             </div>
             <div class="three wide center aligned column">
@@ -58,8 +64,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="one wide column">
     </div>
     <div class="five wide column" id="detail-form">
       <h4 class="mt-3 ui dividing header large" id="header-summary">Summary</h4>
@@ -215,7 +219,7 @@ export default {
   color: rgb(54, 54, 55)
 }
 #checkout-button {
-  height: 43px;
+  height: 50px;
   width: 350px;
   border-radius: 30px;
   margin: 35px auto auto auto;
@@ -224,32 +228,39 @@ export default {
   margin-top: 35px;
 }
 .product-name {
-  margin-top: 10000%;
   font-size: 16px;
   font-weight: bold;
 }
-.product-type {
-  margin-top: 8px;
-}
+/* .product-type {
+  margin-top: 0px;
+} */
 #minus-icon, .product-amount, #plus-icon {
   float: right;
 }
 .product-amount{
   font-size: 16px;
-  margin-top: 7px
+  margin-top: 7px;
 }
 #detail-form {
   min-width: max-content;
+  margin-left: 2%;
 }
 #summary-detail {
   font-size: 16px;
 }
-
 .total-price {
   text-decoration: line-through;
 }
 .total-sale-price {
   color: #cb0000;
   font-weight: bold;
+}
+#name-column {
+  width: 70%;
+  margin-top: 7px;
+}
+#amount-column {
+  width: 30%;
+  min-width: max-content;
 }
 </style>
