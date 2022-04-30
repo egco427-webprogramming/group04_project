@@ -19,9 +19,9 @@
       <div class="item" v-for="item in cart">
         <div class="ui celled grid shadow">
           <div class="row">
-            <div class="three wide column">
+            <div class="three wide column cart-detail">
               <img class="ui small image" :src="item.img_url" :alt="item.name" />
-            </div class="cart-detail">
+            </div>
             <!-- <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
               <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
