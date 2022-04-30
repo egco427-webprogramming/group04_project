@@ -1,19 +1,22 @@
 <template>
   <suspense>
     <template #default>
-        <sui-segment id="product-segment">
-          <ProductList />
-          <br>
-        </sui-segment>
+      <sui-segment id="product-segment">
+        <ProductList />
+        <br />
+      </sui-segment>
     </template>
-    <template #fallback>waiting for skeleton loading</template>
+    <template #fallback>
+      <ProductListSkeleton />
+    </template>
   </suspense>
 </template>
 
 <script>
 import ProductList from "../components/PromotionList.vue";
+import ProductListSkeleton from "../components/skeletons/ProductListSkeleton.vue";
 export default {
-  components: { ProductList },
+  components: { ProductList, ProductListSkeleton },
 };
 </script>
 

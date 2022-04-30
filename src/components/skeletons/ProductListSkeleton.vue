@@ -44,15 +44,10 @@
 </template>
 
 <script>
-import ProductCard from "./ProductCard.vue";
-import ProductCardSkeleton from "./skeletons/ProductCardSkeleton.vue";
-import { useRoute } from "vue-router";
+import ProductCardSkeleton from "./ProductCardSkeleton.vue";
 
 export default {
-  components: { ProductCard, ProductCardSkeleton },
-  async setup() {
-    const route = useRoute();
-  },
+  components: { ProductCardSkeleton },
 };
 </script>
 
