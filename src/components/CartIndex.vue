@@ -171,6 +171,13 @@ export default {
 
     const user = ref(await getUser(props.id));
 
+    const removeProduct = ({ _id }) => {
+      dispatch("cart/removeProduct", { id: _id });
+    };
+    const addProduct = ({ _id }) => {
+      dispatch("cart/removeProduct", { id: _id, amount: 1 });
+    };
+
     const buyHandle = async () => {
       try {
         if (cart.value.length == 0) {
@@ -196,6 +203,8 @@ export default {
       totalResult,
       user,
       buyHandle,
+      addProduct,
+      removeProduct,
     };
   },
   methods: {

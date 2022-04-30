@@ -61,7 +61,10 @@ export default {
     const removeProduct = ({ _id }) => {
       dispatch("cart/removeProduct", { id: _id });
     };
-    return { cart, totalResult, removeProduct };
+    const addProduct = ({ _id }) => {
+      dispatch("cart/removeProduct", { id: _id, amount: 1 });
+    };
+    return { cart, totalResult, removeProduct, addProduct };
   },
   methods: {
     totalPrice(price, discount) {
