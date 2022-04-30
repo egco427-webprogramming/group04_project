@@ -32,15 +32,15 @@
                 <i class="minus icon"></i>
               </button>
               <p class="product-type" >Categoty : {{item.category}}</p>
-            </div> -->
+            </div>-->
             <div class="ten wide column left aligned detail">
               <div class="row">
                 <div class="column" id="name-column">
                   <span class="product-name">{{item.name}}</span>
                 </div>
-                  <div class="column" id="amount-column">
+                <div class="column" id="amount-column">
                   <button class="ui small icon button" id="plus-icon" align="center">
-                    <i class="plus icon" ></i>
+                    <i class="plus icon"></i>
                   </button>
                   <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
                   <button class="ui small icon button" id="minus-icon" align="center">
@@ -48,17 +48,19 @@
                   </button>
                 </div>
               </div>
-              <p class="product-type" >Categoty : {{item.category}}</p>
+              <p class="product-type">Categoty : {{item.category}}</p>
             </div>
             <div class="three wide center aligned column">
               <div v-if="item.promotion > 0">
                 <div>
-                <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
-                <span class="total-sale-price"> THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                  <span
+                    class="total-sale-price"
+                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
-                <span> THB {{String(Math.round(item.price*item.amount))}}</span>
+                <span>THB {{String(Math.round(item.price*item.amount))}}</span>
               </div>
             </div>
           </div>
@@ -71,7 +73,7 @@
       <div class="ui vertically divided grid m-4">
         <div class="two column row" id="summary-detail">
           <div class="column">
-            <div >Subtotal:</div>
+            <div>Subtotal:</div>
             <div>Discount:</div>
             <div>Total:</div>
           </div>
@@ -83,9 +85,8 @@
         </div>
       </div>
 
-      <form action="" class="ui form" @submit.prevent="buyHandle">
+      <form action class="ui form" @submit.prevent="buyHandle">
         <div class="field">
-
           <div class="required field" id="firstname-field">
             <label>First Name</label>
             <input type="text" v-model="user.firstname" placeholder="First Name" required />
@@ -106,14 +107,14 @@
           <div class="fields">
             <div class="required field">
               <label>CVC</label>
-              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required>
+              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required />
             </div>
             <div class="required field">
               <label>Expiration</label>
               <div class="two fields">
                 <div class="field">
                   <select class="ui fluid search dropdown" name="card[expire-month]" required>
-                    <option value="">Month</option>
+                    <option value>Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
@@ -129,7 +130,13 @@
                   </select>
                 </div>
                 <div class="required field">
-                  <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" required>
+                  <input
+                    type="text"
+                    name="card[expire-year]"
+                    maxlength="4"
+                    placeholder="Year"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -140,10 +147,10 @@
           <label>Shipping Address</label>
           <div class="field">
             <textarea rows="2" type="text" placeholder="Address" v-model="user.adr" required />
-            </div>
+          </div>
         </div>
         <div align="center">
-          <button class="ui black button " type="submit" id="checkout-button">Check out</button>
+          <button class="ui black button" type="submit" id="checkout-button">Check out</button>
         </div>
       </form>
     </div>
@@ -212,11 +219,12 @@ export default {
 }
 #header-form {
   margin-top: 20px;
-  margin-bottom: 1%
+  margin-bottom: 1%;
 }
-#header-cart, #header-summary {
+#header-cart,
+#header-summary {
   font-size: 50px;
-  color: rgb(54, 54, 55)
+  color: rgb(54, 54, 55);
 }
 #checkout-button {
   height: 50px;
@@ -234,10 +242,12 @@ export default {
 /* .product-type {
   margin-top: 0px;
 } */
-#minus-icon, .product-amount, #plus-icon {
+#minus-icon,
+.product-amount,
+#plus-icon {
   float: right;
 }
-.product-amount{
+.product-amount {
   font-size: 16px;
   margin-top: 7px;
 }
