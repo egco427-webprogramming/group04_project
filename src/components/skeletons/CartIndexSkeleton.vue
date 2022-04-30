@@ -232,7 +232,7 @@ export default {
   padding: 0 auto auoto auto;
   min-width: max-content;
 }
-#bitton-group {
-  margin-top:0;
+#button-group {
+  margin-top: 0;
 }
 </style>
