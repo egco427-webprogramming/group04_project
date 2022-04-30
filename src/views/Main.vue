@@ -7,15 +7,18 @@
         <br>
       </sui-segment>
     </template>
-    <template #fallback>waiting for skeleton loading</template>
+    <template #fallback>
+      <ProductListSkeleton />
+    </template>
   </suspense>
 </template>
 
 <script>
 import ProductList from "../components/ProductList.vue";
+import ProductListSkeleton from "../components/skeletons/ProductListSkeleton.vue";
 import ProductSearchResult from "../components/ProductSearchResult.vue";
 export default {
-  components: { ProductList, ProductSearchResult },
+  components: { ProductList, ProductSearchResult, ProductListSkeleton },
   computed: {
     q() {
       return this.$route.query?.q;
