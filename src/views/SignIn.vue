@@ -66,9 +66,6 @@
     },
     methods: {
       signIn() {
-        
-        toast.loginToast();
-
         const auth = getAuth();
         signInWithEmailAndPassword(
             auth,
@@ -76,11 +73,14 @@
             this.formData.password
           )
           .then((user) => {
+            toast.clear()
+            toast.loginToast();
             login(user.user);
             this.$router.replace("/");
           })
           .catch((err) => {
-            alert(err.message);
+            toast.clear()
+            toast.errorToast(err.message);
           });
       },
       signInWithGoogle() {
@@ -94,7 +94,8 @@
             this.$router.replace("/");
           })
           .catch((err) => {
-            alert(err.message);
+            toast.clear()
+            toast.errorToast(err.message);
           });
       },
       signInWithFacebook() {
@@ -108,7 +109,8 @@
             this.$router.replace("/");
           })
           .catch((err) => {
-            alert(err.message);
+            toast.clear()
+            toast.errorToast(err.message);
           });
       },
       signInWithMicrosoft() {
@@ -122,7 +124,8 @@
             this.$router.replace("/");
           })
           .catch((err) => {
-            alert(err.message);
+            toast.clear()
+            toast.errorToast(err.message);
           });
       },
       signInWithTwitter() {
@@ -136,7 +139,8 @@
             this.$router.replace("/");
           })
           .catch((err) => {
-            alert(err.message);
+            toast.clear()
+            toast.errorToast(err.message);
           });
       }
     }

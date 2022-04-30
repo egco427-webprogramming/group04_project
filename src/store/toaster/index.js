@@ -1,58 +1,78 @@
 // https://github.com/szboynono/mosha-vue-toastify
 
 import {
-  createToast
+  createToast,
+  clearToasts
 } from "mosha-vue-toastify";
 
 const successToast = () =>
   createToast({
-    title: "AddProduct to cart",
-    description: "some good description"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    swipeClose: true,
-    position: "bottom-left",
-    
-    type: "my-danger",
-    timeout: "1000000",
-  });
-// set time out for debugging
-const errorToast = () =>
-  createToast({
-    title: "some thing went wrong",
-    description: "some good description"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    swipeClose: true,
-    position: "bottom-left",
-    type: "my-danger"
-  });
-const logoutToast = () =>
-  createToast({
-    title: "see you later",
+    title: "Add item to cart",
     description: "some good description"
   }, {
     transition: "slide",
     showIcon: true,
     hideProgressBar: true,
     swipeClose: true,
-    toastBackgroundColor: "white",
+    showCloseButton: false,
     position: "bottom-left",
-    type: "my-warning",
+    timeout: 3000,
   });
-const loginToast = () =>
-  createToast({
-    title: "happy shopping",
-    description: "some good description"
-  }, {
+
+const errorToast = (err) =>
+  createToast(err, {
     transition: "slide",
     showIcon: true,
     swipeClose: true,
     position: "bottom-left",
-    type: "my-login",
+    type: "warning",
+    class:"my-danger",
+    toastBackgroundColor: "red",
   });
+
+const logoutToast = () =>
+  createToast({
+    title: "Sign out",
+    description: "See you later!"
+  }, {
+    transition: "slide",
+    showIcon: true,
+    hideProgressBar: true,
+    swipeClose: true,
+    showCloseButton: false,
+    position: "bottom-left",
+    timeout: 3000,
+  });
+
+const loginToast = () =>
+  createToast({
+    title: "Welcome back",
+    description: "Happy shopping!"
+  }, {
+    transition: "slide",
+    showIcon: true,
+    hideProgressBar: true,
+    swipeClose: true,
+    showCloseButton: false,
+    position: "bottom-left",
+    timeout: 3000,
+  });
+
+const signupToast = () =>
+  createToast({
+    title: "Sign up complete",
+    description: "welcome to Lucien!"
+  }, {
+    transition: "slide",
+    showIcon: true,
+    hideProgressBar: true,
+    swipeClose: true,
+    showCloseButton: false,
+    position: "bottom-left",
+    type: "success",
+    timeout: 3000,
+  });
+
 const checkoutToast = () =>
   createToast({
     title: "your product is on the way to you",
@@ -65,10 +85,16 @@ const checkoutToast = () =>
     type: "default",
   });
 
+const clear = () => {
+  clearToasts() // clears all the toasts
+} 
+
 export default {
   successToast,
   errorToast,
   logoutToast,
   loginToast,
+  signupToast,
   checkoutToast,
+  clear,
 };
