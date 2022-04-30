@@ -28,15 +28,22 @@
                   <span class="product-name">{{item.name}}</span>
                 </div>
                 <div class="column" id="amount-column">
-                  <button class="ui small icon button" @click.prevent="()=>removeProduct(item)" id="trash-icon" align="center">
-                    <i class="trash icon"></i>
-                  </button>
-                  <button class="ui small icon button" @click.prevent="()=>addProduct(item)"  id="plus-icon" align="center">
+                  <button
+                    class="ui small icon button"
+                    @click.prevent="()=>addProduct(item)"
+                    id="plus-icon"
+                    align="center"
+                  >
                     <i class="plus icon"></i>
                   </button>
                   <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
-                  <button class="ui small icon button" @click.prevent="()=>removeProduct(item)" id="minus-icon" align="center">
-                    <i class="minus icon"></i>
+                  <button
+                    class="ui small icon button"
+                    @click.prevent="()=>removeProduct(item)"
+                    id="minus-icon"
+                    align="center"
+                  >
+                    <i class="icon" :class="item.amount>1?'minus':'trash'"></i>
                   </button>
                 </div>
               </div>
@@ -48,7 +55,7 @@
                   <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
                   <span
                     class="total-sale-price"
-                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
@@ -155,6 +162,7 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { getUser, updateUser } from "../services/user.service";
 import { addHistory } from "../services/history.service";
+import toast from "../store/toaster/index.js";
 export default {
   props: {
     id: String,
@@ -189,6 +197,7 @@ export default {
           price: totalResult.value,
         });
         await dispatch("cart/clearCartAfterPurchase");
+        toast.checkoutToast()
         router.push("/purchased");
       } catch (err) {
         console.error(err);
@@ -272,7 +281,7 @@ export default {
   margin-top: 7px;
 }
 #amount-column {
-  width:40%;
+  width: 40%;
   min-width: max-content;
 }
 </style>
