@@ -2,11 +2,18 @@
   <div class="ui celled grid shadow">
     <div class="row">
       <HistoryTransactionItemList :items="itemsWithDetail" />
-      <hr />
-
-      <div>
-        <p class="product-amount">Total Price:{{transaction?.price}}</p>
-        <p>Date: {{transaction?.date}}</p>
+    </div>
+    <div class="row">
+      <div class="thirteen wide column">
+        
+        <span class="total-text">Total Price </span>
+        <!-- <span class="total-amount">{{transaction?.price}}</span> -->
+        <div>
+          <p>Date : {{transaction?.date}}</p>
+        </div>
+      </div>
+      <div class="three wide center aligned column">
+        <span class="total-amount">THB {{transaction?.price}}</span>
       </div>
     </div>
   </div>
@@ -35,5 +42,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped> 
+hr {
+  min-width: max-content;
+}
+.total-text {
+  font-size: 17px;
+  font-weight: bold;
+}
+.total-amount {
+  font-size: 15px;
+  font-weight: bold;
+  /* float: right; */
+}
 </style>

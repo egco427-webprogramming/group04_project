@@ -75,7 +75,7 @@ export default {
 
 <style scoped>
 .form {
-  margin: 3% auto 10%;
+  margin: 3% auto 5%;
   max-width: 640px;
   width: 80%;
   text-align: left;

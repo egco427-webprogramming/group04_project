@@ -1,13 +1,12 @@
 <template>
-  <br />
+  <br>
   <div>
-    <h1 class="ui dividing header">Purchase History</h1>
-    <br />
+    <h1 class="ui header" id="history-text">Purchase History</h1>
   </div>
 
-  <main class="ui stackable grid centered">
-    <div class="eight wide column">
-      <h4 class="mt-3 ui dividing header large">Your cart</h4>
+  <main class="ui stackable grid centered" id="header-form">
+    <div class="ten wide column">
+      <!-- <h4 class="mt-3 ui dividing header large">Your cart</h4> -->
       <div class="ui celled grid">
         <div class="row center aligned">
           <div class="three wide column">
@@ -21,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div v-for="transaction in history">
+      <div v-for="transaction in history" id="history-detail">
         <HistoryTransaction :transaction="transaction" :key="transaction._id" />
       </div>
     </div>
@@ -59,5 +58,20 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#history-text {
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 50px;
+  color: rgb(54, 54, 55);
+}
+
+#header-form {
+  margin: 20px 0 0 0;
+}
+
+#history-detail {
+  margin: 0px 0 1% 0;
+}
 </style>
