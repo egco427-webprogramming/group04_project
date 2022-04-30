@@ -75,6 +75,7 @@ router.beforeEach(async (to, from, next) => {
     userStore.logout();
   }
   console.log("is logged in", userStore.state.isLoggedIn);
+  window.scrollTo(0, 0);
   if (requiresAuth && !currentUser) {
     // console.log("You are not authorized to access this area.");
     next("signin");
