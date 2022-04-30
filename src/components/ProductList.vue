@@ -1,5 +1,5 @@
 <template>
-  <br />
+  <br>
   <div>
     <h1 class="text-category">{{category}}</h1>
   </div>
@@ -8,7 +8,7 @@
       <ProductCard :product="product" />
     </template>
   </div>
-  <br />
+  <br>
 </template>
 
 <script>

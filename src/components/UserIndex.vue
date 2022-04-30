@@ -1,5 +1,5 @@
 <template>
-  <br />
+  <br>
   <UserSetting :user="user" />
 </template>
 

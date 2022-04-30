@@ -4,7 +4,7 @@
       <sui-segment id="product-segment">
         <ProductList v-if="!q" />
         <ProductSearchResult v-else />
-        <br />
+        <br>
       </sui-segment>
     </template>
     <template #fallback>waiting for skeleton loading</template>

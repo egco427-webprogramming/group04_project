@@ -12,7 +12,7 @@
       </sui-card-header>
       <!-- product price -->
       <sui-card-meta>
-        <br />
+        <br>
         <span class="price" :class="isOnPromotion()&&'discount'">THB {{product.price}}</span>
         <span
           v-if="isOnPromotion()"

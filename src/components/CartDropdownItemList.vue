@@ -38,10 +38,10 @@
         </div>
         <template v-else>
           <p class="empty-bag-icon">
-            <br />
+            <br>
             <sui-icon name="shopping cart" />
           </p>
-          <br />
+          <br>
           <p class="empty-bag-text" align="center">Your cart is empty.</p>
         </template>
       </div>
