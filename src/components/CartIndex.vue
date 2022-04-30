@@ -24,23 +24,27 @@
             </div>
             <div class="ten wide column left aligned detail">
               <span class="product-name">{{item.name}}</span>
-              <br />
-              <span class="product-type">Type : {{item.category}}</span>
-              <br />
-
-              <button class="ui secondary  tertiary compact icon button">
-                <i class="minus icon"></i>
-              </button>
-              <span class="product-amount">Amount : {{item.amount}}
-                </span> 
-                
-              <button class="ui secondary  tertiary compact icon button" >
+               <button class="ui secondary  tertiary compact icon button" id="plus-icon" align="center">
                 <i class="plus icon"></i>
               </button>
-             
+              <span class="product-amount">&nbsp {{item.amount}} &nbsp</span>
+              <button class="ui secondary tertiary compact icon button" id="minus-icon" align="center">
+                <i class="minus icon"></i>
+              </button>
+              <br>
+              <span class="product-type">Categoty : {{item.category}}</span>
             </div>
             <div class="three wide center aligned column">
-              <span>THB {{String(Math.round(item.price*item.amount))}}</span>
+              <!-- <span>THB {{String(Math.round(item.price*item.amount))}}</span> -->
+              <div v-if="item.promotion > 0">
+                <div>
+                <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                <span class="total-sale-price"> THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                </div>
+              </div>
+              <div v-else>
+                <span> THB {{String(Math.round(item.price*item.amount))}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -50,11 +54,11 @@
     </div>
     <div class="five wide column" id="detail-form">
       <h4 class="mt-3 ui dividing header large" id="header-summary">Summary</h4>
-      <!-- <br /> -->
+      <!-- <br> -->
       <div class="ui vertically divided grid m-4">
-        <div class="two column row">
+        <div class="two column row" id="summary-detail">
           <div class="column">
-            <div>Subtotal:</div>
+            <div >Subtotal:</div>
             <div>Discount:</div>
             <div>Total:</div>
           </div>
@@ -129,7 +133,6 @@
           <button class="ui black button " type="submit" id="checkout-button">Check out</button>
         </div>
       </form>
-
     </div>
   </main>
 </template>
@@ -182,6 +185,11 @@ export default {
       buyHandle,
     };
   },
+  methods: {
+    finalPrice(price, discount) {
+      return String(Math.round((price * (100 - discount)) / 100));
+    },
+  },
 };
 </script>
 
@@ -194,7 +202,7 @@ export default {
   margin-bottom: 1%
 }
 #header-cart, #header-summary {
-  font-size: 45px;
+  font-size: 50px;
   color: rgb(54, 54, 55)
 }
 #checkout-button {
@@ -206,11 +214,30 @@ export default {
 #header-item {
   margin-top: 35px;
 }
-/* .product-name {
-  font-weight: 200000;
-} */
-
+.product-name {
+  margin-top: 10000%;
+  font-size: 16px;
+  font-weight: bold;
+}
+#minus-icon, .product-amount, #plus-icon {
+  float: right;
+}
+.product-amount{
+  font-size: 16px;
+  margin-top: 7px
+}
 #detail-form {
   min-width: max-content;
+}
+#summary-detail {
+  font-size: 17px;
+}
+
+.total-price {
+  text-decoration: line-through;
+}
+.total-sale-price {
+  color: #cb0000;
+  font-weight: bold;
 }
 </style>
