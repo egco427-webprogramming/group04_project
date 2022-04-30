@@ -1,7 +1,7 @@
 <template >
   <template v-for="item,idx in items">
     <div class="three wide column">
-      <img class="ui small image" :src="item?.img_url" :alt="item?.name" />
+      <img class="ui small image" :src="item?.img_url" :alt="item?.name" align="center"/>
     </div>
     <div class="ten wide column left aligned detail">
       <div class="item">
