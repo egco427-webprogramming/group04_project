@@ -52,14 +52,14 @@
             <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
-                  <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                  <span class="line-through">THB {{String(Math.round(item.price*item.amount))}}</span>
                   <span
                     class="total-sale-price"
-                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
-                <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                <span>THB {{String(Math.round(item.price*item.amount))}}</span>
               </div>
             </div>
           </div>
@@ -225,6 +225,12 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
 .form {
   margin: 5%;
 }
@@ -267,7 +273,7 @@ export default {
 #summary-detail {
   font-size: 16px;
 }
-.total-price {
+.line-through {
   text-decoration: line-through;
 }
 .total-sale-price {
