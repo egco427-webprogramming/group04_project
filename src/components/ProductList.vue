@@ -20,7 +20,7 @@ import {
   getProductListWithCategory,
 } from "../services/product.service";
 
-import toast from "../store/toast";
+import toast from "../store/toaster";
 
 export default {
   components: { ProductCard },
