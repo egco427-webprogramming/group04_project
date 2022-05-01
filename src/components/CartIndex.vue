@@ -175,7 +175,12 @@
           </div>
         </div>
         <div align="center">
-          <button class="ui black button" type="submit" id="checkout-button">Check out</button>
+          <button
+            class="ui black button"
+            :class="isLoading&&'loading'"
+            type="submit"
+            id="checkout-button"
+          >Check out</button>
         </div>
       </form>
     </div>
@@ -196,6 +201,7 @@ export default {
   async setup(props) {
     const { getters, dispatch } = useStore();
     const router = useRouter();
+    const isLoading = ref(false);
 
     const cart = computed(() => getters["cart/cart"]);
     const totalPrice = computed(() => getters["cart/totalPrice"]);
@@ -212,6 +218,7 @@ export default {
     };
 
     const buyHandle = async () => {
+      isLoading.value = true;
       try {
         if (cart.value.length == 0) {
           toast.clear();
@@ -230,6 +237,7 @@ export default {
         toast.clear();
         toast.errorToast(err.message);
       }
+      isLoading.value = false;
     };
 
     return {
@@ -238,6 +246,7 @@ export default {
       totalDiscount,
       totalResult,
       user,
+      isLoading,
       buyHandle,
       addProduct,
       removeProduct,
