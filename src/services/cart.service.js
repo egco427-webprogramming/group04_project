@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// fake api
-// const URL = "https://fakestoreapi.com/";
+// deployed api
+const URL = "https://lucienshop3212.herokuapp.com/carts";
 // my local api
-const URL = "http://localhost:5000/carts";
+// const URL = "http://localhost:5000/carts";
 
 const httpClient = axios.create({
   baseURL: URL,
