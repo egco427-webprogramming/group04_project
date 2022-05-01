@@ -12,7 +12,7 @@
       <div class="item" v-for="item in cart">
         <div class="col">
           <span class="product-name">{{item.name}} x {{item.amount}}</span>
-          <br>
+          <br />
           <div v-if="item.promotion > 0">
             <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
             <span class="total-sale-price">THB {{totalPrice(item.price*item.amount,item.promotion)}}</span>
@@ -22,10 +22,6 @@
           </div>
         </div>
         <div class="col" align="right">
-          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-          <!-- <button class="ui button" @click.prevent="()=>removeProduct(item)">
-            <sui-icon name="trash alternate" />delete
-          </button>-->
           <button
             class="ui small icon button"
             @click.prevent="()=>removeProduct(item)"
@@ -55,10 +51,10 @@
         </div>
         <template v-else>
           <p class="empty-bag-icon">
-            <br>
+            <br />
             <sui-icon name="shopping cart" />
           </p>
-          <br>
+          <br />
           <p class="empty-bag-text" align="center">Your cart is empty.</p>
         </template>
       </div>

@@ -5,9 +5,7 @@
     </div>
     <div class="row">
       <div class="thirteen wide column">
-        
-        <span class="total-text">Total Price </span>
-        <!-- <span class="total-amount">{{transaction?.price}}</span> -->
+        <span class="total-text">Total Price</span>
         <div>
           <p>Date : {{transaction?.date}}</p>
         </div>
@@ -42,7 +40,7 @@ export default {
 };
 </script>
 
-<style scoped> 
+<style scoped>
 hr {
   min-width: max-content;
 }
@@ -53,6 +51,5 @@ hr {
 .total-amount {
   font-size: 15px;
   font-weight: bold;
-  /* float: right; */
 }
 </style>
