@@ -2,7 +2,7 @@
 
 =========================== group04_project(LUCIEN) ===========================
 
-·      Repository URL : https://bitbucket.org/nnichary/group04_project/
+·      Bitbucket URL : https://bitbucket.org/nnichary/group04_project/
 ·      Github URL : https://github.com/egco427-webprogramming
 ·      Frontend Server : https://projectweb-a85bc.firebaseapp.com/
 ·      Backend Server : https://lucienshop3198.herokuapp.com
