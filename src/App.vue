@@ -45,7 +45,8 @@
               this.$router.replace("/signin");
             })
             .catch((error) => {
-              alert(error.message);
+              toast.clear()
+              toast.errorToast(error);
             });
         }
         store.dispatch("cart/clearCart");

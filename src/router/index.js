@@ -53,6 +53,7 @@ const routes = [
     meta: { requiresAuth: true },
   },
   { path: "/product/:id", name: "Product", component: Product },
+  { path: "/product/signin", redirect: "/signin" },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/signup", name: "Signup", component: Signup },
   { path: "/:pathMatch(.*)*", redirect: "/" },
