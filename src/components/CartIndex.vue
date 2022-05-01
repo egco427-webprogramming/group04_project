@@ -52,14 +52,14 @@
             <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
-                  <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                  <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
                   <span
                     class="total-sale-price"
                   > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
-                <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
+                <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span>
               </div>
             </div>
           </div>
@@ -77,9 +77,9 @@
             <div>Total:</div>
           </div>
           <div class="column right aligned">
-            <div>{{totalPrice}}</div>
-            <div>{{totalDiscount}}</div>
-            <div>{{totalResult}}</div>
+            <div>{{(totalPrice).toFixed(2)}}</div>
+            <div>{{(totalDiscount).toFixed(2)}}</div>
+            <div>{{(totalResult).toFixed(2)}}</div>
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@ export default {
   },
   methods: {
     finalPrice(price, discount) {
-      return String(Math.round((price * (100 - discount)) / 100));
+      return String((Math.round((price * (100 - discount)) / 100)).toFixed(2));
     },
   },
 };

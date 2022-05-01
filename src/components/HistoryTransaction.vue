@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="three wide center aligned column">
-        <span class="total-amount">THB {{transaction?.price}}</span>
+        <span class="total-amount">THB {{(parseFloat(transaction?.price)).toFixed(2)}}</span>
       </div>
     </div>
   </div>

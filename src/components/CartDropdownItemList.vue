@@ -6,7 +6,7 @@
   </div>
   <div class="ui simple dropdown item" id="cart-dropdown">
     <sui-icon name="shopping cart" />
-    THB {{totalResult}}
+    THB {{totalResult.toFixed(2)}}
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item" v-for="item in cart">
@@ -14,11 +14,11 @@
           <span class="product-name">{{item.name}} x {{item.amount}}</span>
           <br>
           <div v-if="item.promotion > 0">
-            <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
-            <span class="total-sale-price">THB {{totalPrice(item.price*item.amount,item.promotion)}}</span>
+            <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span>
+            <span class="total-sale-price"> THB {{totalPrice(item.price*item.amount,item.promotion)}}</span>
           </div>
           <div v-else>
-            <span>THB {{String(Math.round(item.price*item.amount))}}</span>
+            <span>THB {{String((item.price*item.amount).toFixed(2))}}</span>
           </div>
         </div>
         <div class="col" align="right">
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     totalPrice(price, discount) {
-      return String(Math.round((price * (100 - discount)) / 100));
+      return String((Math.round((price * (100 - discount)) / 100)).toFixed(2));
     },
   },
 };
@@ -133,7 +133,7 @@ br {
 }
 #cart-dropdown > .menu {
   max-height: 80vh;
-  min-width: 350px;
+  min-width: 400px;
   overflow: auto;
 }
 </style>

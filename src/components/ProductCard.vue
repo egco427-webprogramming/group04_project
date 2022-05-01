@@ -17,7 +17,7 @@
         <span
           v-if="isOnPromotion()"
           class="sale-price"
-        >THB {{((product.price)*(100-product.promotion))/100}}</span>
+        >THB {{(((product.price)*(100-product.promotion))/100).toFixed(2)}}</span>
       </sui-card-meta>
     </sui-card-content>
 
