@@ -94,6 +94,7 @@ export default {
 <style scoped >
 a {
   text-decoration: none;
+  color: inherit;
 }
 br {
   display: block; /* makes it have a width */

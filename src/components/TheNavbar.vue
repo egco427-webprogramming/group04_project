@@ -16,10 +16,10 @@
 
     <!-- Category -->
     <div class="ui simple dropdown item">
-      <p class="category-item">Category {{category}}</p>
+      <p class="category-item">Category</p>
       <!-- <i class="dropdown icon"></i> -->
       <div class="menu">
-        <div class="item" v-for="category in categoryList">
+        <div class="item" v-for="category in categoryList" :key="category">
           <router-link :to="{...MAIN_PATH,query:{category:category}}">
             <p>{{category}}</p>
           </router-link>
@@ -81,7 +81,7 @@ export default {
     const { dispatch, state } = useStore();
 
     // getCategoryList
-    const categoryList = computed(() => state.product.categories);
+    const categoryList = computed(() => state.product?.categories || []);
 
     // fetchCategory
     dispatch("product/setCategories");
