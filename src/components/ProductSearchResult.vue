@@ -17,7 +17,7 @@ import { useRoute } from "vue-router";
 import { computed, ref, watch } from "vue";
 import { getProductListWithKeyword } from "../services/product.service";
 
-import toast from "../store/toast";
+import toast from "../store/toaster";
 
 export default {
   components: { ProductCard },
