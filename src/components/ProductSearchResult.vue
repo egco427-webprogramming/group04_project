@@ -24,7 +24,8 @@ export default {
   async setup() {
     const route = useRoute();
 
-    const fetchData = async (query) => await getProductListWithKeyword(query);
+    const fetchData = async (query) =>
+      (await getProductListWithKeyword(query)) || [];
 
     const products = ref(await fetchData(route.query.q));
 
