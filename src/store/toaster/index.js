@@ -29,24 +29,6 @@ const removefromcartToast = () =>
       timeout: 3000,
     });
 
-const errorToast = (err) =>
-  createToast({
-    title: "Error",
-    description: err
-  }, {
-    transition: "slide",
-    showIcon: true,
-    swipeClose: true,
-    position: "bottom-left",
-    type: "warning",
-    class: "my-danger",
-    toastBackgroundColor: "red",
-  });
-  const warningToast = (err) =>
-  createToast({
-    title: "Something's wrong",
-    description: "Your cart is empty!"
-  }, {
     transition: "slide",
     showIcon: true,
     hideProgressBar: true,
@@ -70,6 +52,38 @@ const logoutToast = () =>
     timeout: 3000,
   });
 
+const errorToast = (err = "") =>
+  createToast(
+    {
+      title: "Something went wrong",
+      description: err,
+    },
+    {
+      transition: "slide",
+      showIcon: true,
+      swipeClose: true,
+      position: "bottom-left",
+      type: "warning",
+      class: "my-danger",
+      toastBackgroundColor: "red",
+    }
+  );
+const warningToast = (title = "Warning", description = "") =>
+  createToast(
+    {
+      title: title || "Warning",
+      description: description || "",
+    },
+    {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      timeout: 3000,
+    }
+  );
 const loginToast = () =>
   createToast({
     title: "Welcome back",
