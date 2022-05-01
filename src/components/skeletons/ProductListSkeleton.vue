@@ -1,5 +1,5 @@
 <template>
-  <br>
+  <br />
   <h1 class="placeholder-glow" id="header-text">
     <span class="placeholder" style="width: 15%;"></span>
   </h1>
@@ -12,7 +12,7 @@
         <div class="ui placeholder">
           <sui-image class="image" height="300" width="300"></sui-image>
         </div>
-        
+
         <sui-card-content class="card-content" align="left">
           <!-- product name -->
           <sui-card-header>
@@ -22,7 +22,7 @@
           </sui-card-header>
           <!-- product price -->
           <sui-card-meta>
-            <br>
+            <br />
             <p class="placeholder-glow">
               <span class="placeholder" style="width: 20%;"></span>
               <span class="placeholder" style="width: 20%;"></span>
@@ -40,16 +40,8 @@
       </sui-card>
     </template>
   </div>
-  <br>
+  <br />
 </template>
-
-<script>
-// import ProductCardSkeleton from "./ProductCardSkeleton.vue";
-
-export default {
-  // components: { ProductCardSkeleton },
-};
-</script>
 
 <style scoped>
 #header-text {

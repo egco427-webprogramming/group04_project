@@ -6,7 +6,7 @@
 
   <main class="ui stackable grid centered" id="header-form">
     <div class="ten wide column">
-      <!-- <h4 class="mt-3 ui dividing header large">Your cart</h4> -->
+      <!-- cart -->
       <div class="ui celled grid">
         <div class="row center aligned">
           <div class="three wide column">

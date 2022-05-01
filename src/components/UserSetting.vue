@@ -46,9 +46,6 @@
 </template>
 
 <script>
-/**
- * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
- */
 import { updateUser } from "../services/user.service";
 import toast from "../store/toaster/index.js";
 export default {

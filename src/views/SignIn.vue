@@ -67,7 +67,6 @@ import {
   OAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import userStore from "../store/user";
 import { login } from "../services/user.service";
 import toast from "../store/toaster/index.js";
 

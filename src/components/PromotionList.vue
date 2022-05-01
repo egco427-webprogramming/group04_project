@@ -1,5 +1,5 @@
 <template>
-  <br>
+  <br />
   <div>
     <h1 class="text-promotion">Promotion</h1>
   </div>
@@ -27,7 +27,6 @@ export default {
 .product-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* grid-template-columns: repeat(4, 1fr); */
   justify-content: center;
   margin-top: 40px;
 }
@@ -40,6 +39,6 @@ export default {
 .text-promotion {
   font-weight: 700;
   font-size: 50px;
-  color: rgb(54, 54, 55)
+  color: rgb(54, 54, 55);
 }
 </style>
