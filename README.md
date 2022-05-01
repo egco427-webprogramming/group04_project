@@ -1,6 +1,6 @@
 # group04_project (LUCIEN)
 
-  - Bitbucket URL : [https://bitbucket.org/nnichary/group04_project/](https://bitbucket.org/nnichary/group04_project/)
+  - Bitbucket URL : [https://bitbucket.org/nnichary/group04_project/](https://bitbucket.org/nnichary/group04_project/src/main/)
   - Frontend Server : [https://projectweb-a85bc.firebaseapp.com/](https://projectweb-a85bc.firebaseapp.com/)
   - Backend Server : [https://lucienshop3198.herokuapp.com](https://lucienshop3198.herokuapp.com)
   - Postman : [https://documenter.getpostman.com/](https://documenter.getpostman.com/view/20750956/UyrG9syo)
