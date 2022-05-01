@@ -16,12 +16,13 @@
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item" align="left">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="/">Company</a></li>
-                            <li><a href="/">Team</a></li>
-                            <li><a href="/">Careers</a></li>
-                        </ul>
+                        <h3>Presented by</h3>
+                        <div style="opacity:0.6;">
+                            <span>6213125 Nattawee</span><br>
+                            <span>6213198 Nicharee</span><br>
+                            <span>6213207 Pakkaporn</span><br>
+                            <span>6213212 Supattra</span>
+                        </div>
                     </div>
                     <div class="col-md-6 item text">
                         <h2>LUCIEN</h2>
