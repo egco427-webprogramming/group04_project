@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     handleSearch() {
-      console.log(this.searchText);
       this.$router.replace(`/main?q=${this.searchText}`);
     },
   },

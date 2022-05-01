@@ -1,5 +1,5 @@
 <template>
-  <br>
+  <br />
   <div>
     <h1 class="ui header" id="history-text">Purchase History</h1>
   </div>
@@ -33,6 +33,8 @@ import HistoryTransaction from "./HistoryTransaction.vue";
 import { getHistory } from "../services/history.service";
 import { ref } from "vue";
 
+import toast from "../store/toaster";
+
 export default {
   components: {
     HistoryTransaction,
@@ -50,7 +52,7 @@ export default {
       try {
         history = await getHistory(id);
       } catch (err) {
-        console.log(err);
+        toast.errorToast(err.message);
       }
       return history;
     },
@@ -59,7 +61,6 @@ export default {
 </script>
 
 <style scoped>
-
 #history-text {
   margin-top: 25px;
   font-weight: 700;

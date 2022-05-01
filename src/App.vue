@@ -5,53 +5,43 @@
 </template>
 
 <script>
-  import TheNavbar from "./components/TheNavbar.vue";
-  import TheFooter from "./components/TheFooter.vue";
-  import {
-    useStore
-  } from "vuex";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signOut
-  } from "firebase/auth";
-  import store from "./store";
-  import toast from "./store/toaster/index.js";
+import TheNavbar from "./components/TheNavbar.vue";
+import TheFooter from "./components/TheFooter.vue";
+import { useStore } from "vuex";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import store from "./store";
+import toast from "./store/toaster/index.js";
 
-  export default {
-    name: "App",
+export default {
+  name: "App",
 
-    components: {
-      TheNavbar,
-      TheFooter,
+  components: {
+    TheNavbar,
+    TheFooter,
+  },
+  setup() {
+    const { dispatch } = useStore();
+    dispatch("product/setProducts");
+  },
+  methods: {
+    handleLogout() {
+      const currentUser = getAuth().currentUser;
+      const auth = getAuth();
+      if (currentUser && auth) {
+        signOut(auth)
+          .then(() => {
+            toast.clear();
+            toast.logoutToast();
+            this.$router.replace("/signin");
+          })
+          .catch((error) => {
+            toast.clear();
+            toast.errorToast(error);
+          });
+      }
+      store.dispatch("cart/clearCart");
+      this.$router.push("/");
     },
-    setup() {
-      const {
-        dispatch
-      } = useStore();
-      dispatch("product/setProducts");
-    },
-    methods: {
-      handleLogout() {
-        //console.log(getAuth().currentUser) //return null if no user logged in
-
-        const currentUser = getAuth().currentUser;
-        const auth = getAuth();
-        if (currentUser && auth) {
-          signOut(auth)
-            .then(() => {
-              toast.clear()
-              toast.logoutToast();
-              this.$router.replace("/signin");
-            })
-            .catch((error) => {
-              toast.clear()
-              toast.errorToast(error);
-            });
-        }
-        store.dispatch("cart/clearCart");
-        this.$router.push("/");
-      },
-    },
-  };
+  },
+};
 </script>

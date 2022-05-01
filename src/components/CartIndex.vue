@@ -56,7 +56,7 @@
                   <span class="total-price">THB {{String(Math.round(item.price*item.amount))}}</span>
                   <span
                     class="total-sale-price"
-                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
@@ -190,7 +190,7 @@ export default {
       try {
         if (cart.value.length == 0) {
           toast.clear();
-          return toast.warningToast();
+          return toast.warningToast("Did you forget something?");
         }
         await updateUser(props.id, user.value);
         await addHistory({
@@ -202,7 +202,8 @@ export default {
         toast.checkoutToast();
         router.push("/purchased");
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     };
 

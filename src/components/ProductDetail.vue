@@ -3,35 +3,34 @@
   <div class="product-container">
     <div class="row" id="row">
       <div class="col" align="center" id="col-img">
-        <img :src="product.img_url" :alt="product.name"/>
+        <img :src="product.img_url" :alt="product.name" />
       </div>
       <div class="col" id="product-detail">
-        <div align="left" > 
-            <h2 id="product-name">{{product.name}}</h2>
-            <h5 id="product-category" style="font-size:16px">{{product.category}}</h5>
-            <div v-if="product.promotion > 0">
-              <span id="product-line-price">THB {{product.price}}</span>
-              <span id="product-sale-price">  THB {{((product.price)*(100-product.promotion))/100}}</span>
-            </div>
-            <div v-else>
-              <h4 id="product-price">THB {{product.price}}</h4>
-            </div>
-            <div v-if="product.sold > 1">
-              <p class="product-sold" style="font-size:16px">sold : {{product.sold}} pieces</p>
-            </div>
-            <div v-else>
-              <p  class="product-sold" style="font-size:16px">THB {{product.price}} piece</p>
-            </div>
-            <hr id="hr-line">
-            <h4 id="description-text">Description</h4>
-            <h5 id="product-des">{{product.des}}</h5>
+        <div align="left">
+          <h2 id="product-name">{{product.name}}</h2>
+          <h5 id="product-category" style="font-size:16px">{{product.category}}</h5>
+          <div v-if="product.promotion > 0">
+            <span id="product-line-price">THB {{product.price}}</span>
+            <span id="product-sale-price">THB {{((product.price)*(100-product.promotion))/100}}</span>
+          </div>
+          <div v-else>
+            <h4 id="product-price">THB {{product.price}}</h4>
+          </div>
+          <div v-if="product.sold > 1">
+            <p class="product-sold" style="font-size:16px">sold : {{product.sold}} pieces</p>
+          </div>
+          <div v-else>
+            <p class="product-sold" style="font-size:16px">THB {{product.price}} piece</p>
+          </div>
+          <hr id="hr-line" />
+          <h4 id="description-text">Description</h4>
+          <h5 id="product-des">{{product.des}}</h5>
         </div>
         <div align="center">
-            <button class="ui black button" @click.prevent="addToCart" id="add-button">
-              <h5>Add to cart</h5>
-            </button>  
+          <button class="ui black button" @click.prevent="addToCart" id="add-button">
+            <h5>Add to cart</h5>
+          </button>
         </div>
-              
       </div>
     </div>
   </div>
@@ -52,8 +51,6 @@ export default {
     const amount = 1;
     const addToCart = () =>
       dispatch("cart/addProduct", { id: props.id, amount });
-
-    // console.log(product.value);
     return { product, addToCart };
   },
 };
@@ -106,7 +103,7 @@ img {
   margin-top: 60px;
 }
 #description-text {
-  margin-top: 20px
+  margin-top: 20px;
 }
 #product-des {
   margin-top: 10px;
@@ -116,7 +113,6 @@ img {
   width: 350px;
   border-radius: 30px;
   margin-top: 75px;
-  
 }
 /* responsive nav for Labtop */
 @media only screen and (max-width: 1650px) {

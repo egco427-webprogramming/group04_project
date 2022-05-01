@@ -63,11 +63,12 @@ export default {
       this.isLoading = true;
       let updatedUser;
       try {
-        toast.clear()
+        toast.clear();
         toast.updateToast();
         updatedUser = await updateUser(this.user.uid, this.user);
       } catch (err) {
-        console.log(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       this.isLoading = false;
       return updatedUser;
