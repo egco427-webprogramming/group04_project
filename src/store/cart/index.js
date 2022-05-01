@@ -4,7 +4,6 @@ import toast from "../toaster";
 export default {
   namespaced: true,
   state: {
-    // cart: [{ id: "6262ddd37fb62705ecb84720", amount: 1 }],
     cart: [],
   },
   getters: {

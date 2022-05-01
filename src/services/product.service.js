@@ -25,8 +25,7 @@ export async function getProductListWithPromotion() {
 export async function getProduct(id = "6262ddd37fb62705ecb84720") {
   return (await httpClient.get("/id/" + id)).data;
 }
-
+// fixed category
 export async function getCategoryList() {
-  // return (await httpClient.get("/categories")).data;
   return ["JEANS", "T-Shirts", "Jacket", "Coat", "Sunglasses"];
 }

@@ -1,5 +1,4 @@
 <template>
-  <!-- {{auth.currentUser}} -->
   <suspense>
     <template #default>
       <CartIndex :id="auth.currentUser.uid" />

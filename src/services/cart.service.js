@@ -9,8 +9,6 @@ const httpClient = axios.create({
   baseURL: URL,
 });
 
-// id that gen from firebase
-// currentUser.providerData.uid
 export async function getCart(id) {
   return (await httpClient.get("/" + id)).data;
 }

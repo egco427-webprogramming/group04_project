@@ -17,7 +17,6 @@
     <!-- Category -->
     <div class="ui simple dropdown item">
       <p class="category-item">Category</p>
-      <!-- <i class="dropdown icon"></i> -->
       <div class="menu">
         <div class="item" v-for="category in categoryList" :key="category">
           <router-link :to="{...MAIN_PATH,query:{category:category}}">
@@ -55,9 +54,6 @@
           </a>
         </div>
       </div>
-      <!-- <a href="#" @click="handleLogout" v-if="isLoggedIn">
-      <sui-menu-item>SignOut</sui-menu-item>
-      </a>-->
     </sui-menu-menu>
   </sui-menu>
 </template>
@@ -104,16 +100,7 @@ p {
   align-items: center;
   margin: 0px;
   text-decoration: none;
-  /* flex-wrap: wrap; */
 }
-/* .menu > * {
-  width: 1fr;
-  width: auto;
-} */
-/* .menu-item {
-  margin: 0px;
-  text-decoration: none;
-} */
 .category-item {
   margin: auto;
 }
@@ -123,18 +110,13 @@ p {
 #user-icon-item {
   margin: auto;
 }
-/* #nav-right {
-  margin: auto;
-} */
 </style>
 <style >
 /* responsive nav for mobile */
 @media only screen and (max-width: 720px) {
   #main-nav {
-    /* display: grid; */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* justify-content: center; */
   }
   #main-nav > * {
     margin: auto;
