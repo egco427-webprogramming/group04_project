@@ -1,34 +1,9 @@
 // https://github.com/szboynono/mosha-vue-toastify
 
-import {
-  createToast,
-  clearToasts
-} from "mosha-vue-toastify";
+import { createToast, clearToasts } from "mosha-vue-toastify";
 
 const addtocartToast = () =>
-  createToast(
-    "Add Product to cart", {
-      transition: "slide",
-      showIcon: true,
-      hideProgressBar: true,
-      swipeClose: true,
-      showCloseButton: false,
-      position: "bottom-left",
-      timeout: 3000,
-    });
-
-const removefromcartToast = () =>
-  createToast(
-    "Remove Product from cart", {
-      transition: "slide",
-      showIcon: true,
-      hideProgressBar: true,
-      swipeClose: true,
-      showCloseButton: false,
-      position: "bottom-left",
-      timeout: 3000,
-    });
-
+  createToast("Add Product to cart", {
     transition: "slide",
     showIcon: true,
     hideProgressBar: true,
@@ -38,11 +13,8 @@ const removefromcartToast = () =>
     timeout: 3000,
   });
 
-const logoutToast = () =>
-  createToast({
-    title: "Sign out",
-    description: "See you later!"
-  }, {
+const removefromcartToast = () =>
+  createToast("Remove Product from cart", {
     transition: "slide",
     showIcon: true,
     hideProgressBar: true,
@@ -84,52 +56,66 @@ const warningToast = (title = "Warning", description = "") =>
       timeout: 3000,
     }
   );
+
+const logoutToast = () =>
+  createToast(
+    {
+      title: "Sign out",
+      description: "See you later!",
+    },
+    {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      timeout: 3000,
+    }
+  );
+
 const loginToast = () =>
-  createToast({
-    title: "Welcome back",
-    description: "Happy shopping!"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    hideProgressBar: true,
-    swipeClose: true,
-    showCloseButton: false,
-    position: "bottom-left",
-    timeout: 3000,
-  });
+  createToast(
+    {
+      title: "Welcome back",
+      description: "Happy shopping!",
+    },
+    {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      timeout: 3000,
+    }
+  );
 
 const signupToast = () =>
-  createToast({
-    title: "Sign up complete",
-    description: "welcome to Lucien!"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    hideProgressBar: true,
-    swipeClose: true,
-    showCloseButton: false,
-    position: "bottom-left",
-    type: "success",
-    timeout: 3000,
-  });
+  createToast(
+    {
+      title: "Sign up complete",
+      description: "welcome to Lucien!",
+    },
+    {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      type: "success",
+      timeout: 3000,
+    }
+  );
 
 const checkoutToast = () =>
-  createToast({
-    title: "Thank you!",
-    description: "your product is on the way to you"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    hideProgressBar: true,
-    swipeClose: true,
-    showCloseButton: false,
-    position: "bottom-left",
-    type: "default",
-  });
-
-const updateToast = () =>
   createToast(
-    "Profile updated successfully", {
+    {
+      title: "Thank you!",
+      description: "your product is on the way to you",
+    },
+    {
       transition: "slide",
       showIcon: true,
       hideProgressBar: true,
@@ -137,12 +123,24 @@ const updateToast = () =>
       showCloseButton: false,
       position: "bottom-left",
       type: "default",
-      timeout: 2000,
-    });
+    }
+  );
+
+const updateToast = () =>
+  createToast("Profile updated successfully", {
+    transition: "slide",
+    showIcon: true,
+    hideProgressBar: true,
+    swipeClose: true,
+    showCloseButton: false,
+    position: "bottom-left",
+    type: "default",
+    timeout: 2000,
+  });
 
 const clear = () => {
-  clearToasts() // clears all the toasts
-}
+  clearToasts(); // clears all the toasts
+};
 
 export default {
   addtocartToast,
