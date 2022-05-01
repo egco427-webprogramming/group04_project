@@ -5,19 +5,29 @@ import {
   clearToasts
 } from "mosha-vue-toastify";
 
-const successToast = () =>
-  createToast({
-    title: "Add Product to cart",
-    description: "some good description"
-  }, {
-    transition: "slide",
-    showIcon: true,
-    hideProgressBar: true,
-    swipeClose: true,
-    showCloseButton: false,
-    position: "bottom-left",
-    timeout: 3000,
-  });
+const addtocartToast = () =>
+  createToast(
+    "Add Product to cart", {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      timeout: 3000,
+    });
+
+const removefromcartToast = () =>
+  createToast(
+    "Remove Product from cart", {
+      transition: "slide",
+      showIcon: true,
+      hideProgressBar: true,
+      swipeClose: true,
+      showCloseButton: false,
+      position: "bottom-left",
+      timeout: 3000,
+    });
 
 const errorToast = (err) =>
   createToast(err, {
@@ -105,7 +115,8 @@ const clear = () => {
 }
 
 export default {
-  successToast,
+  addtocartToast,
+  removefromcartToast,
   errorToast,
   logoutToast,
   loginToast,

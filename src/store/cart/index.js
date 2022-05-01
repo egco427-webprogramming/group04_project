@@ -72,11 +72,8 @@ export default {
     async addProduct({ state, commit }, { id, amount }) {
       console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
-
-      toast.errorToast("test");  
-
       toast.clear()    
-      toast.successToast();
+      toast.addtocartToast();
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
@@ -88,6 +85,8 @@ export default {
     },
     async removeProduct({ state, commit }, { id }) {
       console.log(id, -1);
+      toast.clear()
+      toast.removefromcartToast();
       commit("REMOVE_PRODUCT", { id });
       try {
         const currentUser = getAuth().currentUser;
