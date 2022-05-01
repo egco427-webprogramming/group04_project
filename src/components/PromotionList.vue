@@ -18,7 +18,7 @@ export default {
   components: { ProductCard },
   async setup() {
     async function getProductList() {
-      const data = [];
+      let data = [];
       try {
         data = await getProductListWithPromotion();
       } catch (err) {

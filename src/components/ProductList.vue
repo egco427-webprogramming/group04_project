@@ -28,7 +28,7 @@ export default {
     const route = useRoute();
 
     const fetchData = async (category) => {
-      const data = [];
+      let data = [];
       try {
         data = await (category
           ? getProductListWithCategory(category)
