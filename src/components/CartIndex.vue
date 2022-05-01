@@ -55,7 +55,8 @@
             <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
-                  <span class="line-through">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
+                  <span class="line-through">THB {{String((item.price*item.amount).toFixed(2))}}</span>
+                  <br />
 
                   <span
                     class="total-sale-price"
@@ -64,7 +65,6 @@
               </div>
               <div v-else>
                 <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span>
-
               </div>
             </div>
           </div>
@@ -101,17 +101,37 @@
           </div>
           <div class="required field" id="mobile-field">
             <label>Mobile Number</label>
-            <input type="text" placeholder="Tel" v-model="user.tel" required />
+            <input
+              type="text"
+              placeholder="Tel"
+              v-model="user.tel"
+              required
+              pattern="[0-9]{10}"
+              :maxlength="10"
+            />
           </div>
           <div class="required field" id="card-field">
             <label>Card Number</label>
-            <input type="text" placeholder="**** **** **** ****" :maxlength="16" required />
+            <input
+              type="text"
+              placeholder="**** **** **** ****"
+              :maxlength="16"
+              required
+              pattern="[0-9]{16}"
+            />
           </div>
 
           <div class="fields">
             <div class="required field">
               <label>CVC</label>
-              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required />
+              <input
+                type="text"
+                name="card[cvc]"
+                maxlength="3"
+                placeholder="CVC"
+                required
+                pattern="[0-9]{3}"
+              />
             </div>
             <div class="required field">
               <label>Expiration</label>
@@ -139,6 +159,7 @@
                     name="card[expire-year]"
                     maxlength="4"
                     placeholder="Year"
+                    pattern="[0-9]{4}"
                     required
                   />
                 </div>
@@ -224,7 +245,7 @@ export default {
   },
   methods: {
     finalPrice(price, discount) {
-      return String((Math.round((price * (100 - discount)) / 100)).toFixed(2));
+      return String(Math.round((price * (100 - discount)) / 100).toFixed(2));
     },
   },
 };
