@@ -114,7 +114,7 @@
             <label>Card Number</label>
             <input
               type="text"
-              placeholder="**** **** **** ****"
+              placeholder="16-digits numbers"
               :maxlength="16"
               required
               pattern="[0-9]{16}"
