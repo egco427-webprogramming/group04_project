@@ -19,15 +19,25 @@ import {
   getProductList,
   getProductListWithCategory,
 } from "../services/product.service";
+
+import toast from "../store/toast";
+
 export default {
   components: { ProductCard },
   async setup() {
     const route = useRoute();
 
-    const fetchData = async (category) =>
-      await (category
-        ? getProductListWithCategory(category)
-        : getProductList());
+    const fetchData = async (category) => {
+      const data = [];
+      try {
+        data = await (category
+          ? getProductListWithCategory(category)
+          : getProductList());
+      } catch (err) {
+        toast.errorToast(err.message);
+      }
+      return data;
+    };
 
     const products = ref(await fetchData(route.query.category));
 
