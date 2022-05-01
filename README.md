@@ -4,7 +4,7 @@
   - Frontend Server : [https://projectweb-a85bc.firebaseapp.com/](https://projectweb-a85bc.firebaseapp.com/)
   - Backend Server : [https://lucienshop3198.herokuapp.com](https://lucienshop3198.herokuapp.com)
   - Postman : [https://documenter.getpostman.com/](https://documenter.getpostman.com/view/20750956/UyrG9syo)
-  - Demonstration Clip : https://youtu.be/oAfo8H4NLYI
+  - Demonstration Clip : https://youtu.be/NUFz4rXwPeE
 
   - Member:
     - [Natthawee Koengfak](https://github.com/etnk125) ID: 6213125
