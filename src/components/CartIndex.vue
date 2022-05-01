@@ -25,7 +25,9 @@
             <div class="ten wide column left aligned detail">
               <div class="row">
                 <div class="column" id="name-column">
-                  <span class="product-name">{{item.name}}</span>
+                  <router-link :to="{name:'Product',params:{id:item._id}}">
+                    <span class="product-name">{{item.name}}</span>
+                  </router-link>
                 </div>
                 <div class="column" id="amount-column">
                   <button
