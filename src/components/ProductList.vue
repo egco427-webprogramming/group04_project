@@ -1,5 +1,5 @@
 <template>
-  <br>
+  <br />
   <div>
     <h1 class="text-category">{{category}}</h1>
   </div>
@@ -8,13 +8,13 @@
       <ProductCard :product="product" />
     </template>
   </div>
-  <br>
+  <br />
 </template>
 
 <script>
 import ProductCard from "./ProductCard.vue";
 import { useRoute } from "vue-router";
-import { computed, onMounted, ref, watchEffect, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import {
   getProductList,
   getProductListWithCategory,

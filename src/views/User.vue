@@ -1,5 +1,4 @@
 <template>
-  <!-- {{auth.currentUser}} -->
   <suspense>
     <template #default>
       <UserIndex :id="auth.currentUser.uid" />
@@ -13,12 +12,12 @@
 
 <script>
 import UserIndex from "../components/UserIndex.vue";
-import UserSettingSkeleton from "../components/skeletons/UserSettingSkeleton.vue"
+import UserSettingSkeleton from "../components/skeletons/UserSettingSkeleton.vue";
 import { getAuth } from "firebase/auth";
 export default {
   components: {
     UserIndex,
-    UserSettingSkeleton
+    UserSettingSkeleton,
   },
   setup() {
     const auth = getAuth();

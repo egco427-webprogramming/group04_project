@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// fake api
-// const URL = "https://fakestoreapi.com/users";
+// deployed api
+const URL = "https://lucienshop3212.herokuapp.com/history";
 // my local api
-const URL = "http://localhost:5000/history";
+// const URL = "http://localhost:5000/history";
 
 import { toBackendCart, toFrontendCart } from "../util";
 

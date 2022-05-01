@@ -3,6 +3,8 @@ import {
   getCategoryList,
 } from "../../services/product.service";
 
+import toast from "../toaster";
+
 export default {
   namespaced: true,
   state: {
@@ -10,7 +12,6 @@ export default {
     // using dynamic programming for better runtime
     mappedProducts: [],
     categories: [],
-    // product: {},
   },
   getters: {},
   mutations: {
@@ -23,9 +24,6 @@ export default {
     SET_CATEGORIES(state, categories) {
       state.categories = categories;
     },
-    // SET_PRODUCT(state, product) {
-    //   state.product = product;
-    // },
   },
   actions: {
     async setProducts({ commit }) {
@@ -33,7 +31,8 @@ export default {
       try {
         products = await getProductList();
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       commit("SET_PRODUCTS", products);
     },
@@ -42,19 +41,10 @@ export default {
       try {
         categories = await getCategoryList();
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       commit("SET_CATEGORIES", categories);
     },
-    // async setProduct({ commit }, id) {
-    //   let product = {};
-    //   try {
-    //     product = await getProduct(id);
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    //   console.log(product);
-    //   commit("SET_PRODUCT", product);
-    // },
   },
 };

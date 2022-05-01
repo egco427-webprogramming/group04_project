@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// fake api
-// const URL = "https://fakestoreapi.com/products";
+// deployed api
+const URL = "https://lucienshop3212.herokuapp.com/items";
 // work in local
-const URL = "http://localhost:5000/items";
+// const URL = "http://localhost:5000/items";
 
 const httpClient = axios.create({
   baseURL: URL,
@@ -25,8 +25,7 @@ export async function getProductListWithPromotion() {
 export async function getProduct(id = "6262ddd37fb62705ecb84720") {
   return (await httpClient.get("/id/" + id)).data;
 }
-
+// fixed category
 export async function getCategoryList() {
-  // return (await httpClient.get("/categories")).data;
   return ["JEANS", "T-Shirts", "Jacket", "Coat", "Sunglasses"];
 }

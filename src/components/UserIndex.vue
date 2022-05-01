@@ -1,5 +1,5 @@
 <template>
-  <br>
+  <br />
   <UserSetting :user="user" />
 </template>
 
@@ -8,6 +8,8 @@ import UserSetting from "./UserSetting.vue";
 
 import { getUser } from "../services/user.service";
 import { ref } from "vue";
+
+import toast from "../store/toaster";
 
 export default {
   components: {
@@ -26,7 +28,8 @@ export default {
       try {
         user = await getUser(id);
       } catch (err) {
-        console.log(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       return user;
     },

@@ -3,18 +3,13 @@
     <template #default>
       <ProductDetail :id="id" />
     </template>
-    <template #fallback>
-      loading..
-      <!-- implement skeleton loading later -->
-    </template>
+    <template #fallback>loading...</template>
   </suspense>
 </template>
 
 <script>
 import { useRoute } from "vue-router";
 import ProductDetail from "../components/ProductDetail.vue";
-// import { createNamespacedHelpers, useStore } from "vuex";
-// const { mapState, mapActions } = createNamespacedHelpers("product");
 
 export default {
   setup() {

@@ -46,9 +46,6 @@
 </template>
 
 <script>
-/**
- * adr,email,firstname,lastname,tel,uid(firebase),_id(mongo)
- */
 import { updateUser } from "../services/user.service";
 import toast from "../store/toaster/index.js";
 export default {
@@ -63,11 +60,12 @@ export default {
       this.isLoading = true;
       let updatedUser;
       try {
-        toast.clear()
+        toast.clear();
         toast.updateToast();
         updatedUser = await updateUser(this.user.uid, this.user);
       } catch (err) {
-        console.log(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       this.isLoading = false;
       return updatedUser;

@@ -25,7 +25,9 @@
             <div class="ten wide column left aligned detail">
               <div class="row">
                 <div class="column" id="name-column">
-                  <span class="product-name">{{item.name}}</span>
+                  <router-link :to="{name:'Product',params:{id:item._id}}">
+                    <span class="product-name">{{item.name}}</span>
+                  </router-link>
                 </div>
                 <div class="column" id="amount-column">
                   <button
@@ -47,19 +49,22 @@
                   </button>
                 </div>
               </div>
+
               <p class="product-type">Categoty : {{item.category}}</p>
             </div>
             <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
-                  <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
+                  <span class="line-through">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
+
                   <span
                     class="total-sale-price"
-                  > THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
+                  >THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
                 </div>
               </div>
               <div v-else>
                 <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span>
+
               </div>
             </div>
           </div>
@@ -188,8 +193,8 @@ export default {
     const buyHandle = async () => {
       try {
         if (cart.value.length == 0) {
-          toast.clear()
-          return toast.warningToast();
+          toast.clear();
+          return toast.warningToast("Did you forget something?");
         }
         await updateUser(props.id, user.value);
         await addHistory({
@@ -198,10 +203,11 @@ export default {
           price: totalResult.value,
         });
         await dispatch("cart/clearCartAfterPurchase");
-        toast.checkoutToast()
+        toast.checkoutToast();
         router.push("/purchased");
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     };
 
@@ -225,6 +231,12 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
 .form {
   margin: 5%;
 }
@@ -267,7 +279,7 @@ export default {
 #summary-detail {
   font-size: 16px;
 }
-.total-price {
+.line-through {
   text-decoration: line-through;
 }
 .total-sale-price {

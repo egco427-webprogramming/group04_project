@@ -12,7 +12,7 @@
       </sui-card-header>
       <!-- product price -->
       <sui-card-meta>
-        <br>
+        <br />
         <span class="price" :class="isOnPromotion()&&'discount'">THB {{product.price}}</span>
         <span
           v-if="isOnPromotion()"
@@ -22,10 +22,7 @@
     </sui-card-content>
 
     <!-- add button -->
-    <!-- Gray Button -->
-    <!-- <sui-button @click.prevent="addToCart" attached="bottom">
-      <sui-icon name="cart plus" />Add to cart
-    </sui-button>-->
+
     <!-- Black Button -->
     <button class="ui black button" @click.prevent="addToCart" attached="bottom">
       <sui-icon name="cart plus" />Add to cart
@@ -54,8 +51,8 @@ export default {
 
 <style scoped>
 a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  color: inherit;
+  text-decoration: inherit;
   font-size: inherit;
 }
 br {

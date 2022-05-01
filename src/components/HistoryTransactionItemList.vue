@@ -1,7 +1,7 @@
 <template >
   <template v-for="item,idx in items">
     <div class="three wide column" align="center">
-      <img class="ui small image" :src="item?.img_url" :alt="item?.name"/>
+      <img class="ui small image" :src="item?.img_url" :alt="item?.name" />
     </div>
     <div class="ten wide column left aligned detail">
       <div class="item">
@@ -9,20 +9,18 @@
         <span class="product-amount">x {{item?.amount}}</span>
       </div>
       <span class="product-type">Category : {{item?.category}}</span>
-      <br>
-      <!-- <span class="product-amount">Amount : {{item?.amount}}</span>
-      <br> -->
+      <br />
     </div>
     <div class="three wide center aligned column">
-      <!-- <span>THB {{String(Math.round(item?.price))}}</span> -->
       <div v-if="item.promotion > 0">
+
         <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
         <span class="total-sale-price"> THB {{finalPrice(item.price*item.amount,item.promotion)}}</span>
       </div>
       <div v-else>
         <span> THB {{String((item.price*item.amount).toFixed(2))}}</span>
+
       </div>
-      <!-- <span>THB {{String(Math.round(item?.price*item?.amount))}}</span> -->
     </div>
   </template>
 </template>
