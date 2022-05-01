@@ -12,6 +12,7 @@
 import ProductCard from "./ProductCard.vue";
 import { ref } from "vue";
 import { getProductListWithPromotion } from "../services/product.service";
+import toast from "../store/toaster/index.js";
 
 export default {
   components: { ProductCard },
