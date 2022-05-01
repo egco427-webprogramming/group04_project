@@ -1,13 +1,4 @@
-.my-danger {
-/* background-color: red !important; */
-background-color: white;
-}
 
 .my-danger>.mosha__toast__progress {
-background-color: pink ; //idk which colour or just disable it
+background-color: pink ;
 }
-
-/*.my-danger .mosha__toast__content__text{
-color: white ;
-}*/
-
