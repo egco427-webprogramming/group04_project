@@ -24,7 +24,6 @@ export default {
       return getters.cart.reduce((total, product) => {
         const ret =
           total + ((product.price * product.promotion) / 100) * product.amount;
-        console.log(ret);
         return ret;
       }, 0);
     },
@@ -55,46 +54,38 @@ export default {
       }
     },
     SET_CART(state, userCart) {
-      // userCart.forEach((product) => {
-
-      //   cart.push(product);
-      // });
       state.cart = userCart;
-      // console.log(state.cart, userCart);
     },
     CLEAR_CART(state) {
       state.cart = [];
-
-      console.log("clearing finish");
     },
   },
   actions: {
     async addProduct({ state, commit }, { id, amount }) {
-      console.log(id, amount);
       commit("ADD_PRODUCT", { id, amount });
-      toast.clear()    
-      toast.addtocartToast();
+
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
           await updateCart(currentUser.uid, state.cart);
+          toast.addToCartToast();
         }
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     },
     async removeProduct({ state, commit }, { id }) {
-      console.log(id, -1);
-      toast.clear()
-      toast.removefromcartToast();
       commit("REMOVE_PRODUCT", { id });
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
+          toast.removeFromCartToast();
           await updateCart(currentUser.uid, state.cart);
         }
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     },
     async addCart({ commit }, id) {
@@ -102,7 +93,8 @@ export default {
       try {
         cart = await getCart(id);
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
       commit(
         "SET_CART",
@@ -113,12 +105,10 @@ export default {
       );
     },
     clearCart({ commit }) {
-      console.log("clearing");
       commit("CLEAR_CART");
     },
 
     async clearCartAfterPurchase({ state, commit }) {
-      console.log("clearing");
       commit("CLEAR_CART");
       try {
         const currentUser = getAuth().currentUser;
@@ -126,7 +116,8 @@ export default {
           await updateCart(currentUser.uid, state.cart);
         }
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     },
   },

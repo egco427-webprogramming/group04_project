@@ -49,6 +49,7 @@
                   </button>
                 </div>
               </div>
+
               <p class="product-type">Categoty : {{item.category}}</p>
             </div>
             <div class="three wide center aligned column" id="price-text">
@@ -190,8 +191,8 @@ export default {
     const buyHandle = async () => {
       try {
         if (cart.value.length == 0) {
-          toast.clear()
-          return toast.warningToast();
+          toast.clear();
+          return toast.warningToast("Did you forget something?");
         }
         await updateUser(props.id, user.value);
         await addHistory({
@@ -200,10 +201,11 @@ export default {
           price: totalResult.value,
         });
         await dispatch("cart/clearCartAfterPurchase");
-        toast.checkoutToast()
+        toast.checkoutToast();
         router.push("/purchased");
       } catch (err) {
-        console.error(err);
+        toast.clear();
+        toast.errorToast(err.message);
       }
     };
 

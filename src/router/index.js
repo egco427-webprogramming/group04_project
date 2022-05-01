@@ -75,13 +75,10 @@ router.beforeEach(async (to, from, next) => {
   } else {
     userStore.logout();
   }
-  console.log("is logged in", userStore.state.isLoggedIn);
   window.scrollTo(0, 0);
   if (requiresAuth && !currentUser) {
-    // console.log("You are not authorized to access this area.");
     next("signin");
   } else if (to.name == "SignIn" && currentUser) {
-    // console.log("You are authorized to access this area.");
     next("/");
   } else if (to.name == "Signup" && currentUser) {
     next("/");
