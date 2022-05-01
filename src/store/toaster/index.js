@@ -2,7 +2,7 @@
 
 import { createToast, clearToasts } from "mosha-vue-toastify";
 
-const addtocartToast = () =>
+const addToCartToast = () =>
   createToast("Add Product to cart", {
     transition: "slide",
     showIcon: true,
@@ -13,7 +13,7 @@ const addtocartToast = () =>
     timeout: 3000,
   });
 
-const removefromcartToast = () =>
+const removeFromCartToast = () =>
   createToast("Remove Product from cart", {
     transition: "slide",
     showIcon: true,
@@ -143,8 +143,8 @@ const clear = () => {
 };
 
 export default {
-  addtocartToast,
-  removefromcartToast,
+  addToCartToast,
+  removeFromCartToast,
   errorToast,
   warningToast,
   logoutToast,
