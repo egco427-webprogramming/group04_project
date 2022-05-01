@@ -24,7 +24,7 @@
       </div>
       <div class="field">
         <label id="mobile-text">Mobile Number</label>
-        <input type="text" placeholder="Tel" v-model="user.tel" />
+        <input type="text" placeholder="Tel" v-model="user.tel" :maxlength="10" pattern="[0-9]{10}" />
       </div>
     </div>
 
