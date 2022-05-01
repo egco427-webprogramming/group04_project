@@ -1,4 +1,4 @@
-# group04_project
+# group04_project (LUCIEN)
 
   - Repository URL : https://bitbucket.org/nnichary/lucienshop3198/
   - Frontend Server : [https://projectweb-a85bc.firebaseapp.com/](https://projectweb-a85bc.firebaseapp.com/)
