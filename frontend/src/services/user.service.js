@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // deployed api
-const URL = "https://lucienshop3212.herokuapp.com/";
+const URL = "https://lucienshop3198.herokuapp.com/";
 // my local api
 // const URL = "http://localhost:5000";
 

@@ -55,7 +55,8 @@
             <div class="three wide center aligned column" id="price-text">
               <div v-if="item.promotion > 0">
                 <div>
-                  <span class="line-through">THB {{String((item.price*item.amount).toFixed(2))}}</span><br>
+                  <span class="line-through">THB {{String((item.price*item.amount).toFixed(2))}}</span>
+                  <br />
 
                   <span
                     class="total-sale-price"
@@ -64,7 +65,6 @@
               </div>
               <div v-else>
                 <span class="total-price">THB {{String((item.price*item.amount).toFixed(2))}}</span>
-
               </div>
             </div>
           </div>
@@ -101,17 +101,37 @@
           </div>
           <div class="required field" id="mobile-field">
             <label>Mobile Number</label>
-            <input type="text" placeholder="Tel" v-model="user.tel" required />
+            <input
+              type="text"
+              placeholder="Tel"
+              v-model="user.tel"
+              required
+              pattern="[0-9]{10}"
+              :maxlength="10"
+            />
           </div>
           <div class="required field" id="card-field">
             <label>Card Number</label>
-            <input type="text" placeholder="**** **** **** ****" :maxlength="16" required />
+            <input
+              type="text"
+              placeholder="16-digits numbers"
+              :maxlength="16"
+              required
+              pattern="[0-9]{16}"
+            />
           </div>
 
           <div class="fields">
             <div class="required field">
               <label>CVC</label>
-              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" required />
+              <input
+                type="text"
+                name="card[cvc]"
+                maxlength="3"
+                placeholder="CVC"
+                required
+                pattern="[0-9]{3}"
+              />
             </div>
             <div class="required field">
               <label>Expiration</label>
@@ -139,6 +159,7 @@
                     name="card[expire-year]"
                     maxlength="4"
                     placeholder="Year"
+                    pattern="[0-9]{4}"
                     required
                   />
                 </div>
@@ -154,7 +175,12 @@
           </div>
         </div>
         <div align="center">
-          <button class="ui black button" type="submit" id="checkout-button">Check out</button>
+          <button
+            class="ui black button"
+            :class="isLoading&&'loading'"
+            type="submit"
+            id="checkout-button"
+          >Check out</button>
         </div>
       </form>
     </div>
@@ -175,6 +201,7 @@ export default {
   async setup(props) {
     const { getters, dispatch } = useStore();
     const router = useRouter();
+    const isLoading = ref(false);
 
     const cart = computed(() => getters["cart/cart"]);
     const totalPrice = computed(() => getters["cart/totalPrice"]);
@@ -191,9 +218,11 @@ export default {
     };
 
     const buyHandle = async () => {
+      isLoading.value = true;
       try {
         if (cart.value.length == 0) {
           toast.clear();
+          isLoading.value = false;
           return toast.warningToast("Did you forget something?");
         }
         await updateUser(props.id, user.value);
@@ -209,6 +238,7 @@ export default {
         toast.clear();
         toast.errorToast(err.message);
       }
+      isLoading.value = false;
     };
 
     return {
@@ -217,6 +247,7 @@ export default {
       totalDiscount,
       totalResult,
       user,
+      isLoading,
       buyHandle,
       addProduct,
       removeProduct,
@@ -224,7 +255,7 @@ export default {
   },
   methods: {
     finalPrice(price, discount) {
-      return String((Math.round((price * (100 - discount)) / 100)).toFixed(2));
+      return String(Math.round((price * (100 - discount)) / 100).toFixed(2));
     },
   },
 };

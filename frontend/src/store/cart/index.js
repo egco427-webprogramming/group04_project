@@ -67,8 +67,8 @@ export default {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
           await updateCart(currentUser.uid, state.cart);
-          toast.addToCartToast();
         }
+        toast.addToCartToast();
       } catch (err) {
         toast.clear();
         toast.errorToast(err.message);
@@ -79,9 +79,9 @@ export default {
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
-          toast.removeFromCartToast();
           await updateCart(currentUser.uid, state.cart);
         }
+        toast.removeFromCartToast();
       } catch (err) {
         toast.clear();
         toast.errorToast(err.message);

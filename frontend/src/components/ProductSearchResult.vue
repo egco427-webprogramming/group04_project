@@ -17,19 +17,26 @@ import { useRoute } from "vue-router";
 import { computed, ref, watch } from "vue";
 import { getProductListWithKeyword } from "../services/product.service";
 
+import toast from "../store/toaster";
+
 export default {
   components: { ProductCard },
   async setup() {
     const route = useRoute();
 
-    const fetchData = async (query) => await getProductListWithKeyword(query);
+    const fetchData = async (query) =>
+      (await getProductListWithKeyword(query)) || [];
 
     const products = ref(await fetchData(route.query.q));
 
     watch(
       () => route.query.q,
       async (query, _) => {
-        if (!!query && query != "") products.value = await fetchData(query);
+        try {
+          if (!!query && query != "") products.value = await fetchData(query);
+        } catch (err) {
+          toast.errorToast(err.message);
+        }
       }
     );
     return { products, query: computed(() => route.query.q) };

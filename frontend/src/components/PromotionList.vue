@@ -12,11 +12,22 @@
 import ProductCard from "./ProductCard.vue";
 import { ref } from "vue";
 import { getProductListWithPromotion } from "../services/product.service";
+import toast from "../store/toaster/index.js";
 
 export default {
   components: { ProductCard },
   async setup() {
-    const products = ref(await getProductListWithPromotion());
+    async function getProductList() {
+      let data = [];
+      try {
+        data = await getProductListWithPromotion();
+      } catch (err) {
+        toast.errorToast(err.message);
+      }
+      return data;
+    }
+
+    const products = ref(await getProductList());
 
     return { products };
   },
