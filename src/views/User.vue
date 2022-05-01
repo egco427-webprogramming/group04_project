@@ -5,16 +5,20 @@
       <UserIndex :id="auth.currentUser.uid" />
     </template>
 
-    <template #fallback>waiting for setting skeleton loading</template>
+    <template #fallback>
+      <UserSettingSkeleton />
+    </template>
   </suspense>
 </template>
 
 <script>
 import UserIndex from "../components/UserIndex.vue";
+import UserSettingSkeleton from "../components/skeletons/UserSettingSkeleton.vue"
 import { getAuth } from "firebase/auth";
 export default {
   components: {
     UserIndex,
+    UserSettingSkeleton
   },
   setup() {
     const auth = getAuth();
