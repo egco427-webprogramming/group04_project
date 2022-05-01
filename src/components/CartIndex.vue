@@ -222,6 +222,7 @@ export default {
       try {
         if (cart.value.length == 0) {
           toast.clear();
+          isLoading.value = false;
           return toast.warningToast("Did you forget something?");
         }
         await updateUser(props.id, user.value);
