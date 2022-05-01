@@ -30,9 +30,9 @@ export default {
       if (currentUser && auth) {
         signOut(auth)
           .then(() => {
+            this.$router.replace("/signin");
             toast.clear();
             toast.logoutToast();
-            this.$router.replace("/signin");
           })
           .catch((error) => {
             toast.clear();

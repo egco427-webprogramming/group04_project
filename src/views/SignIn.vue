@@ -90,10 +90,10 @@ export default {
         this.formData.password
       )
         .then((user) => {
-          toast.clear();
-          toast.loginToast();
           login(user.user);
           this.$router.replace("/");
+          toast.clear();
+          toast.loginToast();
         })
         .catch((err) => {
           toast.clear();

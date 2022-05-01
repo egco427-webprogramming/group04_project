@@ -63,12 +63,12 @@ export default {
   actions: {
     async addProduct({ state, commit }, { id, amount }) {
       commit("ADD_PRODUCT", { id, amount });
-      toast.clear();
-      toast.addtocartToast();
+
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
           await updateCart(currentUser.uid, state.cart);
+          toast.addToCartToast();
         }
       } catch (err) {
         toast.clear();
@@ -76,12 +76,11 @@ export default {
       }
     },
     async removeProduct({ state, commit }, { id }) {
-      toast.clear();
-      toast.removefromcartToast();
       commit("REMOVE_PRODUCT", { id });
       try {
         const currentUser = getAuth().currentUser;
         if (!!currentUser) {
+          toast.removeFromCartToast();
           await updateCart(currentUser.uid, state.cart);
         }
       } catch (err) {
