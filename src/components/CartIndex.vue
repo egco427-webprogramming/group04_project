@@ -188,7 +188,8 @@ export default {
     const buyHandle = async () => {
       try {
         if (cart.value.length == 0) {
-          return alert("Did you forgot something");
+          toast.clear()
+          return toast.warningToast();
         }
         await updateUser(props.id, user.value);
         await addHistory({
