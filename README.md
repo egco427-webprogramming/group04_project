@@ -26,4 +26,4 @@
   - [Natthawee Koengfak](https://github.com/etnk125) ID: 6213125
   - [Nicharee Chaloemsuksri](https://github.com/nnichar) ID: 6213198
   - [Pakkapond Pipattanasookmongkol](https://github.com/Jaopatk) ID: 6213207
-  - [Supattrs Sainium](https://github.com/SupattS) ID: 6213212
+  - [Supattra Sainium](https://github.com/SupattS) ID: 6213212
