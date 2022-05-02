@@ -24,6 +24,6 @@
 
 ## Member :
   - [Natthawee Koengfak](https://github.com/etnk125) ID: 6213125
-  - [Nicharee Chaloemsuksri](https://github.com/nnichar) ID: 6213198
+  - [Nicharee Chalermsuksri](https://github.com/nnichar) ID: 6213198
   - [Pakkapond Pipattanasookmongkol](https://github.com/Jaopatk) ID: 6213207
-  - [Supattra Sainium](https://github.com/SupattS) ID: 6213212
+  - [Supattra Sainiam](https://github.com/SupattS) ID: 6213212
